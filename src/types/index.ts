@@ -54,6 +54,12 @@ export interface NavItemWithOptionalChildren extends NavItem {
   items?: NavItemWithChildren[];
 }
 
+export interface IPaging {
+  page: number;
+  limit: number;
+  total?: number;
+}
+
 export interface FooterItem {
   title: string;
   items: {
