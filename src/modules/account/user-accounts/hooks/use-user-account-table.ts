@@ -1,7 +1,7 @@
 "use client";
 
 import { useGetUserList } from "@/apis/users";
-import { PAGE_KEY, PER_PAGE_KEY } from "@/hooks/use-data-table";
+import { PAGE_KEY, PER_PAGE_KEY, SORT_KEY } from "@/hooks/use-data-table";
 import { useQueryStates } from "nuqs";
 
 import { parseAsInteger, parseAsString } from "nuqs/server";
@@ -10,10 +10,13 @@ export const useUserAccountTable = () => {
   const [query] = useQueryStates({
     [PAGE_KEY]: parseAsInteger.withDefault(1),
     [PER_PAGE_KEY]: parseAsInteger.withDefault(10),
+    [SORT_KEY]: parseAsString.withDefault(""),
     search: parseAsString.withDefault(""),
     status: parseAsString.withDefault(""),
   });
-  const { data, isLoading } = useGetUserList(query);
+  const { data, isLoading } = useGetUserList(query, {
+    placeholderData: (prev) => prev,
+  });
 
   const userList = data?.data ?? [];
   const pageCount = data?.totalPage ?? 0;

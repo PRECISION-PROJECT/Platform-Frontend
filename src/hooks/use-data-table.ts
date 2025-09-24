@@ -35,7 +35,7 @@ import { ExtendedColumnSort } from "@/types/data-table";
 
 export const PAGE_KEY = "page";
 export const PER_PAGE_KEY = "pageSize";
-export const SORT_KEY = "sort";
+export const SORT_KEY = "sort_by";
 export const ARRAY_SEPARATOR = ",";
 export const DEBOUNCE_MS = 300;
 export const THROTTLE_MS = 50;

@@ -9,6 +9,7 @@ import axios, {
 
 import { deleteCookieData, getCookieData, setCookieData } from "@/utils/cookie";
 import { TOptional } from "@/types";
+import qs from "qs";
 
 type TFailedRequests = {
   resolve: (value: AxiosResponse) => void;
@@ -55,6 +56,9 @@ class HttpInstance {
         "Content-Type": "application/json",
       },
       timeout: 10000,
+      paramsSerializer: (params) => {
+        return qs.stringify(params, { arrayFormat: "repeat" });
+      },
     });
     this.setupInterceptorsTo(this.instance);
   }
