@@ -21,10 +21,9 @@ type TFailedRequests = {
 const MAXIMUM_RETRY_UN_AUTHENTICATION = 5;
 
 type TRefreshToKenResponse = {
-  data: {
-    accessToken?: string;
-    refreshToken?: string;
-  };
+  token?: string;
+  refreshToken?: string;
+  tokenExpires?: number;
 };
 
 export enum ECookie {
@@ -146,12 +145,17 @@ class HttpInstance {
       );
 
       const result: TRefreshToKenResponse = response.data;
+      const expires = result.tokenExpires
+        ? new Date(result.tokenExpires)
+        : undefined;
 
-      setCookieData(ECookie.ACCESS_TOKEN, result.data.accessToken!, {
+      setCookieData(ECookie.ACCESS_TOKEN, result.token!, {
         path: "/",
+        expires,
       });
-      setCookieData(ECookie.REFRESH_TOKEN, result.data.refreshToken!, {
+      setCookieData(ECookie.REFRESH_TOKEN, result.refreshToken!, {
         path: "/",
+        expires,
       });
 
       this.failedRequests.forEach(({ resolve, reject, config }) => {
