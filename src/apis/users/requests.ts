@@ -4,6 +4,7 @@ import { KEYS } from "./keys";
 import {
   ActivateUserRequestParams,
   DeactivateUserRequestParams,
+  DeleteUserRequestParams,
   GetUserListParams,
   GetUserListResponse,
   GetUserMetricResponse,
@@ -32,4 +33,9 @@ export const deactivateUser = (params: DeactivateUserRequestParams) => {
 export const activateUser = (params: ActivateUserRequestParams) => {
   const url = KEYS.USER_ACTIVATE.replace(":id", params.id);
   return httpInstance.post<string>(url, {}).then((res) => res);
+};
+
+export const deleteUser = (params: DeleteUserRequestParams) => {
+  const url = KEYS.USER_DELETE.replace(":id", params.id);
+  return httpInstance.delete<string>(url).then((res) => res);
 };

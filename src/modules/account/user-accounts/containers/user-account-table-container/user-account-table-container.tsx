@@ -6,16 +6,19 @@ import { DataTableToolbar } from "@/components/shared/data-table/data-table-tool
 import { useDataTable } from "@/hooks/use-data-table";
 import { useUserAccountTable } from "../../hooks";
 import { columns } from "./columns";
+import { useMemo } from "react";
 
 const UserAccountTableContainer = () => {
-  const { pageCount, userList, isLoading } = useUserAccountTable();
+  const { pageCount, userList, isLoading, onRowClick } = useUserAccountTable();
+
+  const _columns = useMemo(() => columns(onRowClick), [onRowClick]);
 
   const { table } = useDataTable({
     data: userList,
-    columns: columns,
+    columns: _columns,
     pageCount: pageCount,
     shallow: false,
-    debounceMs: 500
+    debounceMs: 500,
   });
 
   if (isLoading) {

@@ -1,7 +1,7 @@
 "use client";
 
 import { IUserResponse } from "@/apis/auths";
-import { AlertModal } from "@/components/shared/alert-modal";
+import { Icons } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -10,34 +10,20 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Icons } from "@/assets/icons";
+import { UsersDialogType } from "../../contexts/user-account-context";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 interface CellActionProps {
   data: IUserResponse;
-  onRefetch?: () => void;
+  onRowClick: (row: IUserResponse, type: UsersDialogType) => void;
 }
 
-export const CellAction: React.FC<CellActionProps> = ({ data, onRefetch }) => {
-  const [loading] = useState(false);
-  const [open, setOpen] = useState(false);
+export const CellAction: React.FC<CellActionProps> = ({ data, onRowClick }) => {
   const router = useRouter();
-
-  const onConfirm = async () => {
-    /** Simulate and refetch API */
-    onRefetch?.();
-  };
 
   return (
     <>
-      <AlertModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        onConfirm={onConfirm}
-        loading={loading}
-      />
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="h-8 w-8 p-0">
@@ -52,7 +38,13 @@ export const CellAction: React.FC<CellActionProps> = ({ data, onRefetch }) => {
           >
             <Icons.edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setOpen(true)}>
+          <DropdownMenuItem onClick={() => onRowClick(data, "active")}>
+            <Icons.check className="mr-2 h-4 w-4" /> Active
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => onRowClick(data, "un-active")}>
+            <Icons.x className="mr-2 h-4 w-4" /> UnActive
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => onRowClick(data, "delete")}>
             <Icons.trash className="mr-2 h-4 w-4" /> Delete
           </DropdownMenuItem>
         </DropdownMenuContent>

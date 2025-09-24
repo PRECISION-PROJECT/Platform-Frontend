@@ -12,9 +12,11 @@ import { KEYS } from "./keys";
 import {
   activateUser,
   deactivateUser,
+  deleteUser,
   getUserList,
   getUserMetric,
 } from "./requests";
+import { DeleteUserRequestParams } from "./types";
 
 export const useGetUserList = (
   params: GetUserListParams,
@@ -44,9 +46,16 @@ export const useDeactivateUserMutate = () => {
   });
 };
 
-export const useForgotPasswordMutation = () => {
+export const useActivateUserMutate = () => {
   return useMutation<string, IAxiosResponse, ActivateUserRequestParams>({
     mutationKey: [KEYS.USER_ACTIVATE],
     mutationFn: (data) => activateUser(data),
+  });
+};
+
+export const useDeleteUserMutate = () => {
+  return useMutation<string, IAxiosResponse, DeleteUserRequestParams>({
+    mutationKey: [KEYS.USER_DELETE],
+    mutationFn: (data) => deleteUser(data),
   });
 };

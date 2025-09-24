@@ -3,7 +3,7 @@
 import { IUserResponse } from "@/apis/auths";
 import React, { useState } from "react";
 
-type UsersDialogType = "invite" | "add" | "edit" | "delete";
+export type UsersDialogType = "invite" | "add" | "edit" | "delete" | "active" | "un-active";
 
 interface UserAccountContextType {
   open: UsersDialogType | null;

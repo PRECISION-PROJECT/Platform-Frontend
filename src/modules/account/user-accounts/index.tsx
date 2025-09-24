@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 import UserAccountProvider from "./contexts/user-account-context";
 import { UserAccountHeaderUI } from "./components";
 import { Separator } from "@/components/ui/separator";
-import { UserAccountTableContainer } from "./containers";
+import { UserAccountDialogsContainer, UserAccountTableContainer } from "./containers";
 
 const UserAccountsModule = () => {
   return (
@@ -14,6 +14,7 @@ const UserAccountsModule = () => {
           <Separator />
           <UserAccountTableContainer />
         </div>
+        <UserAccountDialogsContainer />
       </PageContainer>
     </UserAccountProvider>
   );

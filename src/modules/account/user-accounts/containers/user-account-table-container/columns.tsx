@@ -7,6 +7,7 @@ import Image from "next/image";
 import { CellAction } from "./cell-action";
 import { IUserResponse } from "@/apis/auths";
 import { format, formatDate } from "date-fns";
+import { UsersDialogType } from "../../contexts/user-account-context";
 
 const STATUS_OPTIONS = [
   {
@@ -19,7 +20,7 @@ const STATUS_OPTIONS = [
   },
 ];
 
-export const columns: ColumnDef<IUserResponse>[] = [
+export const columns = (onRowClick: (row: IUserResponse, type: UsersDialogType) => void): ColumnDef<IUserResponse>[] => [
   {
     id: "id",
     accessorKey: "id",
@@ -144,6 +145,6 @@ export const columns: ColumnDef<IUserResponse>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => <CellAction data={row.original} />,
+    cell: ({ row }) => <CellAction data={row.original} onRowClick={onRowClick} />,
   },
 ];

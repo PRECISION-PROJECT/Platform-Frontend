@@ -18,6 +18,10 @@ export type ActivateUserRequestParams = {
   id: string;
 };
 
+export type DeleteUserRequestParams = {
+  id: string;
+};
+
 export type ActivateUserResponse = DeactivateUserRequestParams;
 
 export interface UsersByRole {
