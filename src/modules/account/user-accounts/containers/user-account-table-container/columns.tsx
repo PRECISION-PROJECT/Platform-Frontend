@@ -57,30 +57,22 @@ export const columns: ColumnDef<IUserResponse>[] = [
     id: "search",
     accessorKey: "firstName",
     header: ({ column }: { column: Column<IUserResponse, unknown> }) => (
-      <DataTableColumnHeader column={column} title="First Name" />
+      <DataTableColumnHeader column={column} title="Name" />
     ),
-    cell: ({ cell }) => (
-      <div>{cell.getValue<IUserResponse["firstName"]>()}</div>
-    ),
+    cell: ({ row }) => {
+      const _row = row.original;
+      const firstName = _row?.firstName ?? "-";
+      const lastName = _row?.lastName ?? "-";
+      return <div>{firstName + " " + lastName}</div>;
+    },
     meta: {
-      label: "First Name",
+      label: "Name",
       placeholder: "Search user by name...",
       variant: "text",
       icon: Text,
     },
+    enableSorting: false,
     enableColumnFilter: true,
-  },
-  {
-    id: "lastName",
-    accessorKey: "lastName",
-    header: ({ column }: { column: Column<IUserResponse, unknown> }) => (
-      <DataTableColumnHeader column={column} title="Last Name" />
-    ),
-    cell: ({ cell }) => <div>{cell.getValue<IUserResponse["lastName"]>()}</div>,
-    enableColumnFilter: true,
-    meta: {
-      label: "Last Name",
-    },
   },
   {
     id: "email",

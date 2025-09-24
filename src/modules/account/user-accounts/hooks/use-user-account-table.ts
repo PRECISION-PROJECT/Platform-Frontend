@@ -10,15 +10,10 @@ export const useUserAccountTable = () => {
   const [query] = useQueryStates({
     [PAGE_KEY]: parseAsInteger.withDefault(1),
     [PER_PAGE_KEY]: parseAsInteger.withDefault(10),
-    firstName: parseAsString.withDefault(""),
+    search: parseAsString.withDefault(""),
     status: parseAsString.withDefault(""),
   });
-  const { data, isLoading } = useGetUserList({
-    page: query.page,
-    pageSize: query.pageSize,
-    search: query.firstName,
-    status: query.status,
-  });
+  const { data, isLoading } = useGetUserList(query);
 
   const userList = data?.data ?? [];
   const pageCount = data?.totalPage ?? 0;
