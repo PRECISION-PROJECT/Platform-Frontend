@@ -15,6 +15,7 @@ const UserAccountTableContainer = () => {
     columns: columns,
     pageCount: pageCount,
     shallow: false,
+    debounceMs: 500
   });
 
   if (isLoading) {
