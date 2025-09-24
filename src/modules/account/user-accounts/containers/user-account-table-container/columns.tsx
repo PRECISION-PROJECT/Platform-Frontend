@@ -36,7 +36,9 @@ export const columns = (onRowClick: (row: IUserResponse, type: UsersDialogType) 
   },
   {
     accessorKey: "imageUrl",
-    header: "Image",
+    header: ({ column }: { column: Column<IUserResponse, unknown> }) => (
+      <DataTableColumnHeader column={column} title="Image" />
+    ),
     cell: ({ row }) => {
       const imageUrl: string = row.getValue("imageUrl");
       if (!imageUrl) {

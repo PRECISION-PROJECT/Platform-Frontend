@@ -1,7 +1,8 @@
+import { CategoryListModule } from "@/modules/ecommerce/categories";
 import React from "react";
 
 const CategoryListPage = () => {
-  return <div>CategoryListPage</div>;
+  return <CategoryListModule />;
 };
 
 export default CategoryListPage;
