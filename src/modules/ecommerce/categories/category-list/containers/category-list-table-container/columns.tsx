@@ -20,7 +20,7 @@ export const columns = (): ColumnDef<Category>[] => [
       <DataTableColumnHeader column={column} title="ID" />
     ),
     cell: ({ row }) => {
-      const id = row.getValue("id") as string;
+      const id = row.original.id;
       return (
         <Tooltip>
           <TooltipTrigger asChild>
@@ -69,7 +69,7 @@ export const columns = (): ColumnDef<Category>[] => [
       <DataTableColumnHeader column={column} title="Description" />
     ),
     cell: ({ row }) => {
-      const description = row.getValue("description") as string;
+      const description = row.original.description;
       return (
         <Tooltip>
           <TooltipTrigger asChild>
@@ -90,15 +90,17 @@ export const columns = (): ColumnDef<Category>[] => [
       <DataTableColumnHeader column={column} title="Image" />
     ),
     cell: ({ row }) => {
-      const imageUrl: string = row.getValue("imageUrl");
+      const origin = row.original;
+      const imageUrl = origin.imageUrl;
+      const firstName = origin.name;
       if (!imageUrl) {
-        return <div>-</div>;
+        return <div className="relative aspect-square flex justify-center items-center">-</div>;
       }
       return (
         <div className="relative aspect-square">
           <Image
             src={imageUrl}
-            alt={row.getValue("firstName")}
+            alt={firstName}
             fill
             className="rounded-lg"
           />
@@ -112,7 +114,7 @@ export const columns = (): ColumnDef<Category>[] => [
       <DataTableColumnHeader column={column} title="Slug" />
     ),
     cell: ({ row }) => {
-      const slug = row.getValue("slug") as string;
+      const slug = row.original.slug;
       return (
         <div className="flex items-center space-x-2">
           <span className="font-mono text-sm">{slug}</span>
@@ -127,7 +129,7 @@ export const columns = (): ColumnDef<Category>[] => [
       <DataTableColumnHeader column={column} title="Sort Order" />
     ),
     cell: ({ row }) => {
-      const sortOrder = row.getValue("sortOrder") as number;
+      const sortOrder = row.original.sortOrder;
       return (
         <div className="flex items-center space-x-2">
           <span>{sortOrder}</span>
@@ -142,7 +144,7 @@ export const columns = (): ColumnDef<Category>[] => [
       <DataTableColumnHeader column={column} title="Status" />
     ),
     cell: ({ row }) => {
-      const isActive = row.getValue("isActive") as boolean;
+      const isActive = row.original.isActive;
       return (
         <Badge variant={isActive ? "default" : "secondary"}>
           {isActive ? "Active" : "Inactive"}
@@ -166,7 +168,7 @@ export const columns = (): ColumnDef<Category>[] => [
       <DataTableColumnHeader column={column} title="Updated At" />
     ),
     cell: ({ row }) => {
-      const updatedAt = row.getValue("updatedAt") as string;
+      const updatedAt = row.original.updatedAt;
       return (
         <div className="flex items-center space-x-2">
           <Icons.calendar className="h-4 w-4" />

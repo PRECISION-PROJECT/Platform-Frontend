@@ -82,7 +82,7 @@ function SelectField<
                 </SelectTrigger>
               </div>
             </FormControl>
-            <SelectContent>
+            <SelectContent className="w-full">
               <Show when={!options?.length}>
                 {typeof noDataText === "string" ? (
                   <p className="py-2 text-center text-sm dark:text-gray-200">

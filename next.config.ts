@@ -40,6 +40,9 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  images: {
+    domains: ['localhost'],
+  },
   webpack: process.env.NODE_ENV === 'development' ? undefined : webpack,
 };
 

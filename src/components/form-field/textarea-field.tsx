@@ -65,10 +65,13 @@ const TextAreaField = <T extends FieldValues>({
       render={({ field }) => (
         <FormItem>
           <FormControl>
-            <div className={containerClassName}>
+            <div className={cn("mb-0!", containerClassName)}>
               <Show when={!!label}>
                 <FormLabel
-                  className={cn("flex flex-col gap-1 items-start", labelClassName)}
+                  className={cn(
+                    "flex flex-col gap-1 items-start",
+                    labelClassName
+                  )}
                 >
                   <p className="flex gap-1 text-sm">
                     {label}
@@ -78,9 +81,7 @@ const TextAreaField = <T extends FieldValues>({
                       </span>
                     )}
                   </p>
-                  {subLabel && (
-                    <p className="text-xs">{subLabel}</p>
-                  )}
+                  {subLabel && <p className="text-xs">{subLabel}</p>}
                 </FormLabel>
               </Show>
               <div className="space-y-2">
@@ -99,7 +100,7 @@ const TextAreaField = <T extends FieldValues>({
               </div>
             </div>
           </FormControl>
-          <FormMessage className="mt-1.5 text-red-500 text-sm" />
+          <FormMessage className="text-red-500 text-sm" />
         </FormItem>
       )}
     />

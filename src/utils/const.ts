@@ -28,3 +28,8 @@ export const FILE_FORMAT = [
   'image/gif',
   'image/svg+xml',
 ];
+
+export const DEFAULT_ACTIVE_OPTIONS = [
+  { label: "Active", value: "true" },
+  { label: "Inactive", value: "false" },
+]

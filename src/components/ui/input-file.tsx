@@ -1,3 +1,5 @@
+"use client";
+
 import * as NextImage from 'next/image';
 import type { ChangeEvent, DragEvent, ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';

@@ -20,13 +20,16 @@ const STATUS_OPTIONS = [
   },
 ];
 
-export const columns = (onRowClick: (row: IUserResponse, type: UsersDialogType) => void): ColumnDef<IUserResponse>[] => [
+export const columns = (
+  onRowClick: (row: IUserResponse, type: UsersDialogType) => void
+): ColumnDef<IUserResponse>[] => [
   {
     id: "id",
     accessorKey: "id",
     header: "ID",
     cell: ({ row }) => {
-      const id = row.getValue("id");
+      const origin = row.original;
+      const id = origin.id;
       if (!id) return <div>--</div>;
       return <div>{id as string}</div>;
     },
@@ -40,18 +43,15 @@ export const columns = (onRowClick: (row: IUserResponse, type: UsersDialogType) 
       <DataTableColumnHeader column={column} title="Image" />
     ),
     cell: ({ row }) => {
-      const imageUrl: string = row.getValue("imageUrl");
+      const origin = row.original;
+      const imageUrl = origin.imageUrl;
+      const firstName = origin.firstName;
       if (!imageUrl) {
-        return <div>-</div>;
+        return <div className="relative aspect-square flex justify-center items-center">-</div>;
       }
       return (
         <div className="relative aspect-square">
-          <Image
-            src={imageUrl}
-            alt={row.getValue("firstName")}
-            fill
-            className="rounded-lg"
-          />
+          <Image src={imageUrl} alt={firstName} fill className="rounded-lg" />
         </div>
       );
     },
@@ -83,9 +83,11 @@ export const columns = (onRowClick: (row: IUserResponse, type: UsersDialogType) 
     header: ({ column }: { column: Column<IUserResponse, unknown> }) => (
       <DataTableColumnHeader column={column} title="Email" />
     ),
-    cell: ({ cell }) => (
-      <div>{cell.getValue<IUserResponse["email"]>() ?? "-"}</div>
-    ),
+    cell: ({ row }) => {
+      const origin = row.original;
+      const email = origin.email;
+      return <div>{email ?? "-"}</div>;
+    },
     enableColumnFilter: true,
     meta: {
       label: "Email",
@@ -134,7 +136,8 @@ export const columns = (onRowClick: (row: IUserResponse, type: UsersDialogType) 
       <DataTableColumnHeader column={column} title="Updated At" />
     ),
     cell: ({ row }) => {
-      const updatedAt = row.getValue("updatedAt");
+      const origin = row.original;
+      const updatedAt = origin.updatedAt;
 
       return (
         <div>{updatedAt ? format(updatedAt as string, "dd/MM/yyyy") : "-"}</div>
@@ -147,6 +150,8 @@ export const columns = (onRowClick: (row: IUserResponse, type: UsersDialogType) 
   },
   {
     id: "actions",
-    cell: ({ row }) => <CellAction data={row.original} onRowClick={onRowClick} />,
+    cell: ({ row }) => (
+      <CellAction data={row.original} onRowClick={onRowClick} />
+    ),
   },
 ];
