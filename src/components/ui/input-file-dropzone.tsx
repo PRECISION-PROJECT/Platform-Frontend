@@ -15,6 +15,7 @@ import { useControllableState } from "@/hooks/use-controllable-state";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/assets/icons";
 import { formatBytes } from "@/utils/common";
+import { ImageZoom } from "./shadcn-io/image-zoom";
 
 export interface InputFileDropzoneProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -275,14 +276,16 @@ function FileCard({ file, progress, onRemove }: FileCardProps) {
     <div className="relative flex items-center space-x-4">
       <div className="flex flex-1 space-x-4">
         {isFileWithPreview(file) ? (
-          <Image
-            src={file.preview}
-            alt={file.name}
-            width={48}
-            height={48}
-            loading="lazy"
-            className="aspect-square shrink-0 rounded-md object-cover"
-          />
+          <ImageZoom className="border">
+            <Image
+              src={file.preview}
+              alt={file.name}
+              width={48}
+              height={48}
+              loading="lazy"
+              className="aspect-square shrink-0 rounded-md object-cover"
+            />
+          </ImageZoom>
         ) : null}
         <div className="flex w-full flex-col gap-2">
           <div className="space-y-px">

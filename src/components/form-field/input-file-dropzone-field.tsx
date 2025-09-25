@@ -77,7 +77,7 @@ function InputFileDropzoneUploadField<
                 <FormLabel className={cn("flex flex-col gap-1 items-start")}>
                   <p
                     className={cn(
-                      "flex gap-1 font-medium text-sm text-white md:text-lg"
+                      "flex gap-1 text-sm leading-none font-medium mb-1.5"
                     )}
                   >
                     {label}

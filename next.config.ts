@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'placehold.co'],
   },
   webpack: process.env.NODE_ENV === 'development' ? undefined : webpack,
 };

@@ -14,6 +14,7 @@ import {
 import { Column, ColumnDef } from "@tanstack/react-table";
 import { format } from "date-fns";
 import Image from "next/image";
+import { CellAction } from "./cell-action";
 
 export const columns = (): ColumnDef<Category>[] => [
   {
@@ -186,5 +187,11 @@ export const columns = (): ColumnDef<Category>[] => [
         </div>
       );
     },
+  },
+  {
+    id: "actions",
+    cell: ({ row }) => (
+      <CellAction data={row.original} />
+    ),
   },
 ];

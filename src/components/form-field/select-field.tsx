@@ -52,63 +52,68 @@ function SelectField<
     <FormField
       control={control}
       name={name}
-      render={({ field }) => (
-        <FormItem>
-          <Select
-            onValueChange={field.onChange}
-            defaultValue={field.value}
-            disabled={disabled}
-          >
-            <FormControl>
-              <div>
-                <Show when={!!label}>
-                  <FormLabel className={cn("flex flex-col gap-1 items-start")}>
-                    <p className="flex gap-1 text-sm">
-                      {label}
-                      {required && (
-                        <span className={cn("ml-1 text-red-500")}>*</span>
-                      )}
-                    </p>
-                    {subLabel && <p className="text-xs">{subLabel}</p>}
-                  </FormLabel>
-                </Show>
-                <SelectTrigger
-                  className={cn(className, {
-                    "w-full": fullWidth,
-                    "text-white": !!field.value,
-                  })}
-                >
-                  <SelectValue placeholder={placeholder} />
-                </SelectTrigger>
-              </div>
-            </FormControl>
-            <SelectContent className="w-full">
-              <Show when={!options?.length}>
-                {typeof noDataText === "string" ? (
-                  <p className="py-2 text-center text-sm dark:text-gray-200">
-                    {noDataText}
-                  </p>
-                ) : (
-                  noDataText
-                )}
-              </Show>
-              {!!options?.length &&
-                options.map((option) => (
-                  <SelectItem
-                    key={option.value}
-                    value={option.value}
-                    disabled={option.disabled}
+      render={({ field }) => {
+        return (
+          <FormItem>
+            <Select
+              onValueChange={field.onChange}
+              defaultValue={field.value}
+              disabled={disabled}
+              value={field.value}
+            >
+              <FormControl>
+                <div>
+                  <Show when={!!label}>
+                    <FormLabel
+                      className={cn("flex flex-col gap-1 items-start")}
+                    >
+                      <p className="flex gap-1 text-sm">
+                        {label}
+                        {required && (
+                          <span className={cn("ml-1 text-red-500")}>*</span>
+                        )}
+                      </p>
+                      {subLabel && <p className="text-xs">{subLabel}</p>}
+                    </FormLabel>
+                  </Show>
+                  <SelectTrigger
+                    className={cn(className, {
+                      "w-full": fullWidth,
+                      "text-white": !!field.value,
+                    })}
                   >
-                    <p className="text-left text-black font-normal dark:text-white">
-                      {option.label}
+                    <SelectValue placeholder={placeholder} />
+                  </SelectTrigger>
+                </div>
+              </FormControl>
+              <SelectContent className="w-full">
+                <Show when={!options?.length}>
+                  {typeof noDataText === "string" ? (
+                    <p className="py-2 text-center text-sm dark:text-gray-200">
+                      {noDataText}
                     </p>
-                  </SelectItem>
-                ))}
-            </SelectContent>
-          </Select>
-          <FormMessage />
-        </FormItem>
-      )}
+                  ) : (
+                    noDataText
+                  )}
+                </Show>
+                {!!options?.length &&
+                  options.map((option) => (
+                    <SelectItem
+                      key={option.value}
+                      value={option.value}
+                      disabled={option.disabled}
+                    >
+                      <p className="text-left text-black font-normal dark:text-white">
+                        {option.label}
+                      </p>
+                    </SelectItem>
+                  ))}
+              </SelectContent>
+            </Select>
+            <FormMessage />
+          </FormItem>
+        );
+      }}
     />
   );
 }
