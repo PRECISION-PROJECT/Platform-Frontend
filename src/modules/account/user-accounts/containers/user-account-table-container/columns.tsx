@@ -8,6 +8,8 @@ import { CellAction } from "./cell-action";
 import { IUserResponse } from "@/apis/auths";
 import { format, formatDate } from "date-fns";
 import { UsersDialogType } from "../../contexts/user-account-context";
+import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
+import ImageLoader from "@/components/ui/image-loader";
 
 const STATUS_OPTIONS = [
   {
@@ -47,12 +49,23 @@ export const columns = (
       const imageUrl = origin.imageUrl;
       const firstName = origin.firstName;
       if (!imageUrl) {
-        return <div className="relative aspect-square flex justify-center items-center">-</div>;
+        return (
+          <div className="relative aspect-square flex justify-center items-center">
+            -
+          </div>
+        );
       }
       return (
-        <div className="relative aspect-square">
-          <Image src={imageUrl} alt={firstName} fill className="rounded-lg" />
-        </div>
+        <ImageZoom>
+          <ImageLoader
+            alt={firstName}
+            className="h-auto w-96"
+            height={800}
+            src={imageUrl}
+            unoptimized
+            width={1200}
+          />
+        </ImageZoom>
       );
     },
   },

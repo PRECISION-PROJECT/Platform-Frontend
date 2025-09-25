@@ -4,6 +4,8 @@ import { Category } from "@/apis/categories";
 import { Icons } from "@/assets/icons";
 import { DataTableColumnHeader } from "@/components/shared/data-table/data-table-column-header";
 import { Badge } from "@/components/ui/badge";
+import ImageLoader from "@/components/ui/image-loader";
+import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import {
   Tooltip,
   TooltipContent,
@@ -94,17 +96,23 @@ export const columns = (): ColumnDef<Category>[] => [
       const imageUrl = origin.imageUrl;
       const firstName = origin.name;
       if (!imageUrl) {
-        return <div className="relative aspect-square flex justify-center items-center">-</div>;
+        return (
+          <div className="relative aspect-square flex justify-center items-center">
+            -
+          </div>
+        );
       }
       return (
-        <div className="relative aspect-square">
-          <Image
-            src={imageUrl}
+        <ImageZoom>
+          <ImageLoader
             alt={firstName}
-            fill
-            className="rounded-lg"
+            className="h-auto w-96"
+            height={800}
+            src={imageUrl}
+            unoptimized
+            width={1200}
           />
-        </div>
+        </ImageZoom>
       );
     },
   },
