@@ -1,16 +1,15 @@
+import { IAxiosResponse } from "@/types/axios";
 import { useMutation, useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { CreateProductRequest, DeleteProductRequest, GetProductListParams, IProduct, UpdateProductRequest } from "./types";
-import { GetProductListResponse } from "./types";
 import { KEYS } from "./keys";
 import { createProduct, deleteProduct, getProductByCategory, getProductDetail, getProductFeatureList, getProductList, updateProduct } from "./requests";
-import { IAxiosResponse } from "@/types/axios";
+import { CreateProductRequest, DeleteProductRequest, GetProductListParams, GetProductListResponse, IProduct, UpdateProductRequest } from "./types";
 
 export const useGetProductList = (
   params: GetProductListParams,
   options?: Omit<UseQueryOptions<GetProductListResponse, Error>, "queryKey">
 ) => {
   return useQuery<GetProductListResponse, Error>({
-    queryKey: [KEYS.PRODUCTS_LIST],
+    queryKey: [KEYS.PRODUCTS_LIST, params],
     queryFn: ({ signal }) => getProductList(params, signal),
     ...options,
   });
@@ -21,7 +20,7 @@ export const useGetProductFeatureList = (
   options?: Omit<UseQueryOptions<GetProductListResponse, Error>, "queryKey">
 ) => {
   return useQuery<GetProductListResponse, Error>({
-    queryKey: [KEYS.PRODUCT_FEATURE_LIST],
+    queryKey: [KEYS.PRODUCT_FEATURE_LIST, params],
     queryFn: ({ signal }) => getProductFeatureList(params, signal),
     ...options,
   });
@@ -32,7 +31,7 @@ export const useGetProductByCategory = (
   options?: Omit<UseQueryOptions<GetProductListResponse, Error>, "queryKey">
 ) => {
   return useQuery<GetProductListResponse, Error>({
-    queryKey: [KEYS.PRODUCT_BY_CATEGORY],
+    queryKey: [KEYS.PRODUCT_BY_CATEGORY, params.categoryId],
     queryFn: ({ signal }) => getProductByCategory(params, signal),
     ...options,
   });

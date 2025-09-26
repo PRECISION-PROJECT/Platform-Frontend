@@ -1,8 +1,9 @@
-import React from 'react'
+import { ProductListModule } from '@/modules/ecommerce/products';
+import React from 'react';
 
 const ProductListPage = () => {
   return (
-    <div>ProductListPage</div>
+    <ProductListModule />
   )
 }
 

@@ -1,4 +1,5 @@
 import { CommonRequestType, IPaginatedResponseType } from "@/types";
+import { Category } from "../categories";
 
 export interface IProduct {
   id: string;
@@ -30,6 +31,7 @@ export interface IProduct {
   isFeatured: boolean;
   createdAt: string;
   updatedAt: string;
+  category?: Category;
 }
 
 export interface CreateProductRequest {
