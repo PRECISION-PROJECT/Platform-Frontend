@@ -1,3 +1,4 @@
+import { type HTMLAttributes, useId } from "react";
 import type {
   Control,
   FieldPath,
@@ -6,56 +7,58 @@ import type {
 } from "react-hook-form";
 
 import { cn } from "@/lib/utils";
-
-import type { HTMLAttributes } from "react";
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Input, type InputProps } from "../ui/input";
+import { Switch } from "../ui/switch";
 import { Show } from "../utilities";
 
-interface Props<T extends FieldValues = FieldValues> extends InputProps {
+interface SwitchProps<T extends FieldValues = FieldValues> {
+  isChecked?: boolean;
   control: Control<T>;
   name: FieldPath<T>;
   defaultValue?: FieldPathValue<T, FieldPath<T>>;
   label?: string;
   labelClassName?: HTMLAttributes<HTMLLabelElement>["className"];
-  required?: boolean;
   containerClassName?: HTMLAttributes<HTMLDivElement>["className"];
-  inputContainerClassName?: HTMLAttributes<HTMLDivElement>["className"];
   requiredClassName?: HTMLAttributes<HTMLSpanElement>["className"];
-  suffixClassName?: HTMLAttributes<HTMLSpanElement>["className"];
-  subLabel?: string;
-  isShowError?: boolean;
+  required?: boolean;
+  className?: string;
+  description?: string;
 }
 
-const TextField = <T extends FieldValues>({
+const SwitchFieldV2 = <T extends FieldValues>({
   className,
   labelClassName,
+  requiredClassName,
   control,
   defaultValue,
   label,
   required,
+  name,
   containerClassName,
-  inputContainerClassName,
-  requiredClassName,
-  subLabel,
-  isShowError = true,
+  description,
   ...props
-}: Props<T>) => {
+}: SwitchProps<T>) => {
+  const id = useId();
   return (
     <FormField
-      defaultValue={defaultValue}
       control={control}
-      name={props.name}
+      name={name}
       render={({ field }) => (
         <FormItem>
           <FormControl>
-            <div className={cn(containerClassName)}>
+            <div
+              className={cn(
+                "flex items-center justify-between rounded-lg border p-3",
+                containerClassName
+              )}
+            >
               <Show when={!!label}>
                 <FormLabel
                   className={cn(
@@ -71,31 +74,24 @@ const TextField = <T extends FieldValues>({
                       </span>
                     )}
                   </p>
-                  {subLabel && <p className="text-xs">{subLabel}</p>}
+                  <Show when={!!description}>
+                    <FormDescription>{description}</FormDescription>
+                  </Show>
                 </FormLabel>
               </Show>
-              <Input
-                {...field}
+              <Switch
+                id={id}
+                checked={field.value}
+                onCheckedChange={field.onChange}
                 {...props}
-                containerClassName={inputContainerClassName}
-                className={className}
-                onChange={(e) => {
-                  if (props.type === "number") {
-                    const value = e.target.value;
-                    const _val = value === "" ? undefined : parseFloat(value);
-                    field.onChange(_val);
-                  } else {
-                    field.onChange(e.target.value);
-                  }
-                }}
               />
-              <FormMessage className="mt-1.5 text-red-500 text-sm" />
             </div>
           </FormControl>
+          <FormMessage className="text-red-500 text-sm" />
         </FormItem>
       )}
     />
   );
 };
 
-export { TextField };
+export { SwitchFieldV2 };

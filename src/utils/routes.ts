@@ -11,4 +11,8 @@ export const ROUTES = {
   CATEGORY_UPDATE: "/category-list/:id/update",
   USER_ACCOUNTS: "/user-accounts",
   NOT_FOUND: "/404",
+  CREATE_PRODUCT: "/product/create",
+  PRODUCT_LIST: "/product/list",
+  PRODUCT_DETAIL: "/product/:id",
+  PRODUCT_UPDATE: "/product/:id/update",
 } as const;

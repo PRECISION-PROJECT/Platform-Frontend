@@ -1,6 +1,5 @@
 "use client";
 
-import { FieldPath, FieldValues } from "react-hook-form";
 import {
   FormControl,
   FormDescription,
@@ -16,10 +15,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { BaseFormFieldProps } from "@/types/base-form";
-import { IOption } from "@/types";
-import { Show } from "../utilities";
 import { cn } from "@/lib/utils";
+import { IOption } from "@/types";
+import { BaseFormFieldProps } from "@/types/base-form";
+import { FieldPath, FieldValues } from "react-hook-form";
+import { Show } from "../utilities";
 
 interface SelectFieldProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -110,7 +110,7 @@ function SelectField<
                   ))}
               </SelectContent>
             </Select>
-            <FormMessage />
+            <FormMessage className="text-red-500 text-sm" />
           </FormItem>
         );
       }}

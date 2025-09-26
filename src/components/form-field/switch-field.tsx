@@ -1,10 +1,22 @@
-import { type HTMLAttributes, useId } from 'react';
-import type { Control, FieldPath, FieldPathValue, FieldValues } from 'react-hook-form';
+import { type HTMLAttributes, useId } from "react";
+import type {
+  Control,
+  FieldPath,
+  FieldPathValue,
+  FieldValues,
+} from "react-hook-form";
 
-import { cn } from '@/lib/utils';
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
-import { Switch } from '../ui/switch';
-import { Show } from '../utilities';
+import { cn } from "@/lib/utils";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
+import { Switch } from "../ui/switch";
+import { Show } from "../utilities";
 
 interface SwitchProps<T extends FieldValues = FieldValues> {
   isChecked?: boolean;
@@ -12,11 +24,12 @@ interface SwitchProps<T extends FieldValues = FieldValues> {
   name: FieldPath<T>;
   defaultValue?: FieldPathValue<T, FieldPath<T>>;
   label?: string;
-  labelClassName?: HTMLAttributes<HTMLLabelElement>['className'];
-  containerClassName?: HTMLAttributes<HTMLDivElement>['className'];
-  requiredClassName?: HTMLAttributes<HTMLSpanElement>['className'];
+  labelClassName?: HTMLAttributes<HTMLLabelElement>["className"];
+  containerClassName?: HTMLAttributes<HTMLDivElement>["className"];
+  requiredClassName?: HTMLAttributes<HTMLSpanElement>["className"];
   required?: boolean;
   className?: string;
+  description?: string;
 }
 
 const SwitchField = <T extends FieldValues>({
@@ -29,6 +42,7 @@ const SwitchField = <T extends FieldValues>({
   required,
   name,
   containerClassName,
+  description,
   ...props
 }: SwitchProps<T>) => {
   const id = useId();
@@ -39,21 +53,38 @@ const SwitchField = <T extends FieldValues>({
       render={({ field }) => (
         <FormItem>
           <FormControl>
-            <div className={cn('flex items-center gap-4', containerClassName)}>
-              <Switch id={id} checked={field.value} onCheckedChange={field.onChange} {...props} />
-
+            <div className={cn("mb-0!", containerClassName)}>
               <Show when={!!label}>
-                <FormLabel className={cn('mb-0 flex flex-col gap-1 items-start', labelClassName)} htmlFor={id}>
-                  <p className='flex gap-1 text-sm'>
+                <FormLabel
+                  className={cn(
+                    "flex flex-col gap-1 items-start mb-4",
+                    labelClassName
+                  )}
+                >
+                  <p className="flex gap-1 text-sm">
                     {label}
-                    {required && <span className={cn('text-error-500', requiredClassName)}>*</span>}
+                    {required && (
+                      <span className={cn("text-red-500", requiredClassName)}>
+                        *
+                      </span>
+                    )}
                   </p>
                 </FormLabel>
               </Show>
-
-              <FormMessage className='mt-1.5 text-red-500 text-sm' />
+              <div className="flex justify-between items-center">
+                <Switch
+                  id={id}
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                  {...props}
+                />
+                <Show when={!!description}>
+                  <FormDescription>{description}</FormDescription>
+                </Show>
+              </div>
             </div>
           </FormControl>
+          <FormMessage className="text-red-500 text-sm" />
         </FormItem>
       )}
     />

@@ -17,8 +17,13 @@ import {
 } from "../ui/form";
 import { Input, type InputProps } from "../ui/input";
 import { Show } from "../utilities";
+import {
+  MinimalTiptap,
+  MinimalTiptapProps,
+} from "../ui/shadcn-io/minimal-tiptap";
 
-interface Props<T extends FieldValues = FieldValues> extends InputProps {
+interface Props<T extends FieldValues = FieldValues>
+  extends MinimalTiptapProps {
   control: Control<T>;
   name: FieldPath<T>;
   defaultValue?: FieldPathValue<T, FieldPath<T>>;
@@ -33,7 +38,7 @@ interface Props<T extends FieldValues = FieldValues> extends InputProps {
   isShowError?: boolean;
 }
 
-const TextField = <T extends FieldValues>({
+const MinimalTiptapField = <T extends FieldValues>({
   className,
   labelClassName,
   control,
@@ -41,7 +46,6 @@ const TextField = <T extends FieldValues>({
   label,
   required,
   containerClassName,
-  inputContainerClassName,
   requiredClassName,
   subLabel,
   isShowError = true,
@@ -74,20 +78,10 @@ const TextField = <T extends FieldValues>({
                   {subLabel && <p className="text-xs">{subLabel}</p>}
                 </FormLabel>
               </Show>
-              <Input
+              <MinimalTiptap
                 {...field}
                 {...props}
-                containerClassName={inputContainerClassName}
-                className={className}
-                onChange={(e) => {
-                  if (props.type === "number") {
-                    const value = e.target.value;
-                    const _val = value === "" ? undefined : parseFloat(value);
-                    field.onChange(_val);
-                  } else {
-                    field.onChange(e.target.value);
-                  }
-                }}
+                className={cn("min-h-96", className)}
               />
               <FormMessage className="mt-1.5 text-red-500 text-sm" />
             </div>
@@ -98,4 +92,4 @@ const TextField = <T extends FieldValues>({
   );
 };
 
-export { TextField };
+export { MinimalTiptapField };

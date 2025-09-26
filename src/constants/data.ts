@@ -17,7 +17,7 @@ export const navItems: NavItem[] = [
     items: [
       {
         title: "Products",
-        url: "/product-list",
+        url: "/product/list",
         icon: "listOrderedIcon",
         shortcut: ["p", "p"],
       },

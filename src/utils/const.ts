@@ -33,3 +33,8 @@ export const DEFAULT_ACTIVE_OPTIONS = [
   { label: "Active", value: "true" },
   { label: "Inactive", value: "false" },
 ]
+
+export const DEFAULT_STATUS_OPTIONS = [
+  { label: "Active", value: "active" },
+  { label: "Inactive", value: "inactive" },
+]
