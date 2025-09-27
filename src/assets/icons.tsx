@@ -48,6 +48,8 @@ import {
   ClockIcon,
   UserIcon,
   CalendarDaysIcon,
+  BoxIcon,
+  WarehouseIcon
 } from "lucide-react";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
@@ -110,6 +112,8 @@ const IconList = {
   clock: ClockIcon,
   user: UserIcon,
   calendarDays: CalendarDaysIcon,
+  box: BoxIcon,
+  warehouse: WarehouseIcon,
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;

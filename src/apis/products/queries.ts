@@ -1,8 +1,25 @@
 import { IAxiosResponse } from "@/types/axios";
 import { useMutation, useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { KEYS } from "./keys";
-import { createProduct, deleteProduct, getProductByCategory, getProductDetail, getProductFeatureList, getProductList, updateProduct } from "./requests";
-import { CreateProductRequest, DeleteProductRequest, GetProductListParams, GetProductListResponse, IProduct, UpdateProductRequest } from "./types";
+import {
+  createProduct,
+  deleteProduct,
+  getProductByCategory,
+  getProductDetail,
+  getProductFeatureList,
+  getProductList,
+  getProductListInventory,
+  getProductListLowStock,
+  updateProduct,
+} from "./requests";
+import {
+  CreateProductRequest,
+  DeleteProductRequest,
+  GetProductListParams,
+  GetProductListResponse,
+  IProduct,
+  UpdateProductRequest,
+} from "./types";
 
 export const useGetProductList = (
   params: GetProductListParams,
@@ -11,6 +28,28 @@ export const useGetProductList = (
   return useQuery<GetProductListResponse, Error>({
     queryKey: [KEYS.PRODUCTS_LIST, params],
     queryFn: ({ signal }) => getProductList(params, signal),
+    ...options,
+  });
+};
+
+export const useGetProductListInventory = (
+  params: GetProductListParams,
+  options?: Omit<UseQueryOptions<GetProductListResponse, Error>, "queryKey">
+) => {
+  return useQuery<GetProductListResponse, Error>({
+    queryKey: [KEYS.PRODUCT_LIST_INVENTORY, params],
+    queryFn: ({ signal }) => getProductListInventory(params, signal),
+    ...options,
+  });
+};
+
+export const useGetProductListLowStock = (
+  params: GetProductListParams,
+  options?: Omit<UseQueryOptions<GetProductListResponse, Error>, "queryKey">
+) => {
+  return useQuery<GetProductListResponse, Error>({
+    queryKey: [KEYS.PRODUCT_LIST_LOW_STOCK, params],
+    queryFn: ({ signal }) => getProductListLowStock(params, signal),
     ...options,
   });
 };
@@ -44,7 +83,7 @@ export const useGetProductDetail = (
   return useQuery<IProduct, Error>({
     queryKey: [KEYS.PRODUCTS_DETAIL, id],
     queryFn: ({ signal }) => getProductDetail(id, signal),
-        ...options,
+    ...options,
   });
 };
 

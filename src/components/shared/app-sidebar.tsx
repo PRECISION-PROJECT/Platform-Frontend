@@ -20,21 +20,20 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  SidebarRail,
+  SidebarRail
 } from "@/components/ui/sidebar";
 import { navItems } from "@/constants/data";
 
+import { useAuth } from "@/hooks/use-auth";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { UserAvatarProfile } from "../ui/user-avatar-profile";
-import { useAuth } from "@/hooks/use-auth";
 
 export default function AppSidebar() {
   const pathname = usePathname();

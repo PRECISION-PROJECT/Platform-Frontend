@@ -18,6 +18,24 @@ export const getProductList = (
     .then((res) => res);
 };
 
+export const getProductListInventory = (
+  params: GetProductListParams,
+  signal?: AbortSignal
+): Promise<GetProductListResponse> => {
+  return httpInstance
+    .get<GetProductListResponse>(KEYS.PRODUCT_LIST_INVENTORY, { params, signal })
+    .then((res) => res);
+};
+
+export const getProductListLowStock = (
+  params: GetProductListParams,
+  signal?: AbortSignal
+): Promise<GetProductListResponse> => {
+  return httpInstance
+    .get<GetProductListResponse>(KEYS.PRODUCT_LIST_LOW_STOCK, { params, signal })
+    .then((res) => res);
+};
+
 export const getProductFeatureList = (
   params: GetProductListParams,
   signal?: AbortSignal

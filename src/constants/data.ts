@@ -22,6 +22,18 @@ export const navItems: NavItem[] = [
         shortcut: ["p", "p"],
       },
       {
+        title: "Products Inventory",
+        url: "/product/inventory",
+        icon: "warehouse",
+        shortcut: ["p", "p"],
+      },
+      {
+        title: "Products Low Stock",
+        url: "/product/low-stock",
+        icon: "box",
+        shortcut: ["p", "p"],
+      },
+      {
         title: "Categories",
         shortcut: ["c", "c"],
         url: "/category-list",
