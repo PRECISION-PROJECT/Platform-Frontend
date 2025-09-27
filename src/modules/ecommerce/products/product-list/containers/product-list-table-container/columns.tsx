@@ -164,7 +164,7 @@ export const columns = ({ typeOptions }: Props): ColumnDef<IProduct>[] => [
     cell: ({ row }) => {
       const type = row.original.type;
       const categoryId = row.original.categoryId;
-      const url = ROUTES.PRODUCT_LIST.replace(":id", categoryId);
+      const url = ROUTES.CATEGORY_DETAIL.replace(":id", categoryId);
       return (
           <Link href={url} className="truncate hover:underline">
               {type}

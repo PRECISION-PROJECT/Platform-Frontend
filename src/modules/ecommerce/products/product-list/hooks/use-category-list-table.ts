@@ -28,7 +28,7 @@ export const useProductListTable = () => {
     }));
   }, [categoryOptions]);
 
-  const { data, isLoading } = useGetProductList(query, {
+  const { data, isLoading } = useGetProductList({...query, includeCategory: true}, {
     placeholderData: (prev) => prev,
   });
 

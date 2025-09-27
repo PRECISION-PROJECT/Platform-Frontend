@@ -80,4 +80,5 @@ export interface GetProductListParams extends CommonRequestType {
   material?: string;
   color?: string;
   finish?: string;
+  includeCategory?: boolean
 }
