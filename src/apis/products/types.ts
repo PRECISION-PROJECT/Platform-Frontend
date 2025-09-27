@@ -74,11 +74,9 @@ export type GetProductListResponse = IPaginatedResponseType<IProduct[]>;
 
 export interface GetProductListParams extends CommonRequestType {
   categoryId?: string;
-  types?: string[];
+  types?: string;
   status?: string;
-  isFeatured?: boolean;
-  minPrice?: number;
-  maxPrice?: number;
+  isFeatured?: string;
   material?: string;
   color?: string;
   finish?: string;

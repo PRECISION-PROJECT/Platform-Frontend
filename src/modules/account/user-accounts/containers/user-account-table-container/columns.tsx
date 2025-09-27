@@ -1,15 +1,15 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
+import { IUserResponse } from "@/apis/auths";
 import { DataTableColumnHeader } from "@/components/shared/data-table/data-table-column-header";
+import { Badge } from "@/components/ui/badge";
+import ImageLoader from "@/components/ui/image-loader";
+import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import { Column, ColumnDef } from "@tanstack/react-table";
+import { format, formatDate } from "date-fns";
 import { CheckCircle2, Text, XCircle } from "lucide-react";
 import Image from "next/image";
-import { CellAction } from "./cell-action";
-import { IUserResponse } from "@/apis/auths";
-import { format, formatDate } from "date-fns";
 import { UsersDialogType } from "../../contexts/user-account-context";
-import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
-import ImageLoader from "@/components/ui/image-loader";
+import { CellAction } from "./cell-action";
 
 const STATUS_OPTIONS = [
   {
@@ -68,6 +68,7 @@ export const columns = (
         </ImageZoom>
       );
     },
+    enableSorting: false,
   },
   {
     id: "search",

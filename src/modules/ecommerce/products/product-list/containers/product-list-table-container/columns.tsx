@@ -77,84 +77,6 @@ export const columns = ({ typeOptions }: Props): ColumnDef<IProduct>[] => [
     enableColumnFilter: true,
   },
   {
-    id: "search",
-    accessorKey: "name",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Name" />
-    ),
-    cell: ({ row }) => {
-      const name = row.original.name;
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <div className="font-medium cursor-help">{name}</div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>{name}</p>
-          </TooltipContent>
-        </Tooltip>
-      );
-    },
-    meta: {
-      label: "Name",
-      placeholder: "Search by product name...",
-      variant: "text",
-    },
-    enableSorting: false,
-    enableColumnFilter: true,
-  },
-  {
-    id: "categoryId",
-    accessorKey: "categoryId",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Category Id" />
-    ),
-    cell: ({ row }) => {
-      const categoryId = row.original.categoryId;
-      const url = ROUTES.CATEGORY_DETAIL.replace(":id", categoryId);
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>
-          <Link href={url} className="max-w-[300px] truncate hover:underline">
-              {categoryId}
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>{categoryId}</p>
-          </TooltipContent>
-        </Tooltip>
-      );
-    },
-    meta: {
-      label: "Category Id",
-      placeholder: "Search by category ID...",
-      variant: "text",
-    },
-    enableSorting: false,
-    enableColumnFilter: true,
-  },
-  {
-    accessorKey: "description",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Description" />
-    ),
-    cell: ({ row }) => {
-      const description = row.original.description;
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <div className="max-w-[300px] truncate cursor-help">
-              {description}
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p className="max-w-[400px]">{description}</p>
-          </TooltipContent>
-        </Tooltip>
-      );
-    },
-  },
-  {
     accessorKey: "imageUrl",
     header: ({ column }: { column: Column<IProduct, unknown> }) => (
       <DataTableColumnHeader column={column} title="Image" />
@@ -183,6 +105,100 @@ export const columns = ({ typeOptions }: Props): ColumnDef<IProduct>[] => [
         </ImageZoom>
       );
     },
+    enableSorting: false,
+  },
+  {
+    id: "search",
+    accessorKey: "name",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name" />
+    ),
+    cell: ({ row }) => {
+      const name = row.original.name;
+      return (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="cursor-help">{name}</div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>{name}</p>
+          </TooltipContent>
+        </Tooltip>
+      );
+    },
+    meta: {
+      label: "Name",
+      placeholder: "Search by product name...",
+      variant: "text",
+    },
+    enableSorting: false,
+    enableColumnFilter: true,
+  },
+  {
+    accessorKey: "description",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Description" />
+    ),
+    cell: ({ row }) => {
+      const description = row.original.description;
+      return (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="max-w-[300px] truncate cursor-help">
+              {description}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p className="max-w-[400px]">{description}</p>
+          </TooltipContent>
+        </Tooltip>
+      );
+    },
+  },
+  {
+    id: "types",
+    accessorKey: "type",
+    header: ({ column }: { column: Column<IProduct, unknown> }) => (
+      <DataTableColumnHeader column={column} title="Type" />
+    ),
+    cell: ({ row }) => {
+      const type = row.original.type;
+      const categoryId = row.original.categoryId;
+      const url = ROUTES.PRODUCT_LIST.replace(":id", categoryId);
+      return (
+          <Link href={url} className="truncate hover:underline">
+              {type}
+            </Link>
+      );
+    },
+    enableColumnFilter: true,
+    meta: {
+      label: "Types",
+      variant: "multiSelect",
+      options: typeOptions,
+    },
+  },
+  {
+    accessorKey: "keywords",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Keywords" />
+    ),
+    cell: ({ row }) => {
+      const keywords = row.original.keywords;
+      return (
+           <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="max-w-[150px] truncate cursor-help">
+              {keywords.length > 0 ? keywords.join(", ") : "-"}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p className="max-w-[400px]">{keywords.length > 0 ? keywords.join(", ") : "-"}</p>
+          </TooltipContent>
+        </Tooltip>
+      );
+    },
+    enableColumnFilter: true,
   },
   {
     accessorKey: "slug",
@@ -212,13 +228,7 @@ export const columns = ({ typeOptions }: Props): ColumnDef<IProduct>[] => [
         </div>
       );
     },
-    enableColumnFilter: true,
-    meta: {
-      label: "Color",
-      placeholder: "Search by color...",
-      variant: "text",
-    },
-    enableSorting: false,
+    enableSorting: true,
   },
   {
     accessorKey: "salePrice",
@@ -250,27 +260,7 @@ export const columns = ({ typeOptions }: Props): ColumnDef<IProduct>[] => [
     },
     enableSorting: true,
   },
-  {
-    id: "type",
-    accessorKey: "type",
-    header: ({ column }: { column: Column<IProduct, unknown> }) => (
-      <DataTableColumnHeader column={column} title="Type" />
-    ),
-    cell: ({ row }) => {
-      const type = row.original.type;
-      return (
-        <div className="flex items-center space-x-2">
-          <span className="font-mono text-sm">{type}</span>
-        </div>
-      );
-    },
-    enableColumnFilter: true,
-    meta: {
-      label: "Types",
-      variant: "multiSelect",
-      options: typeOptions,
-    },
-  },
+  
   {
     id: "status",
     accessorKey: "status",
@@ -296,6 +286,7 @@ export const columns = ({ typeOptions }: Props): ColumnDef<IProduct>[] => [
     },
   },
   {
+    id: "isFeatured",
     accessorKey: "isFeatured",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Is Featured" />

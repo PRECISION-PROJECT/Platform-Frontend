@@ -116,6 +116,7 @@ export const columns = (): ColumnDef<Category>[] => [
         </ImageZoom>
       );
     },
+    enableSorting: false,
   },
   {
     accessorKey: "slug",

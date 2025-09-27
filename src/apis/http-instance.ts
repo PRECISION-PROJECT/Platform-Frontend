@@ -7,8 +7,8 @@ import axios, {
   type InternalAxiosRequestConfig,
 } from "axios";
 
-import { deleteCookieData, getCookieData, setCookieData } from "@/utils/cookie";
 import { TOptional } from "@/types";
+import { deleteCookieData, getCookieData, setCookieData } from "@/utils/cookie";
 import qs from "qs";
 
 type TFailedRequests = {
@@ -16,6 +16,10 @@ type TFailedRequests = {
   reject: (value: AxiosError) => void;
   config: AxiosRequestConfig;
   error: AxiosError;
+};
+
+type NonNullableObject<T> = {
+  [K in keyof T]: T[K] extends object ? NonNullableObject<T[K]> : NonNullable<T[K]>;
 };
 
 const MAXIMUM_RETRY_UN_AUTHENTICATION = 5;
@@ -56,10 +60,42 @@ class HttpInstance {
       },
       timeout: 10000,
       paramsSerializer: (params) => {
-        return qs.stringify(params, { arrayFormat: "repeat" });
+        const _params = this.cleanParams(params);
+        return qs.stringify(_params, { arrayFormat: "repeat" });
       },
     });
     this.setupInterceptorsTo(this.instance);
+  }
+
+  private isEmpty<T>(value: T): boolean {
+    return (
+      value === null ||
+      value === undefined ||
+      (typeof value === 'string' && value.trim() === '') ||
+      (Array.isArray(value) && value.length === 0) ||
+      (typeof value === 'object' && value !== null && Object.keys(value).length === 0)
+    );
+  }
+
+  private cleanParams<T extends Record<string, unknown>>(obj: T): NonNullableObject<T> {
+    const result: Partial<NonNullableObject<T>> = {};
+  
+    for (const [key, value] of Object.entries(obj)) {
+      if (this.isEmpty(value)) {
+        continue;
+      }
+  
+      if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
+        const nested = this.cleanParams(value as Record<string, unknown>);
+        if (Object.keys(nested).length > 0) {
+          result[key as keyof T] = nested as NonNullableObject<T>[keyof T];
+        }
+      } else {
+        result[key as keyof T] = value as NonNullableObject<T>[keyof T];
+      }
+    }
+  
+    return result as NonNullableObject<T>;
   }
 
   private readonly onRequest = async (

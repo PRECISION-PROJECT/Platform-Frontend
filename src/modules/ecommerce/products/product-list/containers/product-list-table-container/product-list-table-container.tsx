@@ -11,7 +11,7 @@ import { columns } from "./columns";
 const ProductListTableContainer = () => {
   const { pageCount, productList, isLoading,typeOptions } = useProductListTable();
 
-  const _columns = useMemo(() => columns({typeOptions}), []);
+  const _columns = useMemo(() => columns({typeOptions}), [typeOptions]);
 
   const { table } = useDataTable({
     data: productList,

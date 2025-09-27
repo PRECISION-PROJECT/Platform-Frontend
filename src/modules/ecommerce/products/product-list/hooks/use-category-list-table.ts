@@ -13,6 +13,9 @@ export const useProductListTable = () => {
     [PER_PAGE_KEY]: parseAsInteger.withDefault(10),
     [SORT_KEY]: parseAsString.withDefault(""),
     search: parseAsString.withDefault(""),
+    types: parseAsString.withDefault(""),
+    status: parseAsString.withDefault(""),
+    isFeatured: parseAsString.withDefault("true"),
   });
 
   const { data: categoryOptions } = useGetCategoryTree();
