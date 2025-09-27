@@ -12,5 +12,5 @@ export default async function Page() {
     return redirect(ROUTES.SIGN_IN);
   }
 
-  return redirect(ROUTES.DASHBOARD);
+  return redirect(ROUTES.PRODUCT_LIST);
 }

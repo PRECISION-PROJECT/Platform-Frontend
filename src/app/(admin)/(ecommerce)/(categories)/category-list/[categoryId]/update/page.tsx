@@ -1,7 +1,13 @@
 import UpdateCategoryModule from "@/modules/ecommerce/categories/update-category";
 import { ROUTES } from "@/utils/routes";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Update Category",
+  description: "Edit and update category information",
+};
 
 type PageProps = { params: Promise<{ categoryId: string }> };
 

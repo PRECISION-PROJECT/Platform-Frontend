@@ -1,4 +1,3 @@
-"use client"
 import PageContainer from '@/components/containers/page-container'
 import DemoForm from '@/components/form-field/demo-form'
 import React from 'react'

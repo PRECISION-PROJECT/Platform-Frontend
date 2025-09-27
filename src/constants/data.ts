@@ -1,14 +1,14 @@
 import { NavItem } from "@/types";
 
 export const navItems: NavItem[] = [
-  {
-    title: "Dashboard",
-    url: "/dashboard",
-    icon: "layoutDashboard",
-    isActive: false,
-    shortcut: ["d", "d"],
-    items: [],
-  },
+  // {
+  //   title: "Dashboard",
+  //   url: "/dashboard",
+  //   icon: "layoutDashboard",
+  //   isActive: false,
+  //   shortcut: ["d", "d"],
+  //   items: [],
+  // },
   {
     title: "E-commerce",
     url: "#",
@@ -69,24 +69,24 @@ export const navItems: NavItem[] = [
       },
     ],
   },
-  {
-    title: "Me",
-    url: "#",
-    icon: "userCircle",
-    isActive: true,
-    items: [
-      {
-        title: "Profile",
-        url: "/dashboard/profile",
-        icon: "userPenIcon",
-        shortcut: ["m", "m"],
-      },
-      {
-        title: "Login",
-        shortcut: ["l", "l"],
-        url: "/",
-        icon: "logOutIcon",
-      },
-    ],
-  },
+  // {
+  //   title: "Me",
+  //   url: "#",
+  //   icon: "userCircle",
+  //   isActive: true,
+  //   items: [
+  //     {
+  //       title: "Profile",
+  //       url: "/dashboard/profile",
+  //       icon: "userPenIcon",
+  //       shortcut: ["m", "m"],
+  //     },
+  //     {
+  //       title: "Login",
+  //       shortcut: ["l", "l"],
+  //       url: "/",
+  //       icon: "logOutIcon",
+  //     },
+  //   ],
+  // },
 ];
