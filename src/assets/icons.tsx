@@ -18,6 +18,7 @@ import {
   EllipsisVerticalIcon,
   Eye,
   EyeOff,
+  ImageIcon,
   LayoutDashboard,
   ListOrderedIcon,
   LogOutIcon,
@@ -36,7 +37,8 @@ import {
   UserPenIcon,
   UserPlusIcon,
   UsersIcon,
-  XIcon,
+  ViewIcon,
+  XIcon
 } from "lucide-react";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
@@ -88,6 +90,8 @@ const IconList = {
   settings: Settings2Icon,
   dotsVertical: EllipsisVerticalIcon,
   edit: EditIcon,
+  view: ViewIcon,
+  image: ImageIcon, 
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
