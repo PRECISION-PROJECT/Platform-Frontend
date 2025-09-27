@@ -30,6 +30,20 @@ export const navItems: NavItem[] = [
     ],
   },
   {
+    title: "Services",
+    url: "#",
+    icon: "settings",
+    isActive: true,
+    items: [
+      {
+        title: "Appointments",
+        url: "/appointment-list",
+        icon: "calendar",
+        shortcut: ["a", "p"],
+      },
+    ],
+  },
+  {
     title: "Accounts",
     url: "#",
     icon: "users",

@@ -26,7 +26,7 @@ const CreateCategoryFormUI = ({ isPending, parentCategoryOptions }: Props) => {
         label="Category Image"
         config={{
           maxSize: 5 * 1024 * 1024,
-          maxFiles: 4,
+          maxFiles: 1,
         }}
         disabled={isPending}
       />

@@ -21,15 +21,15 @@ export const categoryFormSchema = z.object({
       (files) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
       ".jpg, .jpeg, .png and .webp files are accepted."
     ),
-  name: z.string().min(2, {
-    message: "Category name must be at least 2 characters.",
+  name: z.string().min(3, {
+    message: "Category name must be at least 3 characters.",
   }),
-  description: z.string().min(10, {
-    message: "Description must be at least 10 characters.",
+  description: z.string().min(20, {
+    message: "Description must be at least 20 characters.",
   }),
   parentId: z.string(),
-  slug: z.string().min(2, {
-    message: "Slug must be at least 2 characters.",
+  slug: z.string().min(3, {
+    message: "Slug must be at least 3 characters.",
   }),
   sortOrder: z.number(),
   isActive: z.enum(["true", "false"]),

@@ -40,6 +40,7 @@ export const useUpdateCategoryForm = (id: string) => {
   const formMethods = useForm<UpdateCategoryFormData>({
     resolver: zodResolver(updateCategoryFormSchema),
     defaultValues: updateDefaultValues,
+    mode: "onChange"
   });
 
   const categoryOptions = useMemo(() => {

@@ -40,7 +40,14 @@ import {
   UserPlusIcon,
   UsersIcon,
   ViewIcon,
-  XIcon
+  XIcon,
+  HashIcon,
+  MailIcon,
+  MapPinIcon,
+  PhoneIcon,
+  ClockIcon,
+  UserIcon,
+  CalendarDaysIcon,
 } from "lucide-react";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
@@ -95,7 +102,14 @@ const IconList = {
   view: ViewIcon,
   image: ImageIcon, 
   stars: StarsIcon,
-  package: Package2Icon
+  package: Package2Icon,
+  hash: HashIcon,
+  mail: MailIcon,
+  mapPin: MapPinIcon,
+  phone: PhoneIcon,
+  clock: ClockIcon,
+  user: UserIcon,
+  calendarDays: CalendarDaysIcon,
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;

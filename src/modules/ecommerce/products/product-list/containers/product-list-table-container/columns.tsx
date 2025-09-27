@@ -318,7 +318,7 @@ export const columns = ({ typeOptions }: Props): ColumnDef<IProduct>[] => [
         <div className="flex items-center space-x-2">
           <Icons.calendar className="h-4 w-4" />
           <span className="text-sm">
-            {updatedAt ? format(updatedAt as string, "dd/MM/yyyy") : "-"}
+            {updatedAt ? format(updatedAt as string, "dd/MM/yyyy HH:mm:ss") : "-"}
           </span>
         </div>
       );

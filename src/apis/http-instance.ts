@@ -10,6 +10,7 @@ import axios, {
 import { TOptional } from "@/types";
 import { deleteCookieData, getCookieData, setCookieData } from "@/utils/cookie";
 import qs from "qs";
+import { ROUTES } from "@/utils/routes";
 
 type TFailedRequests = {
   resolve: (value: AxiosResponse) => void;
@@ -154,7 +155,7 @@ class HttpInstance {
     const existedRefreshTokenCount = this.refreshTokenCount.get(url) ?? 0;
 
     if (existedRefreshTokenCount >= MAXIMUM_RETRY_UN_AUTHENTICATION) {
-      window.location.href = "/auth/login";
+      window.location.href = ROUTES.SIGN_IN;
 
       return Promise.reject(
         new Error("Maximum retry attempts exceeded. Redirecting to login.")
@@ -204,7 +205,7 @@ class HttpInstance {
         reject(errorFailedRequest)
       );
       this.removeTokenCookie();
-      // window.location.href = `/`;
+      window.location.href = ROUTES.SIGN_IN;
 
       return Promise.reject(error);
     } finally {

@@ -32,6 +32,7 @@ export const useCreateProductForm = () => {
   const formMethods = useForm<CreateProductFormData>({
     resolver: zodResolver(productFormSchema),
     defaultValues: defaultValues,
+    mode: "onChange"
   });
 
   const categoryOptions = useMemo(() => {
