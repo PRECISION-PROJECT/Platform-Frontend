@@ -117,9 +117,9 @@ export function formatBytes(
   }`;
 }
 
-export function formatCurrencyUSD(amount: number): string {
+export function formatCurrencyUSD(amount: number | string): string {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-  }).format(amount)
+  }).format(+amount)
 }

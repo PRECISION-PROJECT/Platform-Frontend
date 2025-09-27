@@ -11,8 +11,8 @@ export interface IProduct {
   type: string;
   status: string;
   categoryId: string;
-  imageUrl: any;
-  images: any;
+  imageUrl: string;
+  images: string[];
   stockQuantity: number;
   unit: string;
   weight: string;

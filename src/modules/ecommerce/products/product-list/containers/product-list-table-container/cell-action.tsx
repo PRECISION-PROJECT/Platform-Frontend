@@ -21,6 +21,7 @@ interface CellActionProps {
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const router = useRouter();
   const url = ROUTES.PRODUCT_UPDATE.replace(":id", data.id);
+  const detailUrl = ROUTES.PRODUCT_DETAIL.replace(":id", data.id);
 
   return (
     <>
@@ -33,6 +34,9 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuItem onClick={() => router.push(detailUrl)}>
+            <Icons.view className="mr-2 h-4 w-4" /> Detail
+          </DropdownMenuItem>
           <DropdownMenuItem onClick={() => router.push(url)}>
             <Icons.edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

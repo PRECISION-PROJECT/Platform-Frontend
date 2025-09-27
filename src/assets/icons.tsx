@@ -25,11 +25,13 @@ import {
   MailPlusIcon,
   MoonIcon,
   NewspaperIcon,
+  Package2Icon,
   PlusCircleIcon,
   SearchIcon,
   Settings2Icon,
   ShoppingBagIcon,
   SquareSplitHorizontalIcon,
+  StarsIcon,
   SunIcon,
   Table,
   Trash,
@@ -92,6 +94,8 @@ const IconList = {
   edit: EditIcon,
   view: ViewIcon,
   image: ImageIcon, 
+  stars: StarsIcon,
+  package: Package2Icon
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
