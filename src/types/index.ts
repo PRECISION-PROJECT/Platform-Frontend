@@ -81,3 +81,15 @@ export type CommonRequestType = {
   fields?: string;
   search?: string;
 };
+
+export enum EMedia {
+  Image = "image",
+  Video = "video",
+}
+
+export interface IMedia {
+  id?: string;
+  url: string;
+  type?: EMedia;
+  file?: File | null;
+}

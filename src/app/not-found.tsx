@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/utils/routes";
 
 export default function NotFound() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function NotFound() {
           Go back
         </Button>
         <Button
-          onClick={() => router.push("/dashboard")}
+          onClick={() => router.push(ROUTES.PRODUCT_LIST)}
           variant="ghost"
           size="lg"
         >

@@ -1,13 +1,8 @@
-import PageContainer from '@/components/containers/page-container'
-import DemoForm from '@/components/form-field/demo-form'
-import React from 'react'
+import { ROUTES } from "@/utils/routes";
+import { redirect } from "next/navigation";
 
 const DashboardPage = () => {
-  return (
-    <PageContainer scrollable>
-      <DemoForm />
-    </PageContainer>
-  )
-}
+  return redirect(ROUTES.COMING_SOON);
+};
 
-export default DashboardPage
+export default DashboardPage;

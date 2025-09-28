@@ -1,14 +1,14 @@
 import { NavItem } from "@/types";
 
 export const navItems: NavItem[] = [
-  // {
-  //   title: "Dashboard",
-  //   url: "/dashboard",
-  //   icon: "layoutDashboard",
-  //   isActive: false,
-  //   shortcut: ["d", "d"],
-  //   items: [],
-  // },
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: "layoutDashboard",
+    isActive: false,
+    shortcut: ["d", "d"],
+    items: [],
+  },
   {
     title: "E-commerce",
     url: "#",
@@ -38,6 +38,12 @@ export const navItems: NavItem[] = [
         shortcut: ["c", "c"],
         url: "/category-list",
         icon: "listOrderedIcon",
+      },
+      {
+        title: "Orders",
+        shortcut: ["o", "o"],
+        url: "/order-list",
+        icon: "dock",
       },
     ],
   },

@@ -48,6 +48,17 @@ const routeMapping: Record<string, BreadcrumbItem[]> = {
     { title: 'Services', link: '#' },
     { title: 'Appointments', link: '/appointment-list' }
   ],
+
+  // Services - Blogs
+  '/blog-list': [
+    { title: 'Services', link: '#' },
+    { title: 'Blogs', link: '/blog-list' }
+  ],
+  '/blog-list/create': [
+    { title: 'Services', link: '#' },
+    { title: 'Blogs', link: '/blog-list' },
+    { title: 'Create Blog', link: '/blog-list/create' }
+  ],
   
   // Accounts
   '/user-accounts': [
@@ -58,6 +69,13 @@ const routeMapping: Record<string, BreadcrumbItem[]> = {
   // Auth pages
   '/sign-in': [{ title: 'Sign In', link: '/sign-in' }],
   '/forgot-password': [{ title: 'Forgot Password', link: '/forgot-password' }],
+  '/reset-password': [{ title: 'Reset Password', link: '/reset-password' }],
+
+  // E-commerce - Orders
+  '/order-list': [
+    { title: 'E-commerce', link: '#' },
+    { title: 'Orders', link: '/order-list' }
+  ],
 };
 
 // Helper function to generate breadcrumbs for dynamic routes

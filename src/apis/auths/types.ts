@@ -37,6 +37,7 @@ export interface IUserResponse {
   deletedAt: string;
   status?: string;
   imageUrl?: string;
+  avatar?: IPhoto;
 }
 
 export interface IPhoto {

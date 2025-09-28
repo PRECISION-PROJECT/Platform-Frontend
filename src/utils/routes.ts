@@ -21,4 +21,8 @@ export const ROUTES = {
   BLOGS_CREATE: "/blog-list/create",
   BLOGS_DETAIL: "/blog-list/:id",
   BLOGS_UPDATE: "/blog-list/:id/update",
+  COMING_SOON: "/coming-soon",
+  ORDER_LIST: "/order-list",
+  RESET_PASSWORD: "/reset-password",
+  ORDER_DETAIL: "/order-list/:id",
 } as const;

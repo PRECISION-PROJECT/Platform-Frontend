@@ -35,7 +35,7 @@ export const useSignIn = () => {
       }
       toast.success("Sign in successfully");
       setTimeout(() => {
-        router.push(ROUTES.DASHBOARD);
+        router.push(ROUTES.PRODUCT_LIST);
       }, 300);
     } catch (error) {
       handleToastError(error);

@@ -50,7 +50,9 @@ import {
   CalendarDaysIcon,
   BoxIcon,
   WarehouseIcon,
-  PaperclipIcon
+  PaperclipIcon,
+  DockIcon,
+  TruckIcon
 } from "lucide-react";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
@@ -116,6 +118,8 @@ const IconList = {
   box: BoxIcon,
   warehouse: WarehouseIcon,
   paperclip: PaperclipIcon,
+  dock: DockIcon,
+  truck: TruckIcon
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
