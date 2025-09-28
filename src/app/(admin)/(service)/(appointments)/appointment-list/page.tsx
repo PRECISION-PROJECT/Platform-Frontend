@@ -1,4 +1,4 @@
-import AppointmentsListModule from '@/modules/service/appointments'
+import { AppointmentsListModule } from "@/modules/service";
 import { Metadata } from "next";
 import React from 'react'
 

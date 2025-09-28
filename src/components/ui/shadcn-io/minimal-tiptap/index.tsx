@@ -29,6 +29,7 @@ interface MinimalTiptapProps {
   placeholder?: string;
   editable?: boolean;
   className?: string;
+  disabled?: boolean;
 }
 
 function MinimalTiptap({
@@ -37,6 +38,7 @@ function MinimalTiptap({
   placeholder = "Start typing...",
   editable = true,
   className,
+  disabled,
 }: MinimalTiptapProps) {
   const editor = useEditor({
     extensions: [
@@ -64,6 +66,7 @@ function MinimalTiptap({
         ),
       },
     },
+    immediatelyRender: false
   });
 
   if (!editor) {
@@ -204,7 +207,7 @@ function MinimalTiptap({
         </Button>
       </div>
 
-      <EditorContent editor={editor} placeholder={placeholder} />
+      <EditorContent disabled={disabled} editor={editor} placeholder={placeholder} />
     </div>
   );
 }

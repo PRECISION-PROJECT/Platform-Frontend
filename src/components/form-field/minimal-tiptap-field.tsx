@@ -81,6 +81,7 @@ const MinimalTiptapField = <T extends FieldValues>({
               <MinimalTiptap
                 {...field}
                 {...props}
+                content={field.value}
                 className={cn("min-h-96", className)}
               />
               <FormMessage className="mt-1.5 text-red-500 text-sm" />

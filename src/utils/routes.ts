@@ -17,4 +17,8 @@ export const ROUTES = {
   PRODUCT_UPDATE: "/product/:id/update",
   PRODUCT_LOW_STOCK: "/product/low-stock",
   PRODUCT_INVENTORY: "/product/inventory",
+  BLOGS_LIST: "/blog-list",
+  BLOGS_CREATE: "/blog-list/create",
+  BLOGS_DETAIL: "/blog-list/:id",
+  BLOGS_UPDATE: "/blog-list/:id/update",
 } as const;

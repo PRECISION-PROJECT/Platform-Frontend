@@ -53,6 +53,12 @@ export const navItems: NavItem[] = [
         icon: "calendar",
         shortcut: ["a", "p"],
       },
+      {
+        title: "Blogs",
+        url: "/blog-list",
+        icon: "paperclip",
+        shortcut: ["b", "b"],
+      },
     ],
   },
   {

@@ -1,6 +1,5 @@
 import { IAxiosResponse } from "@/types/axios";
 import { useMutation, useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { GetUserListParams } from "../users/types";
 import { KEYS } from "./keys";
 import {
   createAppointment,
@@ -12,6 +11,7 @@ import {
 import {
   CreateAppointmentRequest,
   DeleteAppointmentRequest,
+  GetAppointmentListParams,
   GetAppointmentListResponse,
   GetMyAppointmentListParams,
   GetMyAppointmentListResponse,
@@ -19,7 +19,7 @@ import {
 } from "./types";
 
 export const useGetAppointmentList = (
-  params: GetUserListParams,
+  params: GetAppointmentListParams,
   options?: Omit<UseQueryOptions<GetAppointmentListResponse, Error>, "queryKey">
 ) => {
   return useQuery<GetAppointmentListResponse, Error>({
