@@ -102,7 +102,8 @@ export const useUpdateBlogForm = (id: string) => {
       existedAdditionalImages: blogDetail.images,
       title: blogDetail.title,
       imageUrl: undefined,
-      images: undefined
+      images: undefined,
+      initialContent: blogDetail.content
     });
   }, [blogDetail, isLoadingBlogDetail]);
 

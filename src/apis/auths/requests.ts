@@ -6,11 +6,14 @@ import {
   ILoginRequest,
   ILoginResponse,
   ILogoutRequest,
+  IResetPasswordRequest,
   IUserResponse,
 } from "./types";
 
 export const getMe = async (signal?: AbortSignal): Promise<IUserResponse> => {
-  return httpInstance.get<IUserResponse>(KEYS.AUTH_ME, { signal }).then((res) => res);
+  return httpInstance
+    .get<IUserResponse>(KEYS.AUTH_ME, { signal })
+    .then((res) => res);
 };
 
 export const loginRequest = async (
@@ -22,7 +25,9 @@ export const loginRequest = async (
 };
 
 export const logoutRequest = async (body: ILogoutRequest) => {
-  return httpInstance.post<string, ILogoutRequest>(KEYS.AUTH_LOGOUT, body).then((res) => res);
+  return httpInstance
+    .post<string, ILogoutRequest>(KEYS.AUTH_LOGOUT, body)
+    .then((res) => res);
 };
 
 export const forgotPasswordRequest = async (
@@ -30,5 +35,13 @@ export const forgotPasswordRequest = async (
 ): Promise<string> => {
   return httpInstance
     .post<string, IForgotPasswordRequest>(KEYS.AUTH_FORGOT_PASSWORD, body)
+    .then((res) => res);
+};
+
+export const resetPasswordRequest = async (
+  body: IResetPasswordRequest
+): Promise<string> => {
+  return httpInstance
+    .post<string, IResetPasswordRequest>(KEYS.AUTH_RESET_PASSWORD, body)
     .then((res) => res);
 };

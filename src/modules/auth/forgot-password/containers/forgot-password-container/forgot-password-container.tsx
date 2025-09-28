@@ -1,12 +1,13 @@
+import { Card } from "@/components/ui/card";
 import { ForgotPasswordHeaderUI } from "../../components";
 import ForgotPasswordFormContainer from "../forgot-password-form-container";
 
 const ForgotPasswordContainer = () => {
   return (
-    <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+    <Card className="w-full max-w-md auth-card">
       <ForgotPasswordHeaderUI />
       <ForgotPasswordFormContainer />
-    </div>
+    </Card>
   );
 };
 

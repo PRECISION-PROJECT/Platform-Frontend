@@ -54,6 +54,7 @@ export const blogFormSchema = z.object({
   keywords: z.array(z.string()),
   sortOrder: z.number(),
   isFeatured: z.boolean(),
+  initialContent: z.string().optional(),
 });
 
 export type UpdateBlogFormData = z.infer<typeof blogFormSchema>;
@@ -73,4 +74,5 @@ export const defaultValues: UpdateBlogFormData = {
   keywords: [],
   sortOrder: 0,
   isFeatured: false,
+  initialContent: ""
 };

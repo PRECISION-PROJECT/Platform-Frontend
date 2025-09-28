@@ -36,6 +36,7 @@ interface Props<T extends FieldValues = FieldValues>
   suffixClassName?: HTMLAttributes<HTMLSpanElement>["className"];
   subLabel?: string;
   isShowError?: boolean;
+  initialContent?: string;
 }
 
 const MinimalTiptapField = <T extends FieldValues>({
@@ -49,6 +50,7 @@ const MinimalTiptapField = <T extends FieldValues>({
   requiredClassName,
   subLabel,
   isShowError = true,
+  initialContent,
   ...props
 }: Props<T>) => {
   return (
@@ -82,6 +84,7 @@ const MinimalTiptapField = <T extends FieldValues>({
                 {...field}
                 {...props}
                 content={field.value}
+                initialContent={initialContent}
                 className={cn("min-h-96", className)}
               />
               <FormMessage className="mt-1.5 text-red-500 text-sm" />

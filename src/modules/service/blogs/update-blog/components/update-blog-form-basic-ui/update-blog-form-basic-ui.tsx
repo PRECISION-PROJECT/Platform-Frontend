@@ -1,6 +1,6 @@
 import { TextAreaField, TextField } from "@/components/form-field";
 import { MinimalTiptapField } from "@/components/form-field/minimal-tiptap-field";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 import { UpdateBlogFormData } from "../../hooks";
 
 type Props = {
@@ -9,6 +9,8 @@ type Props = {
 
 const UpdateBlogFormBasicUI = ({ isPending }: Props) => {
   const { control } = useFormContext<UpdateBlogFormData>();
+  const initialContent = useWatch({ control, name: "initialContent" });
+
   return (
     <div className="space-y-6">
       <h3 className="text-lg font-semibold">Basic Information</h3>
@@ -54,6 +56,7 @@ const UpdateBlogFormBasicUI = ({ isPending }: Props) => {
           placeholder="Enter a blog content"
           required
           disabled={isPending}
+          initialContent={initialContent}
         />
       </div>
     </div>

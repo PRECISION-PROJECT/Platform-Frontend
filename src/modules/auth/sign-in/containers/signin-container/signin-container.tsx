@@ -1,12 +1,13 @@
+import { Card } from "@/components/ui/card";
 import { SigninHeaderUI } from "../../components";
 import SigninFormContainer from "../signin-form-container";
 
 const SigninContainer = () => {
   return (
-    <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+    <Card className="w-full max-w-md auth-card">
       <SigninHeaderUI />
       <SigninFormContainer />
-    </div>
+    </Card>
   );
 };
 

@@ -1,4 +1,4 @@
-import SignInModule from "@/modules/auth/sign-in";
+import { SignInModule } from "@/modules/auth";
 import { Metadata } from "next";
 import React from "react";
 

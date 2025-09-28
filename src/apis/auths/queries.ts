@@ -4,6 +4,7 @@ import {
   getMe,
   loginRequest,
   logoutRequest,
+  resetPasswordRequest,
 } from "./requests";
 import { KEYS } from "./keys";
 import {
@@ -12,6 +13,7 @@ import {
   ILoginRequest,
   IForgotPasswordRequest,
   ILogoutRequest,
+  IResetPasswordRequest,
 } from "./types";
 import { IAxiosResponse } from "@/types/axios";
 
@@ -43,5 +45,12 @@ export const useForgotPasswordMutation = () => {
   return useMutation<string, IAxiosResponse, IForgotPasswordRequest>({
     mutationKey: [KEYS.AUTH_FORGOT_PASSWORD],
     mutationFn: (data) => forgotPasswordRequest(data),
+  });
+};
+
+export const useResetPasswordMutation = () => {
+  return useMutation<string, IAxiosResponse, IResetPasswordRequest>({
+    mutationKey: [KEYS.AUTH_RESET_PASSWORD],
+    mutationFn: (data) => resetPasswordRequest(data),
   });
 };

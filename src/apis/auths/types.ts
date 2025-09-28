@@ -18,6 +18,12 @@ export interface ILogoutRequest {
   refreshToken: string
 }
 
+export interface IResetPasswordRequest {
+  email: string
+  password: string
+  hash: string
+}
+
 export interface IUserResponse {
   id: string;
   email: string;

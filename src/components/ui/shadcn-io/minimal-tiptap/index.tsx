@@ -30,6 +30,7 @@ interface MinimalTiptapProps {
   editable?: boolean;
   className?: string;
   disabled?: boolean;
+  initialContent?: string;
 }
 
 function MinimalTiptap({
@@ -39,6 +40,7 @@ function MinimalTiptap({
   editable = true,
   className,
   disabled,
+  initialContent = "",
 }: MinimalTiptapProps) {
   const editor = useEditor({
     extensions: [
@@ -66,8 +68,13 @@ function MinimalTiptap({
         ),
       },
     },
-    immediatelyRender: false
+    immediatelyRender: false,
   });
+
+  React.useEffect(() => {
+    if (!initialContent || !editor) return;
+    editor?.commands.setContent(initialContent);
+  }, [initialContent, editor]);
 
   if (!editor) {
     return null;
@@ -207,7 +214,11 @@ function MinimalTiptap({
         </Button>
       </div>
 
-      <EditorContent disabled={disabled} editor={editor} placeholder={placeholder} />
+      <EditorContent
+        disabled={disabled}
+        editor={editor}
+        placeholder={placeholder}
+      />
     </div>
   );
 }

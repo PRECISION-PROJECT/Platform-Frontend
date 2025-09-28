@@ -1,4 +1,4 @@
-import ForgotPasswordModule from "@/modules/auth/forgot-password";
+import { ForgotPasswordModule } from "@/modules/auth";
 import { Metadata } from "next";
 import React from "react";
 
