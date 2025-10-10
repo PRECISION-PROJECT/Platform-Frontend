@@ -1,9 +1,8 @@
 export const env = {
   APP_URL: process.env.NEXT_PUBLIC_APP_URL || '',
   API_URL: process.env.NEXT_PUBLIC_API_URL || '',
-  API_VERSION: process.env.NEXT_PUBLIC_API_VERSION || '/v1',
-  API_PREFIX: process.env.NEXT_PUBLIC_API_PREFIX || '/api',
   SOCKET_URL: process.env.NEXT_PUBLIC_SOCKET_URL || '',
+  GOOGLE_CLIENT_ID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '',
 };
 
 export const NUMBER_FORMAT_LOOK_UP = [

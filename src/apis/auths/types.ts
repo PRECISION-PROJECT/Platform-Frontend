@@ -5,9 +5,15 @@ export interface ILoginResponse {
   user: IUserResponse
 }
 
+export interface IGoogleLoginResponse extends ILoginResponse {}
+
 export interface ILoginRequest {
   email: string
   password: string
+}
+
+export interface IGoogleLoginRequest {
+  code: string
 }
 
 export interface IForgotPasswordRequest {

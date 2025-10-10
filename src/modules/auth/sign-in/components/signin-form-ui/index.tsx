@@ -1,13 +1,14 @@
 "use client";
 
+import { Icons } from "@/assets/icons";
+import { TextField } from "@/components/form-field";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { SignInFormData } from "../../hooks";
-import { TextField } from "@/components/form-field";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
-const SigninFormUI = ({ isLoading }: { isLoading: boolean }) => {
+const SigninFormUI = () => {
   const { control } = useFormContext<SignInFormData>();
 
   return (
@@ -28,17 +29,6 @@ const SigninFormUI = ({ isLoading }: { isLoading: boolean }) => {
         placeholder="Enter your password"
         required
       />
-      <Button className="w-full" size="lg" type="submit" disabled={isLoading}>
-        Sign in
-      </Button>
-      <div className="text-center">
-        <Link
-          href="/forgot-password"
-          className="text-sm text-muted-foreground hover:text-primary underline text-center cursor-pointer"
-        >
-          Forgot password?
-        </Link>
-      </div>
     </div>
   );
 };

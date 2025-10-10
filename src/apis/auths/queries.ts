@@ -1,21 +1,24 @@
+import { IAxiosResponse } from "@/types/axios";
 import { useMutation, useQuery, UseQueryOptions } from "@tanstack/react-query";
+import { KEYS } from "./keys";
 import {
   forgotPasswordRequest,
   getMe,
+  googleLoginRequest,
   loginRequest,
   logoutRequest,
   resetPasswordRequest,
 } from "./requests";
-import { KEYS } from "./keys";
 import {
-  IUserResponse,
-  ILoginResponse,
-  ILoginRequest,
   IForgotPasswordRequest,
+  IGoogleLoginRequest,
+  IGoogleLoginResponse,
+  ILoginRequest,
+  ILoginResponse,
   ILogoutRequest,
   IResetPasswordRequest,
+  IUserResponse,
 } from "./types";
-import { IAxiosResponse } from "@/types/axios";
 
 export const useGetMe = (
   options: Omit<UseQueryOptions<IUserResponse, Error>, "queryKey">
@@ -52,5 +55,12 @@ export const useResetPasswordMutation = () => {
   return useMutation<string, IAxiosResponse, IResetPasswordRequest>({
     mutationKey: [KEYS.AUTH_RESET_PASSWORD],
     mutationFn: (data) => resetPasswordRequest(data),
+  });
+};
+
+export const useGoogleLoginMutation = () => {
+  return useMutation<IGoogleLoginResponse, IAxiosResponse, IGoogleLoginRequest>({
+    mutationKey: [KEYS.AUTH_GOOGLE_LOGIN],
+    mutationFn: (data) => googleLoginRequest(data),
   });
 };

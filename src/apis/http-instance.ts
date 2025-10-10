@@ -8,9 +8,10 @@ import axios, {
 } from "axios";
 
 import { TOptional } from "@/types";
+import { env } from "@/utils/const";
 import { deleteCookieData, getCookieData, setCookieData } from "@/utils/cookie";
-import qs from "qs";
 import { ROUTES } from "@/utils/routes";
+import qs from "qs";
 
 type TFailedRequests = {
   resolve: (value: AxiosResponse) => void;
@@ -48,10 +49,7 @@ class HttpInstance {
   private readonly refreshTokenCount = new Map<TOptional<string>, number>();
 
   constructor(config?: CreateAxiosDefaults) {
-    this.baseURL =
-      process.env.NEXT_PUBLIC_API_URL! +
-      process.env.NEXT_PUBLIC_API_PREFIX! +
-      process.env.NEXT_PUBLIC_API_VERSION!;
+    this.baseURL = env.API_URL;
 
     this.instance = axios.create({
       ...config,

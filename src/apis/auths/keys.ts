@@ -5,5 +5,5 @@ export const KEYS = {
   AUTH_LOGOUT: '/auth/logout',
   AUTH_FORGOT_PASSWORD: '/auth/forgot/password',
   AUTH_RESET_PASSWORD: '/auth/reset/password',
-  AUTH_GOOGLE_LOGIN: '/auth-google/login',
+  AUTH_GOOGLE_LOGIN: '/auth/google/login',
 }

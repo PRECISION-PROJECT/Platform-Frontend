@@ -2,12 +2,10 @@ import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { ECookie } from "./apis/http-instance";
+import { env } from "./utils/const";
 import { ROUTES } from "./utils/routes";
 
-const baseURL =
-  process.env.NEXT_PUBLIC_API_URL! +
-  process.env.NEXT_PUBLIC_API_PREFIX! +
-  process.env.NEXT_PUBLIC_API_VERSION!;
+const baseURL = env.API_URL;
 
 const publicRoutes = ["/sign-in", "/forgot-password", "/reset-password"];
 

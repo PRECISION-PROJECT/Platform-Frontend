@@ -3,9 +3,11 @@
 import QueryClientProvider from "@/components/providers/QueryClientProvider";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
+import { env } from "@/utils/const";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
-import type { ReactNode } from "react";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import type { ReactNode } from "react";
 
 export interface ProvidersProps {
   children: ReactNode;
@@ -23,7 +25,9 @@ function Providers({ children }: ProvidersProps) {
             options={{ showSpinner: false }}
             shallowRouting
           />
-          <>{children}</>
+          <GoogleOAuthProvider clientId={env.GOOGLE_CLIENT_ID}>
+            {children}
+          </GoogleOAuthProvider>
         </ThemeProvider>
       </NuqsAdapter>
     </QueryClientProvider>

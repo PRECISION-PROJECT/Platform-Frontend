@@ -1,8 +1,9 @@
-import { request } from "../axios";
 import httpInstance from "../http-instance";
 import { KEYS } from "./keys";
 import {
   IForgotPasswordRequest,
+  IGoogleLoginRequest,
+  IGoogleLoginResponse,
   ILoginRequest,
   ILoginResponse,
   ILogoutRequest,
@@ -43,5 +44,11 @@ export const resetPasswordRequest = async (
 ): Promise<string> => {
   return httpInstance
     .post<string, IResetPasswordRequest>(KEYS.AUTH_RESET_PASSWORD, body)
+    .then((res) => res);
+};
+
+export const googleLoginRequest = async (body: IGoogleLoginRequest): Promise<IGoogleLoginResponse> => {
+  return httpInstance
+    .post<IGoogleLoginResponse, IGoogleLoginRequest>(KEYS.AUTH_GOOGLE_LOGIN, body)
     .then((res) => res);
 };
