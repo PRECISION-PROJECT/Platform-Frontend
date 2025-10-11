@@ -1,17 +1,16 @@
-import MainLayout from '@/components/layouts/MainLayout';
-import { fontMono, fontSans } from '@/config/fonts';
-import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
-import type { Metadata, Viewport } from 'next';
-import '../styles/globals.css';
-import Providers from './providers';
+import { fontMono, fontSans } from "@/config/fonts";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import type { Metadata, Viewport } from "next";
+import "../styles/globals.css";
+import Providers from "./providers";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.appUrl),
   title: siteConfig.name,
   description: siteConfig.description,
-  generator: 'Next.js',
+  generator: "Next.js",
   applicationName: siteConfig.name,
-  referrer: 'origin-when-cross-origin',
+  referrer: "origin-when-cross-origin",
   keywords: [],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -30,12 +29,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-96x96.png',
-    apple: '/apple-touch-icon.png',
+    icon: "/favicon.ico",
+    shortcut: "/favicon-96x96.png",
+    apple: "/apple-touch-icon.png",
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
@@ -46,20 +45,25 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 1,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 
 type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang='en'>
-      <body suppressHydrationWarning className={cn('min-h-screen bg-background', fontSans.variable, fontMono.variable)}>
-        <Providers>
-          <MainLayout>{children}</MainLayout>
-        </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className={cn(
+          "min-h-screen overflow-x-hidden bg-background",
+          fontSans.variable,
+          fontMono.variable
+        )}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

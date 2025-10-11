@@ -1,9 +1,8 @@
 export const env = {
   APP_URL: process.env.NEXT_PUBLIC_APP_URL || '',
   API_URL: process.env.NEXT_PUBLIC_API_URL || '',
-  API_VERSION: process.env.NEXT_PUBLIC_API_VERSION || '/v1',
-  API_PREFIX: process.env.NEXT_PUBLIC_API_PREFIX || '/api',
   SOCKET_URL: process.env.NEXT_PUBLIC_SOCKET_URL || '',
+  GOOGLE_CLIENT_ID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '',
 };
 
 export const NUMBER_FORMAT_LOOK_UP = [
@@ -28,3 +27,13 @@ export const FILE_FORMAT = [
   'image/gif',
   'image/svg+xml',
 ];
+
+export const DEFAULT_ACTIVE_OPTIONS = [
+  { label: "Active", value: "true" },
+  { label: "Inactive", value: "false" },
+]
+
+export const DEFAULT_STATUS_OPTIONS = [
+  { label: "Active", value: "active" },
+  { label: "Inactive", value: "inactive" },
+]

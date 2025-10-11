@@ -1,9 +1,14 @@
-'use client';
+"use client";
 
-import QueryClientProvider from '@/components/providers/QueryClientProvider';
-import ThemeProvider from '@/components/providers/ThemeProvider';
-import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
-import type { ReactNode } from 'react';
+import MainLayout from "@/components/layouts/main-layout";
+import { AuthProvider } from "@/components/providers/AuthProvider";
+import QueryClientProvider from "@/components/providers/QueryClientProvider";
+import ThemeProvider from "@/components/providers/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
+import { env } from "@/utils/const";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import type { ReactNode } from "react";
 
 export interface ProvidersProps {
   children: ReactNode;
@@ -12,10 +17,16 @@ export interface ProvidersProps {
 function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider>
-      <ThemeProvider>
-        <>{children}</>
-        <ProgressBar height='4px' color='#a12d23' options={{ showSpinner: false }} shallowRouting />
-      </ThemeProvider>
+      <NuqsAdapter>
+        <ThemeProvider>
+          <Toaster richColors />
+          <GoogleOAuthProvider clientId={env.GOOGLE_CLIENT_ID}>
+            <AuthProvider>
+              <MainLayout>{children}</MainLayout>
+            </AuthProvider>
+          </GoogleOAuthProvider>
+        </ThemeProvider>
+      </NuqsAdapter>
     </QueryClientProvider>
   );
 }

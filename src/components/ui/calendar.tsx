@@ -46,8 +46,8 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: R
         ...classNames,
       }}
       components={{
-        PreviousMonthButton: ({ className }) => <Icons.chevronLeft className={cn('size-4', className)} />,
-        NextMonthButton: ({ className }) => <Icons.chevronRight className={cn('size-4', className)} />,
+        IconLeft: ({ className }) => <Icons.chevronLeft className={cn('size-4', className)} />,
+        IconRight: ({ className }) => <Icons.chevronRight className={cn('size-4', className)} />,
       }}
       {...props}
     />
