@@ -53,6 +53,8 @@ import {
   ViewIcon,
   WarehouseIcon,
   XIcon,
+  HeartIcon,
+  MenuIcon,
 } from "lucide-react";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
@@ -119,7 +121,9 @@ const IconList = {
   warehouse: WarehouseIcon,
   paperclip: PaperclipIcon,
   dock: DockIcon,
-  truck: TruckIcon
+  truck: TruckIcon,
+  heart: HeartIcon,
+  menu: MenuIcon,
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;

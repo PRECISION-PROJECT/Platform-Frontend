@@ -21,7 +21,9 @@ type TFailedRequests = {
 };
 
 type NonNullableObject<T> = {
-  [K in keyof T]: T[K] extends object ? NonNullableObject<T[K]> : NonNullable<T[K]>;
+  [K in keyof T]: T[K] extends object
+    ? NonNullableObject<T[K]>
+    : NonNullable<T[K]>;
 };
 
 const MAXIMUM_RETRY_UN_AUTHENTICATION = 5;
@@ -70,21 +72,29 @@ class HttpInstance {
     return (
       value === null ||
       value === undefined ||
-      (typeof value === 'string' && value.trim() === '') ||
+      (typeof value === "string" && value.trim() === "") ||
       (Array.isArray(value) && value.length === 0) ||
-      (typeof value === 'object' && value !== null && Object.keys(value).length === 0)
+      (typeof value === "object" &&
+        value !== null &&
+        Object.keys(value).length === 0)
     );
   }
 
-  private cleanParams<T extends Record<string, unknown>>(obj: T): NonNullableObject<T> {
+  private cleanParams<T extends Record<string, unknown>>(
+    obj: T
+  ): NonNullableObject<T> {
     const result: Partial<NonNullableObject<T>> = {};
-  
+
     for (const [key, value] of Object.entries(obj)) {
       if (this.isEmpty(value)) {
         continue;
       }
-  
-      if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
+
+      if (
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        value !== null
+      ) {
         const nested = this.cleanParams(value as Record<string, unknown>);
         if (Object.keys(nested).length > 0) {
           result[key as keyof T] = nested as NonNullableObject<T>[keyof T];
@@ -93,7 +103,7 @@ class HttpInstance {
         result[key as keyof T] = value as NonNullableObject<T>[keyof T];
       }
     }
-  
+
     return result as NonNullableObject<T>;
   }
 
@@ -180,18 +190,10 @@ class HttpInstance {
       );
 
       const result: TRefreshToKenResponse = response.data;
-      const expires = result.tokenExpires
-        ? new Date(result.tokenExpires)
-        : undefined;
+      const expires = result.tokenExpires ? result.tokenExpires : undefined;
 
-      setCookieData(ECookie.ACCESS_TOKEN, result.token!, {
-        path: "/",
-        expires,
-      });
-      setCookieData(ECookie.REFRESH_TOKEN, result.refreshToken!, {
-        path: "/",
-        expires,
-      });
+      setCookieData(ECookie.ACCESS_TOKEN, result.token!, expires!);
+      setCookieData(ECookie.REFRESH_TOKEN, result.refreshToken!);
 
       this.failedRequests.forEach(({ resolve, reject, config }) => {
         this.instance(config)

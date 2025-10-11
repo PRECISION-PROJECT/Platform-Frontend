@@ -1,9 +1,7 @@
-import MainLayout from "@/components/layouts/MainLayout";
 import { fontMono, fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
 import "../styles/globals.css";
 import Providers from "./providers";
 export const metadata: Metadata = {
@@ -55,15 +53,12 @@ export const viewport: Viewport = {
 type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-  const cookieStore = await cookies();
-  const activeThemeValue = cookieStore.get("active_theme")?.value;
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={cn(
-          "min-h-screen bg-background overflow-hidden overscroll-none antialiased",
+          "min-h-screen overflow-x-hidden bg-background",
           fontSans.variable,
           fontMono.variable
         )}

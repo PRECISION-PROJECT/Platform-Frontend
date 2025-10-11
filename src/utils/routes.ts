@@ -26,4 +26,9 @@ export const ROUTES = {
   ORDER_LIST: "/order-list",
   RESET_PASSWORD: "/reset-password",
   ORDER_DETAIL: "/order-list/:id",
+  WHITE_LIST: "/white-list",
+  PORTFOLIO: "/portfolio",
+  BLOG: "/blog",
+  CONTACT: "/contact",
+  PROFILE: "/profile",
 } as const;

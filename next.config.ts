@@ -42,6 +42,12 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: ['localhost', 'placehold.co', '3.149.14.106'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "precisionwood.s3.us-east-2.amazonaws.com",
+      },
+    ],
   },
   webpack: process.env.NODE_ENV === 'development' ? undefined : webpack,
 };

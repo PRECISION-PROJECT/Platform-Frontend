@@ -16,7 +16,13 @@ export const getCookieData = (name: string) => {
 export const setCookieData = (
   name: string,
   value: string,
-  options?: OptionsType
+  expires?: number
 ) => {
-  setCookie(name, value, options ?? {});
+  setCookie(name, value, {
+    expires: expires ? new Date(expires) : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
+    secure: true,
+    path: "/",
+    sameSite: "strict",
+  });
 };
+
