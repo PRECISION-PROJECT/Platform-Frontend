@@ -54,7 +54,7 @@ import {
   WarehouseIcon,
   XIcon,
   HeartIcon,
-  MenuIcon,
+  MenuIcon
 } from "lucide-react";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
@@ -62,6 +62,8 @@ import globe from "./svg/globe.svg";
 import google from "./svg/google.svg";
 import microsoft from "./svg/microsoft.svg";
 import window from "./svg/window.svg";
+import facebook from "./svg/facebook.svg";
+import twitter from "./svg/twitter.svg";
 
 const IconList = {
   google,
@@ -124,6 +126,8 @@ const IconList = {
   truck: TruckIcon,
   heart: HeartIcon,
   menu: MenuIcon,
+  facebook,
+  twitter,
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
 import "../styles/globals.css";
 import Providers from "./providers";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.appUrl),
   title: siteConfig.name,
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-96x96.png",
+    shortcut: "/favicon-32x32.png",
     apple: "/apple-touch-icon.png",
   },
   twitter: {
@@ -58,7 +59,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <body
         suppressHydrationWarning
         className={cn(
-          "min-h-screen overflow-x-hidden bg-background",
+          "min-h-screen overflow-x-hidden",
           fontSans.variable,
           fontMono.variable
         )}

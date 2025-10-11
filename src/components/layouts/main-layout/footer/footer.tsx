@@ -1,5 +1,9 @@
+import { Icons } from "@/assets/icons";
 import MaxWidthContainer from "@/components/containers/max-width-container";
 import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/utils/routes";
+import Image from "next/image";
+import Link from "next/link";
 
 const quickLinks = [
   "Home",
@@ -16,20 +20,22 @@ const services = [
   "Restoration",
   "Consultation",
 ];
-const socialMedia = ["SM", "SM", "SM", "SM"];
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="border-t bg-primary text-primary-foreground py-10 md:py-20">
       <MaxWidthContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         {/* Logo and Description */}
-        <div>
-          <div className="bg-[#374151] px-12 py-6 rounded-sm mb-6 inline-block">
-            <span className="text-lg font-medium tracking-wide text-white">
-              LOGO
-            </span>
-          </div>
-          <p className="text-sm leading-relaxed">
+        <div className="space-y-4">
+          <Image
+            src="/logo.png"
+            alt="Precision Wood Logo"
+            width={112}
+            height={48}
+            className=" h-12 w-28 object-contain"
+            priority
+          />
+          <p className="text-sm leading-relaxed opacity-90">
             Premium custom woodworking for discerning clients. Crafting
             masterpieces since 2008.
           </p>
@@ -37,63 +43,109 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-white font-medium mb-6">Quick Links</h3>
-          <ul className="space-y-3">
-            {quickLinks.map((link) => (
-              <li key={link}>
-                <Button
-                  variant="link"
-                  className="text-[#9ca3af] hover:text-white p-0 h-auto font-normal transition-colors duration-300"
-                >
-                  {link}
-                </Button>
-              </li>
-            ))}
+          <h3 className="mb-4 text-base font-semibold">Quick Links</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link
+                href={ROUTES.HOME}
+                className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={ROUTES.ABOUT}
+                className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={ROUTES.SERVICES}
+                className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={ROUTES.PORTFOLIO}
+                className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+              >
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={ROUTES.BLOG}
+                className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={ROUTES.CONTACT}
+                className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
         {/* Our Services */}
         <div>
-          <h3 className="text-white font-medium mb-6">Our Services</h3>
-          <ul className="space-y-3">
-            {services.map((service) => (
-              <li key={service}>
-                <Button
-                  variant="link"
-                  className="text-[#9ca3af] hover:text-white p-0 h-auto font-normal transition-colors duration-300"
-                >
-                  {service}
-                </Button>
-              </li>
-            ))}
+          <h3 className="mb-4 text-base font-semibold">Our Services</h3>
+          <ul className="space-y-2 text-sm">
+            <li className="opacity-90 hover:underline">Custom Furniture</li>
+            <li className="opacity-90 hover:underline">Built-ins</li>
+            <li className="opacity-90 hover:underline">Commercial Projects</li>
+            <li className="opacity-90 hover:underline">Restoration</li>
+            <li className="opacity-90 hover:underline">Consultation</li>
           </ul>
         </div>
 
         {/* Contact Us */}
         <div>
-          <h3 className="text-white font-medium mb-6">Contact Us</h3>
-          <div className="space-y-3 text-sm">
-            <p>123 Workshop Lane</p>
-            <p>Craftsville, WD 12345</p>
-            <p className="pt-2">Phone: (555) 123-4567</p>
-            <p className="pt-2">
-              Email:
-              <br />
-              info@masterwoodworking.com
-            </p>
-
-            {/* Social Media */}
+          <h3 className="mb-4 text-base font-semibold">Contact Us</h3>
+          <div className="space-y-2 text-sm">
+            <p className="opacity-90 hover:underline">123 Workshop Lane</p>
+            <p className="opacity-90 hover:underline">Craftsville, WD 12345</p>
+            <p className="opacity-90 hover:underline">Phone: (555) 123-4567</p>
+            <p className="opacity-90 hover:underline">Email:</p>
+            <p className="opacity-90 hover:underline">info@masterwoodworking.com</p>
             <div className="flex gap-3 pt-4">
-              {socialMedia.map((sm, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full bg-[#374151] border-[#374151] text-white hover:bg-white hover:text-[#111827] transition-all duration-300"
-                >
-                  {sm}
-                </Button>
-              ))}
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                aria-label="Facebook"
+              >
+                <Icons.facebook className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                aria-label="Twitter"
+              >
+                <Icons.twitter className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                aria-label="Github"
+              >
+                <Icons.github className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                aria-label="Google"
+              >
+                <Icons.google className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>

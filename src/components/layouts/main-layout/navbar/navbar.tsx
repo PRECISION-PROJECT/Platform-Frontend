@@ -46,7 +46,7 @@ const Navbar = () => {
           <NavigationMenuItem key={link.title}>
             <Link
               className={cn(
-                "inline-flex text-sm font-medium transition-colors hover:text-accent-foreground focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                "inline-flex text-sm font-medium transition-colors hover:underline hover:text-accent-foreground focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
                 {
                   "text-accent-foreground underline": pathname.includes(
                     link.url
