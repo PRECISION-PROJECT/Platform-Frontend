@@ -1,4 +1,3 @@
-import { request } from "../axios";
 import httpInstance from "../http-instance";
 import { KEYS } from "./keys";
 import {

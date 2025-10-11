@@ -2,12 +2,9 @@
 
 import {
   useGoogleLoginMutation,
-  useLoginMutation,
-  useRegisterMutation,
+  useRegisterMutation
 } from "@/apis/auths";
-import { ECookie } from "@/apis/http-instance";
 import { handleToastError } from "@/utils/common";
-import { setCookieData } from "@/utils/cookie";
 import { ROUTES } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -48,15 +45,9 @@ export const useSignUp = () => {
   const onRequestGoogleLogin = async (code: string) => {
     try {
       const res = await useGoogleLoginMutate.mutateAsync({ code });
-      const accessToken = res.token;
-      const refreshToken = res.refreshToken;
-      if (accessToken && refreshToken) {
-        setCookieData(ECookie.ACCESS_TOKEN, accessToken, { path: "/" });
-        setCookieData(ECookie.REFRESH_TOKEN, refreshToken, { path: "/" });
-      }
-      toast.success("Sign in successfully");
+      toast.success("Sign up successfully. Please sign in to continue.");
       setTimeout(() => {
-        router.push(ROUTES.PRODUCT_LIST);
+        router.push(ROUTES.SIGN_IN);
       }, 300);
     } catch (error) {
       handleToastError(error);
