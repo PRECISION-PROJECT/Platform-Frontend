@@ -7,6 +7,12 @@ export interface ILoginResponse {
 
 export interface IGoogleLoginResponse extends ILoginResponse {}
 
+export interface IRegisterResponse {
+  email: string;
+  message: string;
+  requiresEmailConfirmation: boolean;
+}
+
 export interface ILoginRequest {
   email: string
   password: string
@@ -27,6 +33,10 @@ export interface ILogoutRequest {
 export interface IResetPasswordRequest {
   email: string
   password: string
+  hash: string
+}
+
+export interface IConfirmEmailRequest {
   hash: string
 }
 
@@ -73,4 +83,11 @@ export interface IRefreshTokenResponse {
   accessToken: string
   refreshToken: string
   tokenExpires: number
+}
+
+export interface IRegisterRequest {
+  email: string
+  password: string
+  firstName: string
+  lastName: string
 }

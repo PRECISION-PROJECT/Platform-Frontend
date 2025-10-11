@@ -1,10 +1,6 @@
 "use client";
 
-import { Icons } from "@/assets/icons";
-import { TextField } from "@/components/form-field";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import React from "react";
+import { FormInput } from "@/components/forms/form-input";
 import { useFormContext } from "react-hook-form";
 import { SignInFormData } from "../../hooks";
 
@@ -13,7 +9,7 @@ const SigninFormUI = () => {
 
   return (
     <div className="space-y-4">
-      <TextField
+      <FormInput
         control={control}
         name="email"
         label="Email"
@@ -21,7 +17,7 @@ const SigninFormUI = () => {
         required
       />
 
-      <TextField
+      <FormInput
         control={control}
         name="password"
         label="Password"

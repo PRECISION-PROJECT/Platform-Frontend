@@ -7,7 +7,7 @@ import { ROUTES } from "./utils/routes";
 
 const baseURL = env.API_URL;
 
-const publicRoutes = ["/sign-in", "/forgot-password", "/reset-password"];
+const publicRoutes = ["/sign-in", "/forgot-password", "/reset-password", "/sign-up", "/email-confirm"];
 
 type TRefreshTokenResponse = {
   token?: string;

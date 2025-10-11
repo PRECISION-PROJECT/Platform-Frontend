@@ -1,19 +1,18 @@
 "use client";
 
-import React from "react";
-import { useFormContext } from "react-hook-form";
-import { TextField } from "@/components/form-field";
-import Link from "next/link";
+import { FormInput } from "@/components/forms/form-input";
 import { Button } from "@/components/ui/button";
-import { ResetPasswordFormData } from "../../hooks";
 import { ROUTES } from "@/utils/routes";
+import Link from "next/link";
+import { useFormContext } from "react-hook-form";
+import { ResetPasswordFormData } from "../../hooks";
 
 const ResetPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
   const { control } = useFormContext<ResetPasswordFormData>();
 
   return (
     <div className="space-y-4">
-      <TextField
+      <FormInput
         control={control}
         name="newPassword"
         label="New Password"
@@ -22,7 +21,7 @@ const ResetPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
         required
       />
 
-      <TextField
+      <FormInput
         control={control}
         name="confirmPassword"
         label="Confirm Password"

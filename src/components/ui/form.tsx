@@ -101,12 +101,16 @@ const FormItemContext = React.createContext<FormItemContextValue>(
   {} as FormItemContextValue
 );
 
-const FormItem: FCC = ({ children }) => {
+const FormItem = ({ className, ...props }: React.ComponentProps<"div">) => {
   const id = React.useId();
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      {children}
+      <div
+        data-slot="form-item"
+        className={cn("grid gap-2", className)}
+        {...props}
+      />
     </FormItemContext.Provider>
   );
 };
@@ -116,10 +120,12 @@ const FormLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
 >(({ className, ...props }, ref) => {
-  const { formItemId } = useFormField();
+  const { error, formItemId } = useFormField();
   return (
     <Label
       ref={ref}
+      data-slot="form-label"
+      data-error={!!error}
       className={cn("mb-1.5 block", className)}
       htmlFor={formItemId}
       {...props}
@@ -137,6 +143,7 @@ const FormControl = React.forwardRef<
 
   return (
     <Slot
+      data-slot="form-control"
       ref={ref}
       id={formItemId}
       aria-describedby={
@@ -160,6 +167,7 @@ const FormDescription = React.forwardRef<
   return (
     <p
       ref={ref}
+      data-slot='form-description'
       id={formDescriptionId}
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
@@ -183,6 +191,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
+      data-slot='form-message'
       className={cn("font-medium text-destructive text-sm mt-1.5", className)}
       {...props}
     >

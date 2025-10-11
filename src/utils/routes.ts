@@ -4,6 +4,7 @@ export const ROUTES = {
   SERVICES: '/services',
   DASHBOARD: "/dashboard",
   SIGN_IN: "/sign-in",
+  SIGN_UP: "/sign-up",
   FORGOT_PASSWORD: "/forgot-password",
   CREATE_CATEGORY: "/category-list/create",
   CATEGORY_LIST: "/category-list",

@@ -2,20 +2,25 @@ import { IAxiosResponse } from "@/types/axios";
 import { useMutation, useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { KEYS } from "./keys";
 import {
+  confirmEmailRequest,
   forgotPasswordRequest,
   getMe,
   googleLoginRequest,
   loginRequest,
   logoutRequest,
+  registerRequest,
   resetPasswordRequest,
 } from "./requests";
 import {
+  IConfirmEmailRequest,
   IForgotPasswordRequest,
   IGoogleLoginRequest,
   IGoogleLoginResponse,
   ILoginRequest,
   ILoginResponse,
   ILogoutRequest,
+  IRegisterRequest,
+  IRegisterResponse,
   IResetPasswordRequest,
   IUserResponse,
 } from "./types";
@@ -59,8 +64,24 @@ export const useResetPasswordMutation = () => {
 };
 
 export const useGoogleLoginMutation = () => {
-  return useMutation<IGoogleLoginResponse, IAxiosResponse, IGoogleLoginRequest>({
-    mutationKey: [KEYS.AUTH_GOOGLE_LOGIN],
-    mutationFn: (data) => googleLoginRequest(data),
+  return useMutation<IGoogleLoginResponse, IAxiosResponse, IGoogleLoginRequest>(
+    {
+      mutationKey: [KEYS.AUTH_GOOGLE_LOGIN],
+      mutationFn: (data) => googleLoginRequest(data),
+    }
+  );
+};
+
+export const useRegisterMutation = () => {
+  return useMutation<IRegisterResponse, IAxiosResponse, IRegisterRequest>({
+    mutationKey: [KEYS.AUTH_EMAIL_REGISTER],
+    mutationFn: (data) => registerRequest(data),
+  });
+};
+
+export const useConfirmEmailMutation = () => {
+  return useMutation<void, IAxiosResponse, IConfirmEmailRequest>({
+    mutationKey: [KEYS.AUTH_CONFIRM_EMAIL],
+    mutationFn: (data) => confirmEmailRequest(data),
   });
 };

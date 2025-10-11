@@ -1,12 +1,15 @@
 import httpInstance from "../http-instance";
 import { KEYS } from "./keys";
 import {
+  IConfirmEmailRequest,
   IForgotPasswordRequest,
   IGoogleLoginRequest,
   IGoogleLoginResponse,
   ILoginRequest,
   ILoginResponse,
   ILogoutRequest,
+  IRegisterRequest,
+  IRegisterResponse,
   IResetPasswordRequest,
   IUserResponse,
 } from "./types";
@@ -47,8 +50,29 @@ export const resetPasswordRequest = async (
     .then((res) => res);
 };
 
-export const googleLoginRequest = async (body: IGoogleLoginRequest): Promise<IGoogleLoginResponse> => {
+export const googleLoginRequest = async (
+  body: IGoogleLoginRequest
+): Promise<IGoogleLoginResponse> => {
   return httpInstance
-    .post<IGoogleLoginResponse, IGoogleLoginRequest>(KEYS.AUTH_GOOGLE_LOGIN, body)
+    .post<IGoogleLoginResponse, IGoogleLoginRequest>(
+      KEYS.AUTH_GOOGLE_LOGIN,
+      body
+    )
+    .then((res) => res);
+};
+
+export const registerRequest = async (
+  body: IRegisterRequest
+): Promise<IRegisterResponse> => {
+  return httpInstance
+    .post<IRegisterResponse, IRegisterRequest>(KEYS.AUTH_EMAIL_REGISTER, body)
+    .then((res) => res);
+};
+
+export const confirmEmailRequest = async (
+  body: IConfirmEmailRequest
+): Promise<void> => {
+  return httpInstance
+    .post<void, IConfirmEmailRequest>(KEYS.AUTH_CONFIRM_EMAIL, body)
     .then((res) => res);
 };

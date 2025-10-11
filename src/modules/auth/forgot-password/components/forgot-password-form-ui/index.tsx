@@ -2,18 +2,18 @@
 
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { TextField } from "@/components/form-field";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ForgotPasswordFormData } from "../../hooks";
 import { ROUTES } from "@/utils/routes";
+import { FormInput } from "@/components/forms/form-input";
 
 const ForgotPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
   const { control } = useFormContext<ForgotPasswordFormData>();
 
   return (
     <div className="space-y-4">
-      <TextField
+      <FormInput
         control={control}
         name="email"
         label="Email"
@@ -24,7 +24,7 @@ const ForgotPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
       <Button className="w-full" size="lg" type="submit" disabled={isLoading}>
         Send Reset Link
       </Button>
-      <div className="mt-6 text-center">
+      <div className="text-center">
         <Link
           href={ROUTES.SIGN_IN}
           className="text-sm text-muted-foreground hover:text-primary underline"
