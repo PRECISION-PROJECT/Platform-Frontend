@@ -23,6 +23,7 @@ import {
   Eye,
   EyeOff,
   HashIcon,
+  HeartIcon,
   ImageIcon,
   LayoutDashboard,
   ListOrderedIcon,
@@ -30,11 +31,14 @@ import {
   MailIcon,
   MailPlusIcon,
   MapPinIcon,
+  MenuIcon,
   MoonIcon,
   NewspaperIcon,
   Package2Icon,
   PaperclipIcon,
+  PauseIcon,
   PhoneIcon,
+  PlayIcon,
   PlusCircleIcon,
   SearchIcon,
   Settings2Icon,
@@ -52,18 +56,16 @@ import {
   UsersIcon,
   ViewIcon,
   WarehouseIcon,
-  XIcon,
-  HeartIcon,
-  MenuIcon
+  XIcon
 } from "lucide-react";
+import facebook from "./svg/facebook.svg";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
 import globe from "./svg/globe.svg";
 import google from "./svg/google.svg";
 import microsoft from "./svg/microsoft.svg";
-import window from "./svg/window.svg";
-import facebook from "./svg/facebook.svg";
 import twitter from "./svg/twitter.svg";
+import window from "./svg/window.svg";
 
 const IconList = {
   google,
@@ -128,6 +130,8 @@ const IconList = {
   menu: MenuIcon,
   facebook,
   twitter,
+  pause: PauseIcon,
+  play: PlayIcon,
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;

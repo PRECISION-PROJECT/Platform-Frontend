@@ -19,13 +19,7 @@ const UserActionMobile = () => {
   if (!isAuthenticated) {
     return (
       <div className="items-center gap-6 flex lg:hidden">
-        <Button
-          onClick={() => router.push(ROUTES.SIGN_IN)}
-          variant="ghost"
-          className="text-[#374151] hover:bg-gray-200 hover:text-gray-900"
-        >
-          Login
-        </Button>
+        <Button onClick={() => router.push(ROUTES.SIGN_IN)} className="bg-white text-black hover:bg-white/90 text-sm font-medium">GET STARTED</Button>
       </div>
     );
   }
