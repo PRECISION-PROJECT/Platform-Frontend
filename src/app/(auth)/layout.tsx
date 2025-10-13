@@ -1,5 +1,4 @@
-import { ThemeToggle } from "@/components/shared/theme-toggle";
-import Image from "next/image";
+import MaxWidthContainer from "@/components/containers/max-width-container";
 
 export default function AuthLayout({
   children,
@@ -7,8 +6,8 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center justify-center p-4 auth-background">
+    <MaxWidthContainer className="py-10 md:py-20 z-10 mt-20 flex justify-center items-center">
       {children}
-    </div>
+    </MaxWidthContainer>
   );
 }

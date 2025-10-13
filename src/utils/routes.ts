@@ -32,5 +32,8 @@ export const ROUTES = {
   CONTACT: "/contact",
   PROFILE: "/profile",
   RESOURCES: "/resources",
-  HELP: "/help"
+  PRODUCTS: "/products",
+  HELP: "/help",
+  APPOINTMENTS: "/appointments",
+  BLOGS: "/blogs",
 } as const;

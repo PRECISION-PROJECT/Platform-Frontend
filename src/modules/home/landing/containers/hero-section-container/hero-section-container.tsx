@@ -62,7 +62,7 @@ const HeroSectionContainer = () => {
           <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-black/20 z-0" />
+        <div className="absolute inset-0 bg-black/60 z-0" />
 
         <Button
           aria-label={isPlaying ? "Pause video" : "Play video"}
@@ -76,7 +76,7 @@ const HeroSectionContainer = () => {
           )}
         </Button>
 
-        <MaxWidthContainer className="py-10 md:py-20 z-10">
+        <MaxWidthContainer className="py-10 md:py-20 z-10 mt-20">
           <AnimationContainer delay={0.1}>
             <div className="flex flex-col items-center space-y-8 text-center">
               <p className="text-sm font-medium uppercase tracking-wider opacity-90">
@@ -102,14 +102,6 @@ const HeroSectionContainer = () => {
             </div>
           </AnimationContainer>
         </MaxWidthContainer>
-
-        {/* <div className="relative z-10 text-center px-6 mb-32">
-        <h1 className="text-white text-5xl md:text-7xl font-light mb-8 text-balance">A website makes it real</h1>
-        <Button size="lg" className="bg-white text-black hover:bg-white/90 font-medium mb-4">
-          GET STARTED
-        </Button>
-        <p className="text-white/90 text-sm">Start for free. No credit card required.</p>
-      </div> */}
 
         {/* Carousel indicators */}
       </section>

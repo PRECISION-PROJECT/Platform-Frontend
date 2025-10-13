@@ -1,31 +1,20 @@
 "use client";
 
 import MaxWidthContainer from "@/components/containers/max-width-container";
-import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 import { useHeader } from "@/hooks/use-header";
-import { cn } from "@/lib/utils";
 import { ROUTES } from "@/utils/routes";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../navbar";
+import NavbarMenu from "../navbar-menu/navbar-menu";
 import UserAction from "../user-action";
-import UserActionMobile from "../user-action-mobile";
 
 const Header = () => {
-  const { isMenuOpen, isScrolled, setIsMenuOpen } = useHeader();
+  const { isMenuOpen, isAuthRoute, isScrolled, setIsMenuOpen } = useHeader();
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMenuOpen ? "bg-primary" : "bg-transparent"
+        isAuthRoute || isScrolled || isMenuOpen ? "bg-primary" : "bg-transparent"
       }`}
     >
       <motion.div
@@ -45,9 +34,12 @@ const Header = () => {
               priority
             />
           </Link>
-          <Navbar setIsMenuOpen={setIsMenuOpen} />
-          <UserAction />
-          <UserActionMobile />
+          {/* Desktop Menu */}
+          <NavbarMenu setIsMenuOpen={setIsMenuOpen} />
+
+          <div className="flex items-center gap-3">
+            <UserAction />
+          </div>
         </MaxWidthContainer>
       </motion.div>
     </header>
