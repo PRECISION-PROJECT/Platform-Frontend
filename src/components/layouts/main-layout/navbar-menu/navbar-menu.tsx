@@ -16,6 +16,31 @@ type Props = {
   setIsMenuOpen: (value: boolean) => void;
 };
 
+const LinkWithUnderline = ({
+  children,
+  href,
+  className,
+}: {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+}) => {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "group relative flex items-center",
+        "before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:h-[0.15em] before:w-full before:bg-brand before:content-['']",
+        "before:origin-right before:scale-x-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)]",
+        "hover:before:origin-left hover:before:scale-x-100",
+        className
+      )}
+    >
+      {children}
+    </Link>
+  );
+};
+
 const NavbarMenu = (props: Props) => {
   const pathname = usePathname();
   const isRouteActive = (pathname: string, href: string): boolean => {
@@ -31,17 +56,17 @@ const NavbarMenu = (props: Props) => {
         {NAV_LINKS.map((link) => (
           <NavigationMenuItem key={link.title}>
             <NavigationMenuLink asChild>
-              <Link
+              <LinkWithUnderline
                 href={link.href}
-                className={cn(
-                  "block group relative after:content-[''] after:h-[1.5px] after:bg-primary after:bottom-0 after:left-0 after:absolute after:w-0 after:data-[state='open']:w-full after:data-[state='open']:transition-all after:transition-all",
-                  {
-                    "underline": isRouteActive(pathname, link.href),
-                  }
-                )}
+                className={cn("py-1!", {
+                  "before:scale-x-100 before:origin-left": isRouteActive(
+                    pathname,
+                    link.href
+                  ),
+                })}
               >
                 {link.title}
-              </Link>
+              </LinkWithUnderline>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}

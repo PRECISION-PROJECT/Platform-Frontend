@@ -6,8 +6,10 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import * as React from "react";
 
 const images = [
@@ -86,44 +88,37 @@ export default function HeroCarouselUI() {
         }}
         className="w-full"
       >
-        <CarouselContent className="flex h-[500px] w-full">
-          {images.map((img, index) => (
-            <CarouselItem
-              key={index}
-              className="relative flex h-[81.5%] w-full basis-[73%] items-center justify-center sm:basis-[50%] md:basis-[30%] lg:basis-[25%] xl:basis-[21%]"
-            >
-              <motion.div
-                initial={false}
-                animate={{
-                  clipPath:
-                    current !== index
-                      ? "inset(15% 0 15% 0 round 2rem)"
-                      : "inset(0 0 0 0 round 2rem)",
-                }}
-                className="h-full w-full overflow-hidden rounded-3xl"
+        <CarouselContent>
+          {images.map((item, index) => {
+            return (
+              <CarouselItem
+                key={index}
+                className={cn("basis-1/3", {
+                  "sm:basis-[50%] md:basis-[30%]": false,
+                })}
               >
-                <div className="relative h-full w-full border">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="h-full w-full scale-105 object-cover"
-                  />
-                </div>
-              </motion.div>
-              <AnimatePresence mode="wait">
-                {current === index && (
-                  <motion.div
-                    initial={{ opacity: 0, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, filter: "blur(0px)" }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute bottom-0 left-2 flex h-[14%] w-full translate-y-full items-center justify-center p-2 text-center font-medium tracking-tight text-white"
-                  >
-                    {img.title}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </CarouselItem>
-          ))}
+                <motion.div
+                  initial={false}
+                  animate={{
+                    clipPath:
+                      current !== index
+                        ? "inset(15% 0 15% 0 round 2rem)"
+                        : "inset(0 0 0 0 round 2rem)",
+                  }}
+                  className="h-full w-full overflow-hidden rounded-3xl"
+                >
+                  <div className="relative h-full w-full border">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="h-full w-full scale-105 object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </motion.div>
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
       </Carousel>
     </div>
