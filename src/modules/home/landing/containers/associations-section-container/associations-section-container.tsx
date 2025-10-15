@@ -43,7 +43,7 @@ const AssociationsSectionContainer = () => {
             <MarqueeContent>
               {COMPANIES_LIST.map((item, index) => (
                 <MarqueeItem
-                  className="w-40 px-1 rounded-2xl object-contain opacity-80"
+                  className="w-40 mx-6 rounded-2xl object-contain opacity-80"
                   key={index}
                 >
                   <Image

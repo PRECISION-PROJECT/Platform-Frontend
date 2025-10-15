@@ -4,6 +4,7 @@ import {
   AssociationsSectionContainer,
   CapabilitiesSectionContainer,
   HeroSectionContainer,
+  InspirationLibrarySectionContainer,
   ProductsSectionContainer,
   StatsSectionContainer,
   VisionSectionContainer,
@@ -19,6 +20,7 @@ const LandingModule = () => {
       <VisionSectionContainer />
       <ProductsSectionContainer />
       <AssociationsSectionContainer />
+      <InspirationLibrarySectionContainer />
     </div>
   );
 };
