@@ -1,8 +1,9 @@
-import React from "react";
 import {
   AboutUsSectionContainer,
   AssociationsSectionContainer,
+  BlogSectionContainer,
   CapabilitiesSectionContainer,
+  ContactSectionContainer,
   HeroSectionContainer,
   InspirationLibrarySectionContainer,
   ProductsSectionContainer,
@@ -21,6 +22,8 @@ const LandingModule = () => {
       <ProductsSectionContainer />
       <AssociationsSectionContainer />
       <InspirationLibrarySectionContainer />
+      <BlogSectionContainer />
+      <ContactSectionContainer />
     </div>
   );
 };

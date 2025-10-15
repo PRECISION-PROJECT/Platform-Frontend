@@ -26,8 +26,8 @@ const SigninActionUI = ({ isLoading, onGoogleLogin }: Props) => {
           type="button"
           disabled={isLoading}
           onClick={onGoogleLogin}
-          variant="outline"
-          className="w-full md:w-1/2 [&_svg:not([class*='size-'])]:size-auto!"
+          variant="secondary"
+          className="w-full md:w-1/2 [&_svg:not([class*='size-'])]:size-auto! border-1"
         >
           <Icons.google />
           <span className="ml-2">Sign in with Google</span>
@@ -36,13 +36,13 @@ const SigninActionUI = ({ isLoading, onGoogleLogin }: Props) => {
       <div className="flex justify-between">
         <Link
           href={ROUTES.SIGN_UP}
-          className="text-sm text-muted-foreground hover:text-primary underline text-center cursor-pointer"
+          className="text-sm hover:text-primary underline text-center cursor-pointer"
         >
           Don't have an account? Sign up
         </Link>
         <Link
           href={ROUTES.FORGOT_PASSWORD}
-          className="text-sm text-muted-foreground hover:text-primary underline text-center cursor-pointer"
+          className="text-sm hover:text-primary underline text-center cursor-pointer"
         >
           Forgot password?
         </Link>

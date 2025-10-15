@@ -2,7 +2,7 @@ export { default as AboutUsSectionContainer } from "./about-us-container";
 export { default as AssociationsSectionContainer } from "./associations-section-container";
 export { default as BlogSectionContainer } from "./blog-section-container";
 export { default as CapabilitiesSectionContainer } from "./capabilities-section-container";
-export { default as CTASectionContainer } from "./CTA-section-container";
+export { default as ContactSectionContainer } from "./contact-section-container";
 export { default as FeaturedProjectsSectionContainer } from "./featured-projects-section-container";
 export { default as HeroSectionContainer } from "./hero-section-container";
 export { default as InspirationLibrarySectionContainer } from "./inspiration-library-section-container";

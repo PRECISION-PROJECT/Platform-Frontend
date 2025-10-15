@@ -1,4 +1,8 @@
-import { HeroCarouselUI, HeroContentUI, HeroVideoUI } from "../../components";
+import {
+  HeroCarouselUI,
+  HeroContentUI,
+  HeroVideoUI,
+} from "../../components/hero-section";
 
 const HeroSectionContainer = () => {
   return (
