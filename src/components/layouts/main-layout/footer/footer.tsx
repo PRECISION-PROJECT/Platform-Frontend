@@ -36,7 +36,7 @@ const Footer = () => {
               className=" h-12 w-28 object-contain"
               priority
             />
-            <p className="text-sm leading-relaxed opacity-90">
+            <p className="text-sm text-text-secondary leading-relaxed opacity-90">
               Premium custom woodworking for discerning clients. Crafting
               masterpieces since 2008.
             </p>

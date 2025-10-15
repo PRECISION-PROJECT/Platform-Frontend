@@ -2,6 +2,7 @@ import { fontMono, fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
+import { Chakra_Petch, Montserrat, Poppins } from "next/font/google";
 import "../styles/globals.css";
 import Providers from "./providers";
 
@@ -53,6 +54,26 @@ export const viewport: Viewport = {
 
 type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
 
+const fontPoppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  display: "swap", // Add font-display: swap for better performance
+  preload: true, // Preload for faster loading
+});
+
+const fontMontserrat = Montserrat({
+  variable: "--font-montserrat",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
+  preload: false, // Don't preload secondary fonts
+});
+
+// Add caching and edge runtime for better performance
+export const revalidate = 300; // Cache for 5 minutes
+export const dynamic = "force-static"; // Enable static generation where possible
+
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -60,8 +81,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         suppressHydrationWarning
         className={cn(
           "min-h-screen overflow-x-hidden",
-          fontSans.variable,
-          fontMono.variable
+          fontPoppins.variable,
+          fontMontserrat.variable
         )}
       >
         <Providers>{children}</Providers>
