@@ -14,7 +14,9 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isAuthRoute || isScrolled || isMenuOpen ? "bg-primary" : "bg-transparent"
+        isAuthRoute || isScrolled || isMenuOpen
+          ? "bg-background"
+          : "bg-transparent"
       }`}
     >
       <motion.div

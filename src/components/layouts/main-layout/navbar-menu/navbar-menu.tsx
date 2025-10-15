@@ -30,7 +30,7 @@ const LinkWithUnderline = ({
       href={href}
       className={cn(
         "group relative flex items-center",
-        "before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:h-[0.15em] before:w-full before:bg-brand before:content-['']",
+        "before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:h-[0.15em] before:w-full before:bg-primary before:content-['']",
         "before:origin-right before:scale-x-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)]",
         "hover:before:origin-left hover:before:scale-x-100",
         className

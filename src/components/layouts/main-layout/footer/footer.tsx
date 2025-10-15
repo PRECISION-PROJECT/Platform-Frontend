@@ -23,7 +23,7 @@ const services = [
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-primary text-primary-foreground py-10 md:py-20">
+    <footer className="border-t bg-background text-secondary py-10 md:py-20">
       <MaxWidthContainer>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and Description */}
@@ -49,7 +49,7 @@ const Footer = () => {
               <li>
                 <Link
                   href={ROUTES.HOME}
-                  className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+                  className="opacity-90 transition-opacity text-text-secondary hover:opacity-100 hover:underline"
                 >
                   Home
                 </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
               <li>
                 <Link
                   href={ROUTES.ABOUT}
-                  className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+                  className="opacity-90 transition-opacity text-text-secondary hover:opacity-100 hover:underline"
                 >
                   About Us
                 </Link>
@@ -65,7 +65,7 @@ const Footer = () => {
               <li>
                 <Link
                   href={ROUTES.SERVICES}
-                  className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+                  className="opacity-90 transition-opacity text-text-secondary hover:opacity-100 hover:underline"
                 >
                   Services
                 </Link>
@@ -73,7 +73,7 @@ const Footer = () => {
               <li>
                 <Link
                   href={ROUTES.PORTFOLIO}
-                  className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+                  className="opacity-90 transition-opacity text-text-secondary hover:opacity-100 hover:underline"
                 >
                   Portfolio
                 </Link>
@@ -81,7 +81,7 @@ const Footer = () => {
               <li>
                 <Link
                   href={ROUTES.BLOG}
-                  className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+                  className="opacity-90 transition-opacity text-text-secondary hover:opacity-100 hover:underline"
                 >
                   Blog
                 </Link>
@@ -89,7 +89,7 @@ const Footer = () => {
               <li>
                 <Link
                   href={ROUTES.CONTACT}
-                  className="opacity-90 transition-opacity hover:opacity-100 hover:underline"
+                  className="opacity-90 transition-opacity text-text-secondary hover:opacity-100 hover:underline"
                 >
                   Contact
                 </Link>
@@ -101,13 +101,21 @@ const Footer = () => {
           <div>
             <h3 className="mb-4 text-base font-semibold">Our Services</h3>
             <ul className="space-y-2 text-sm">
-              <li className="opacity-90 hover:underline">Custom Furniture</li>
-              <li className="opacity-90 hover:underline">Built-ins</li>
-              <li className="opacity-90 hover:underline">
+              <li className="opacity-90 text-text-secondary hover:underline">
+                Custom Furniture
+              </li>
+              <li className="opacity-90 text-text-secondary hover:underline">
+                Built-ins
+              </li>
+              <li className="opacity-90 text-text-secondary hover:underline">
                 Commercial Projects
               </li>
-              <li className="opacity-90 hover:underline">Restoration</li>
-              <li className="opacity-90 hover:underline">Consultation</li>
+              <li className="opacity-90 text-text-secondary hover:underline">
+                Restoration
+              </li>
+              <li className="opacity-90 text-text-secondary hover:underline">
+                Consultation
+              </li>
             </ul>
           </div>
 
@@ -115,42 +123,46 @@ const Footer = () => {
           <div>
             <h3 className="mb-4 text-base font-semibold">Contact Us</h3>
             <div className="space-y-2 text-sm">
-              <p className="opacity-90 hover:underline">123 Workshop Lane</p>
-              <p className="opacity-90 hover:underline">
+              <p className="opacity-90 text-text-secondary hover:underline">
+                123 Workshop Lane
+              </p>
+              <p className="opacity-90 text-text-secondary hover:underline">
                 Craftsville, WD 12345
               </p>
-              <p className="opacity-90 hover:underline">
+              <p className="opacity-90 text-text-secondary hover:underline">
                 Phone: (555) 123-4567
               </p>
-              <p className="opacity-90 hover:underline">Email:</p>
-              <p className="opacity-90 hover:underline">
+              <p className="opacity-90 text-text-secondary hover:underline">
+                Email:
+              </p>
+              <p className="opacity-90 text-text-secondary hover:underline">
                 info@masterwoodworking.com
               </p>
               <div className="flex gap-3 pt-4">
                 <a
                   href="#"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-400 text-foreground transition-colors hover:bg-gray-400/80"
                   aria-label="Facebook"
                 >
                   <Icons.facebook className="h-4 w-4" />
                 </a>
                 <a
                   href="#"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-400 text-foreground transition-colors hover:bg-gray-400/80"
                   aria-label="Twitter"
                 >
                   <Icons.twitter className="h-4 w-4" />
                 </a>
                 <a
                   href="#"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-400 text-foreground transition-colors hover:bg-gray-400/80"
                   aria-label="Github"
                 >
                   <Icons.github className="h-4 w-4" />
                 </a>
                 <a
                   href="#"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-muted/80"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-400 text-foreground transition-colors hover:bg-gray-400/80"
                   aria-label="Google"
                 >
                   <Icons.google className="h-4 w-4" />

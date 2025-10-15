@@ -98,7 +98,7 @@ export default function CapabilitiesCarouselUI() {
         <Button
           variant="outline"
           size="icon"
-          className="text-primary hover:text-primary/80 rounded-full"
+          className="rounded-full"
           onClick={() => api?.scrollPrev()}
         >
           <Icons.chevronLeft className="w-4 h-4" />
@@ -106,7 +106,7 @@ export default function CapabilitiesCarouselUI() {
         <Button
           variant="outline"
           size="icon"
-          className="text-primary hover:text-primary/80 rounded-full"
+          className="rounded-full"
           onClick={() => api?.scrollNext()}
         >
           <Icons.chevronRight className="w-4 h-4" />

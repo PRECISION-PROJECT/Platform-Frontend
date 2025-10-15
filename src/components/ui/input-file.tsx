@@ -1,19 +1,19 @@
 "use client";
 
-import * as NextImage from 'next/image';
-import type { ChangeEvent, DragEvent, ReactNode } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import * as NextImage from "next/image";
+import type { ChangeEvent, DragEvent, ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { Icons } from '@/assets/icons';
-import { cn } from '@/lib/utils';
-import type { FCC } from '@/types';
+import { Icons } from "@/assets/icons";
+import { cn } from "@/lib/utils";
+import type { FCC } from "@/types";
 
-import useMobile from '@/hooks/useMobile';
-import { validateFileFormat, validateFileSize } from '@/utils/common';
-import { FILE_FORMAT } from '@/utils/const';
-import { toast } from 'sonner';
-import { HStack, VStack } from '../utilities';
-import { Button } from './button';
+import useMobile from "@/hooks/useMobile";
+import { validateFileFormat, validateFileSize } from "@/utils/common";
+import { FILE_FORMAT } from "@/utils/const";
+import { toast } from "sonner";
+import { HStack, VStack } from "../utilities";
+import { Button } from "./button";
 
 interface IValidate {
   size?: number;
@@ -26,7 +26,7 @@ interface ISizeValidate {
   width: number;
   height: number;
   message: string;
-  type?: 'greaterThan' | 'lessThan';
+  type?: "greaterThan" | "lessThan";
 }
 
 export interface InputFileProps {
@@ -57,20 +57,22 @@ const InputFile: FCC<InputFileProps> = ({
   validate = {
     size: 100,
     format: FILE_FORMAT,
-    sizeMessage: 'Upload failed, please try again. File must be no exceed 100MB in size.',
-    formatMessage: 'Upload failed, please try again. The file must be in JPG, PNG, SVG or GIF format',
+    sizeMessage:
+      "Upload failed, please try again. File must be no exceed 100MB in size.",
+    formatMessage:
+      "Upload failed, please try again. The file must be in JPG, PNG, SVG or GIF format",
   },
   sizeValidate = {
     width: 0,
     height: 0,
-    message: 'Please use PNG or JPG files larger than 0 x 0 px',
-    type: 'greaterThan',
+    message: "Please use PNG or JPG files larger than 0 x 0 px",
+    type: "greaterThan",
   },
-  accept = '.png,.jpg,.jpeg,.webp',
+  accept = ".png,.jpg,.jpeg,.webp",
   trashIconSize = 32,
   besideComp,
 }) => {
-  const [blob, setBlob] = useState('');
+  const [blob, setBlob] = useState("");
   const targetRef = useRef<HTMLInputElement>(null);
   const isMobile = useMobile();
 
@@ -85,7 +87,9 @@ const InputFile: FCC<InputFileProps> = ({
     const file = files![0];
 
     if (!validateFileFormat(file)) {
-      toast.error('Upload failed, please try again. The file must be in JPG, PNG,SVG or GIF format');
+      toast.error(
+        "Upload failed, please try again. The file must be in JPG, PNG,SVG or GIF format"
+      );
       return;
     }
 
@@ -118,9 +122,11 @@ const InputFile: FCC<InputFileProps> = ({
 
       image.onload = () => {
         if (
-          sizeValidate.type === 'greaterThan'
-            ? image.width >= sizeValidate.width && image.height >= sizeValidate.height
-            : image.width <= sizeValidate.width && image.height <= sizeValidate.height
+          sizeValidate.type === "greaterThan"
+            ? image.width >= sizeValidate.width &&
+              image.height >= sizeValidate.height
+            : image.width <= sizeValidate.width &&
+              image.height <= sizeValidate.height
         ) {
           const fileBlob = URL.createObjectURL(selectedFile);
           onChange(selectedFile, fileBlob);
@@ -128,17 +134,17 @@ const InputFile: FCC<InputFileProps> = ({
         } else {
           toast.error(sizeValidate.message);
           if (targetRef.current) {
-            targetRef.current.value = '';
+            targetRef.current.value = "";
           }
-          setBlob('');
-          onChange(null, '');
+          setBlob("");
+          onChange(null, "");
         }
       };
 
       if (!validateFileSize(selectedFile, validate.size)) {
         toast.error(validate?.sizeMessage);
         if (targetRef.current) {
-          targetRef.current.value = '';
+          targetRef.current.value = "";
         }
         return 0;
       }
@@ -146,7 +152,7 @@ const InputFile: FCC<InputFileProps> = ({
       if (!validateFileFormat(selectedFile, validate.format)) {
         toast.error(validate?.formatMessage);
         if (targetRef.current) {
-          targetRef.current.value = '';
+          targetRef.current.value = "";
         }
         return 0;
       }
@@ -166,28 +172,28 @@ const InputFile: FCC<InputFileProps> = ({
   };
 
   const handleClear = () => {
-    setBlob('');
-    onChange(null, '');
+    setBlob("");
+    onChange(null, "");
     URL.revokeObjectURL(blob);
     if (targetRef.current) {
-      targetRef.current.value = '';
+      targetRef.current.value = "";
     }
   };
 
   useEffect(() => {
-    if (!!preview && typeof preview === 'string') {
+    if (!!preview && typeof preview === "string") {
       setBlob(preview);
       return;
     }
 
-    if (!!preview && typeof preview === 'object' && preview?.type) {
+    if (!!preview && typeof preview === "object" && preview?.type) {
       setBlob(URL.createObjectURL(preview));
       onChange(preview);
       return;
     }
 
     if (!preview) {
-      setBlob('');
+      setBlob("");
     }
   }, [preview]);
 
@@ -196,7 +202,8 @@ const InputFile: FCC<InputFileProps> = ({
       <div
         className={cn(
           {
-            'dark:#FFFFFF26 border-1 border-[#FFFFFF26] dark:border-[#FFFFFF26]': withBorder,
+            "dark:#FFFFFF26 border-1 border-[#FFFFFF26] dark:border-[#FFFFFF26]":
+              withBorder,
           },
           `group relative flex h-full w-full items-center justify-center overflow-hidden rounded-[.5rem] bg-[#FFFFFF26] font-medium hover:cursor-pointer dark:bg-[#FFFFFF26] dark:placeholder:text-gray-400`,
           className
@@ -216,24 +223,24 @@ const InputFile: FCC<InputFileProps> = ({
         {blob && (
           <NextImage.default
             fill
-            className='absolute top-0 right-0 left-0 z-1 h-full w-full rounded-xl object-center'
+            className="absolute top-0 right-0 left-0 z-1 h-full w-full rounded-xl object-center"
             src={blob}
-            alt=''
+            alt=""
           />
         )}
-        <div className='-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-10 w-full'>
+        <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-10 w-full">
           {blob ? (
             withClear ? (
               <HStack
-                justify='center'
-                className='opacity-100 transition-all duration-300 ease-linear group-hover:opacity-100 md:opacity-0'
+                justify="center"
+                className="opacity-100 transition-all duration-300 ease-linear group-hover:opacity-100 md:opacity-0"
               >
                 <Button
                   disabled={disabled}
                   onClick={handleClear}
-                  size={'sm'}
-                  className={cn('backdrop-blur-sm dark:bg-white-custom', {
-                    'h-8 px-2': isMobile,
+                  size={"sm"}
+                  className={cn("backdrop-blur-sm dark:bg-white-custom", {
+                    "h-8 px-2": isMobile,
                   })}
                 >
                   <Icons.trash size={trashIconSize} />
@@ -243,22 +250,40 @@ const InputFile: FCC<InputFileProps> = ({
           ) : (
             <>
               {description ? (
-                <VStack justify='center' align='center' spacing={8}>
-                  <HStack justify='center' align='center' className='rounded-[.5rem] p-2.5 md:dark:bg-[#FD363C26]'>
-                    <Icons.cloud width={20} height={20} className='stroke-gray-25' />
+                <VStack justify="center" align="center" spacing={8}>
+                  <HStack
+                    justify="center"
+                    align="center"
+                    className="rounded-[.5rem] p-2.5 md:dark:bg-[#FD363C26]"
+                  >
+                    <Icons.cloud
+                      width={20}
+                      height={20}
+                      className="stroke-gray-25"
+                    />
                   </HStack>
 
-                  <div className='hidden space-y-1 md:block'>
-                    <div className='text-center'>
-                      <p className='inline font-medium text-brand-600 text-sm dark:text-brand-600'>Click to upload </p>
-                      <p className='inline font-medium text-gray-25 text-sm dark:text-gray-25'>or drag and drop</p>
+                  <div className="hidden space-y-1 md:block">
+                    <div className="text-center">
+                      <p className="inline font-medium text-primary text-sm dark:text-primary">
+                        Click to upload{" "}
+                      </p>
+                      <p className="inline font-medium text-gray-25 text-sm dark:text-gray-25">
+                        or drag and drop
+                      </p>
                     </div>
-                    <div className='text-center font-medium text-gray-25 text-xs dark:text-gray-25'>{description}</div>
+                    <div className="text-center font-medium text-gray-25 text-xs dark:text-gray-25">
+                      {description}
+                    </div>
                   </div>
                 </VStack>
               ) : (
-                <div className='absolute top-0 right-0 flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black/55 opacity-0 transition-all hover:scale-125 active:scale-110 group-hover:opacity-100'>
-                  <Icons.cloud className='text-gray-200' width={24} height={24} />
+                <div className="absolute top-0 right-0 flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black/55 opacity-0 transition-all hover:scale-125 active:scale-110 group-hover:opacity-100">
+                  <Icons.cloud
+                    className="text-gray-200"
+                    width={24}
+                    height={24}
+                  />
                 </div>
               )}
             </>
@@ -267,11 +292,11 @@ const InputFile: FCC<InputFileProps> = ({
 
         <input
           ref={targetRef}
-          type='file'
+          type="file"
           hidden
           onChange={handleFileChange}
           accept={accept}
-          className='w-full rounded border px-4 py-2 focus:border-blue-300 focus:outline-none focus:ring dark:border-gray-700 dark:bg-black dark:placeholder:text-gray-400'
+          className="w-full rounded border px-4 py-2 focus:border-blue-300 focus:outline-none focus:ring dark:border-gray-700 dark:bg-black dark:placeholder:text-gray-400"
         />
       </div>
 

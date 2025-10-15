@@ -9,13 +9,13 @@ const AboutUsSectionContainer = () => {
           {/* Overlapping Images */}
           <div className="relative h-[600px]">
             {/* Large top image with decorative border */}
-            <div className="absolute left-0 top-0 h-[350px] w-[85%] border-2 border-dashed  border-border-dashed bg-background">
+            <div className="absolute left-0 top-0 h-[350px] w-[85%] border-2 border-dashed  border-border-dashed bg-foreground">
               <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
                 Image Placeholder
               </div>
             </div>
             {/* Smaller overlapping image */}
-            <div className="absolute bottom-0 right-0 h-[350px] w-[70%] border-2 border-dashed  border-border-dashed bg-background">
+            <div className="absolute bottom-0 right-0 h-[350px] w-[70%] border-2 border-dashed  border-border-dashed bg-foreground">
               <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
                 Image Placeholder
               </div>
@@ -73,7 +73,7 @@ const AboutUsSectionContainer = () => {
               et faucibus arcu condimentum sed.
             </p>
           </div>
-          <div className="relative h-[500px] border-2 border-dashed bg-background border-border-dashed">
+          <div className="relative h-[500px] border-2 border-dashed bg-foreground border-border-dashed">
             <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
               Image Placeholder
             </div>
