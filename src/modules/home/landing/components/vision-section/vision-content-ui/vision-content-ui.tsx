@@ -19,7 +19,7 @@ const VisionContentUI = () => {
           />
 
           <div className="absolute inset-0 bg-black/40" />
-          <p className="absolute top-0 z-100 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
+          <p className="absolute top-0 z-1 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
             01
           </p>
 
@@ -51,7 +51,7 @@ const VisionContentUI = () => {
           />
 
           <div className="absolute inset-0 bg-black/70" />
-          <p className="absolute top-0 z-100 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
+          <p className="absolute top-0 z-1 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
             02
           </p>
           <VStack
