@@ -1,6 +1,7 @@
 "use client";
 
 import MaxWidthContainer from "@/components/containers/max-width-container";
+import Logo from "@/components/ui/logo";
 import { useHeader } from "@/hooks/use-header";
 import { ROUTES } from "@/utils/routes";
 import { motion } from "framer-motion";
@@ -25,17 +26,8 @@ const Header = () => {
         exit={{ opacity: 0, y: -50 }}
         transition={{ delay: 0.5, ease: "easeInOut" }}
       >
-        <MaxWidthContainer className="flex items-center justify-between py-4">
-          <Link href={ROUTES.HOME} className="flex items-center space-x-2">
-            <Image
-              src="/logo.png"
-              alt="Precision Wood Logo"
-              width={96}
-              height={40}
-              className="h-10 w-24 object-contain"
-              priority
-            />
-          </Link>
+        <MaxWidthContainer className="flex items-center justify-between py-6">
+          <Logo />
           {/* Desktop Menu */}
           <NavbarMenu setIsMenuOpen={setIsMenuOpen} />
 

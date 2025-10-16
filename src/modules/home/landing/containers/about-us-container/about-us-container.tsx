@@ -5,7 +5,7 @@ const AboutUsSectionContainer = () => {
   return (
     <MaxWidthContainer className="py-10 md:py-20">
       <AnimationContainer delay={0.3}>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
           {/* Overlapping Images */}
           <div className="relative h-[600px]">
             {/* Large top image with decorative border */}

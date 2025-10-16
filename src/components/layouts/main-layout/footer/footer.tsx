@@ -1,6 +1,5 @@
 import { Icons } from "@/assets/icons";
 import MaxWidthContainer from "@/components/containers/max-width-container";
-import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/utils/routes";
 import Image from "next/image";
 import Link from "next/link";

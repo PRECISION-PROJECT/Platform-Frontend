@@ -1,8 +1,8 @@
-import { fontMono, fontSans } from "@/config/fonts";
+import { fontSpring } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
-import { Chakra_Petch, Montserrat, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "../styles/globals.css";
 import Providers from "./providers";
 
@@ -59,15 +59,7 @@ const fontPoppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap", // Add font-display: swap for better performance
-  preload: true, // Preload for faster loading
-});
-
-const fontMontserrat = Montserrat({
-  variable: "--font-montserrat",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-  display: "swap",
-  preload: false, // Don't preload secondary fonts
+  preload: false, // Preload for faster loading
 });
 
 // Add caching and edge runtime for better performance
@@ -81,8 +73,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         suppressHydrationWarning
         className={cn(
           "min-h-screen overflow-x-hidden",
-          fontPoppins.variable,
-          fontMontserrat.variable
+          fontSpring.variable,
+          fontPoppins.variable
         )}
       >
         <Providers>{children}</Providers>
