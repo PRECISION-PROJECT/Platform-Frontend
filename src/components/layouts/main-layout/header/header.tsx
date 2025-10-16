@@ -26,7 +26,7 @@ const Header = () => {
         exit={{ opacity: 0, y: -50 }}
         transition={{ delay: 0.5, ease: "easeInOut" }}
       >
-        <MaxWidthContainer className="flex items-center justify-between py-6">
+        <MaxWidthContainer className="flex items-center justify-between py-6 px-4!">
           <Logo />
           {/* Desktop Menu */}
           <NavbarMenu setIsMenuOpen={setIsMenuOpen} />
