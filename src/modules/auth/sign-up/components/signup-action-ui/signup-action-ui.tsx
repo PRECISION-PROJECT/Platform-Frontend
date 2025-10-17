@@ -11,21 +11,10 @@ type Props = {
 
 const SignupActionUI = ({ isLoading, onGoogleLogin }: Props) => {
   return (
-    <div className="space-y-4 mt-6">
+    <div className="space-y-6 mt-6">
       <div className="flex justify-between flex-col gap-2 md:flex-row-reverse">
-        <Button className="w-full md:w-1/2" size="lg" type="submit" disabled={isLoading}>
+        <Button className="w-full" size="lg" type="submit" disabled={isLoading}>
           Sign up
-        </Button>
-        <Button
-          size="lg"
-          type="button"
-          disabled={isLoading}
-          onClick={onGoogleLogin}
-          variant="outline"
-          className="w-full md:w-1/2 [&_svg:not([class*='size-'])]:size-auto!"
-        >
-          <Icons.google />
-          <span className="ml-2">Sign up with Google</span>
         </Button>
       </div>
       <div className="text-center">
