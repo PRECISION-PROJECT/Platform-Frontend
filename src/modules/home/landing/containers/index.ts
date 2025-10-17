@@ -8,7 +8,6 @@ export { default as HeroSectionContainer } from "./hero-section-container";
 export { default as InspirationLibrarySectionContainer } from "./inspiration-library-section-container";
 export { default as PartnerTestimonialsSectionContainer } from "./partner-testimonials-section-container";
 export { default as ProductsSectionContainer } from "./products-section-container";
-export { default as StatsSectionContainer } from "./stats-section-container";
 export { default as TestimonialSectionContainer } from "./testimonial-section-container";
 export { default as VisionSectionContainer } from "./vision-section-container";
 

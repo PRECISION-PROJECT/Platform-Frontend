@@ -7,7 +7,6 @@ import {
   HeroSectionContainer,
   InspirationLibrarySectionContainer,
   ProductsSectionContainer,
-  StatsSectionContainer,
   VisionSectionContainer,
 } from "./containers";
 
@@ -15,7 +14,6 @@ const LandingModule = () => {
   return (
     <div className="scrollbar-hide size-full overflow-x-hidden">
       <HeroSectionContainer />
-      <StatsSectionContainer />
       <AboutUsSectionContainer />
       <CapabilitiesSectionContainer />
       <VisionSectionContainer />

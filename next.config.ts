@@ -47,9 +47,9 @@ const nextConfig: NextConfig = {
         hostname: "precisionwood.s3.us-east-2.amazonaws.com",
       },
       {
-        protocol: "https",
-        hostname: 'placehold.co'
-      }
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
     ],
   },
   webpack: process.env.NODE_ENV === 'development' ? undefined : webpack,

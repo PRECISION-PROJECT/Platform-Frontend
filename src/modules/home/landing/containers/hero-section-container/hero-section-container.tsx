@@ -1,16 +1,42 @@
+import { VStack } from "@/components/utilities";
 import {
   HeroCarouselUI,
   HeroContentUI,
+  HeroStatisticUI,
   HeroVideoUI,
 } from "../../components/hero-section";
 
+const data = [
+  {
+    label: "FIGURE A",
+    value: "80",
+    description: "Going above expectations in every deliverable we produce.",
+  },
+  {
+    label: "FIGURE A",
+    value: "75",
+    description: "Going above expectations in every deliverable we produce.",
+  },
+  {
+    label: "FIGURE A",
+    value: "100",
+    description: "Going above expectations in every deliverable we produce.",
+  },
+];
+
 const HeroSectionContainer = () => {
   return (
-    <section className="relative min-h-[1100px] flex flex-col items-center justify-center overflow-hidden">
+    <VStack
+      align="center"
+      justify="center"
+      className="relative overflow-hidden"
+      spacing={80}
+    >
       <HeroVideoUI />
       <HeroContentUI />
       <HeroCarouselUI />
-    </section>
+      <HeroStatisticUI data={data} />
+    </VStack>
   );
 };
 

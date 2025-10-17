@@ -1,5 +1,6 @@
 "use client";
 
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselApi,
@@ -8,7 +9,6 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
-import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import * as React from "react";
 
@@ -73,7 +73,7 @@ export default function HeroCarouselUI() {
   }, [api]);
 
   return (
-    <div className="flex h-full w-screen items-center justify-center overflow-hidden">
+    <div className="flex w-screen items-center justify-center overflow-hidden">
       <Carousel
         setApi={setApi}
         plugins={[
@@ -90,32 +90,46 @@ export default function HeroCarouselUI() {
       >
         <CarouselContent>
           {images.map((item, index) => {
+            const isActive = index === current;
             return (
               <CarouselItem
                 key={index}
-                className={cn("basis-1/3", {
-                  "sm:basis-[50%] md:basis-[30%]": false,
-                })}
+                className={cn(
+                  "basis-1/3 md:basis-3/5 lg:basis-2/5 xl:basis-1/5 h-72"
+                )}
               >
-                <motion.div
-                  initial={false}
-                  animate={{
-                    clipPath:
-                      current !== index
-                        ? "inset(15% 0 15% 0 round 2rem)"
-                        : "inset(0 0 0 0 round 2rem)",
-                  }}
-                  className="h-full w-full overflow-hidden rounded-3xl"
+                <Card
+                  className={cn(
+                    "h-full bg-transparent border-none shadow-none transition-transform duration-500 transform",
+                    {
+                      "opacity-30 scale-95": !isActive,
+                      "opacity-100 scale-100 z-10": isActive,
+                    }
+                  )}
                 >
-                  <div className="relative h-full w-full border">
-                    <img
+                  <CardContent className="p-0 relative h-full rounded-md overflow-hidden">
+                    <Image
                       src={item.src}
                       alt={item.alt}
-                      className="h-full w-full scale-105 object-cover"
-                      loading="lazy"
+                      fill
+                      unoptimized
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      priority={index === 0}
                     />
+                  </CardContent>
+                </Card>
+                {/* <Card
+                  className={cn(
+                    "bg-primary text-primary-foreground transition-all duration-500 h-full",
+                    {
+                      "opacity-30": index !== current,
+                    }
+                  )}
+                >
+                  <div className="flex items-center justify-center bg-gray-200 rounded-md h-full text-6xl text-gray-500">
+                    X
                   </div>
-                </motion.div>
+                </Card> */}
               </CarouselItem>
             );
           })}

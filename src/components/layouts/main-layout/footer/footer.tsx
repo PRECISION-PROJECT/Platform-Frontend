@@ -170,7 +170,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-center text-9xl text-[170px] text-white font-light opacity-90">
+        <p className="text-center text-9xl text-[170px] text-white font-light opacity-90 md:inline-block hidden">
           PRECISION
         </p>
       </MaxWidthContainer>
