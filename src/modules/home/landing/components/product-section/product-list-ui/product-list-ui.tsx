@@ -8,7 +8,7 @@ import React from "react";
 const images = [
   {
     src: "https://placehold.co/400",
-    name: "Motion Graphics",
+    name: "2D Graphics",
   },
   {
     src: "https://placehold.co/400",
@@ -50,7 +50,9 @@ const ProductListUI = () => {
           </div>
           <div className="absolute inset-0 bg-black/20 z-0" />
           <VStack spacing={0} justify={"end"} className="relative p-4 h-full">
-            <h3 className="text-3xl uppercase">{image.name}</h3>
+            <h3 className="text-2xl uppercase font-spring font-bold">
+              {image.name}
+            </h3>
           </VStack>
         </div>
       ))}

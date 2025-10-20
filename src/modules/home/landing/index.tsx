@@ -7,6 +7,7 @@ import {
   HeroSectionContainer,
   InspirationLibrarySectionContainer,
   ProductsSectionContainer,
+  TestimonialSectionContainer,
   VisionSectionContainer,
 } from "./containers";
 
@@ -20,6 +21,7 @@ const LandingModule = () => {
       <ProductsSectionContainer />
       <AssociationsSectionContainer />
       <InspirationLibrarySectionContainer />
+      <TestimonialSectionContainer />
       <BlogSectionContainer />
       <ContactSectionContainer />
     </div>

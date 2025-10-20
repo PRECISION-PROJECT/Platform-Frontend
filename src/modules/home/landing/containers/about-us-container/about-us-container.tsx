@@ -1,5 +1,6 @@
 import AnimationContainer from "@/components/containers/animation-container";
 import MaxWidthContainer from "@/components/containers/max-width-container";
+import { Button } from "@/components/ui/button";
 
 const AboutUsSectionContainer = () => {
   return (
@@ -24,10 +25,10 @@ const AboutUsSectionContainer = () => {
 
           {/* Content */}
           <div className="flex flex-col justify-center space-y-8">
-            <h2 className="font-serif text-5xl font-bold text-primary-foreground md:text-6xl lg:text-7xl text-balance">
+            <h2 className="font-spring text-5xl font-semibold md:text-3xl lg:text-5xl text-balance">
               ABOUT US
             </h2>
-            <p className="font-serif text-xl leading-relaxed text-primary-foreground md:text-2xl text-pretty">
+            <p className="font-spring font-light text-xl leading-relaxed md:text-2xl text-pretty">
               Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu
               . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus
               arcu
@@ -39,16 +40,16 @@ const AboutUsSectionContainer = () => {
             {/* Body text with decorative P */}
             <div className="flex gap-6">
               <div className="shrink-0">
-                <span className="font-serif text-6xl font-bold text-primary-foreground">
+                <span className="text-2xl md:text-3xl lg:text-6xl font-bold text-foreground">
                   P
                 </span>
               </div>
               <div className="space-y-4 pt-2">
-                <p className="text-sm leading-relaxed text-primary-foreground/80">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   orem ipsum dolor sit amet, consectetur adipiscing elit.
                   Aliquam at orem ipsum dolor sit amet, consectetur
                 </p>
-                <p className="text-sm leading-relaxed text-primary-foreground/80">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   Aliquam erat volutpat. Donec placerat nisl magna, et faucibus
                   arcu . Aliquam erat volutpat. Donec placerat nisl magna, et
                   faucibus arcu .Aliquam erat volutpat. Donec placerat nisl
@@ -60,18 +61,25 @@ const AboutUsSectionContainer = () => {
         </div>
 
         {/* Live Edge Section */}
-        <div className="mt-32 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-4 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col justify-center space-y-6">
-            <h3 className="font-serif text-4xl font-bold text-primary-foreground">
+            <h3 className="text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary-foreground">
               Live Edge Handcrafted with Love
             </h3>
             <div className="h-px w-3/4 bg-primary-foreground/30" />
-            <p className="text-sm leading-relaxed text-primary-foreground/80">
+            <p className="text-sm leading-relaxed text-muted-foreground">
               Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat
               nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor
               sit amet, consectetur adipiscing elit. Donec placerat nisl magna,
               et faucibus arcu condimentum sed.
             </p>
+            <Button
+              variant="default"
+              size="sm"
+              className="font-poppins w-fit rounded-none"
+            >
+              READ MORE
+            </Button>
           </div>
           <div className="relative h-[500px] border-2 border-dashed bg-foreground border-border-dashed">
             <div className="flex h-full items-center justify-center text-sm text-muted-foreground">

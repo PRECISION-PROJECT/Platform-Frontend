@@ -7,6 +7,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { useWindowSize } from "@/hooks/use-window-size";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -64,6 +65,9 @@ export default function HeroCarouselUI() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
+  const { width } = useWindowSize();
+  console.log("🚀 ~ HeroCarouselUI ~ width:", width);
+
   React.useEffect(() => {
     if (!api) return;
 
@@ -100,9 +104,8 @@ export default function HeroCarouselUI() {
               >
                 <Card
                   className={cn(
-                    "h-full bg-transparent border-none shadow-none transition-transform duration-500 transform",
+                    "h-full bg-transparent border-none shadow-none transition-transform duration-500 transform opacity-30 scale-95",
                     {
-                      "opacity-30 scale-95": !isActive,
                       "opacity-100 scale-100 z-10": isActive,
                     }
                   )}
@@ -118,18 +121,6 @@ export default function HeroCarouselUI() {
                     />
                   </CardContent>
                 </Card>
-                {/* <Card
-                  className={cn(
-                    "bg-primary text-primary-foreground transition-all duration-500 h-full",
-                    {
-                      "opacity-30": index !== current,
-                    }
-                  )}
-                >
-                  <div className="flex items-center justify-center bg-gray-200 rounded-md h-full text-6xl text-gray-500">
-                    X
-                  </div>
-                </Card> */}
               </CarouselItem>
             );
           })}

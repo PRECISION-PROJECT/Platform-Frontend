@@ -1,5 +1,6 @@
 import AnimationContainer from "@/components/containers/animation-container";
 import MaxWidthContainer from "@/components/containers/max-width-container";
+import { Heading } from "@/components/shared/heading";
 import InfiniteMovingCards from "@/components/shared/infinitie-moving-card";
 import {
   Marquee,
@@ -31,13 +32,11 @@ const AssociationsSectionContainer = () => {
   return (
     <MaxWidthContainer className="py-10 md:py-20 overflow-hidden">
       <AnimationContainer delay={0.1}>
-        <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-          Our Trusted Associations
-        </h2>
-        <p className="mb-12 text-center text-sm opacity-90">
-          Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
-          consectetur
-        </p>
+        <Heading
+          className="text-center"
+          title="Our Trusted Associations"
+          description="Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur"
+        />
         <div className="mt-8">
           <Marquee>
             <MarqueeContent>

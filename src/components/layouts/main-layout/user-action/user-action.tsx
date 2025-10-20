@@ -27,7 +27,12 @@ const UserAction = () => {
   if (!isAuthenticated) {
     return (
       <div className="items-center gap-6 hidden lg:flex">
-        <Button onClick={() => router.push(ROUTES.SIGN_IN)} className="bg-white text-black hover:bg-white/90 text-sm font-medium">GET STARTED</Button>
+        <Button
+          onClick={() => router.push(ROUTES.SIGN_IN)}
+          className="bg-white text-black hover:bg-white/90 text-sm font-medium"
+        >
+          GET STARTED
+        </Button>
       </div>
     );
   }

@@ -3,10 +3,7 @@
 import MaxWidthContainer from "@/components/containers/max-width-container";
 import Logo from "@/components/ui/logo";
 import { useHeader } from "@/hooks/use-header";
-import { ROUTES } from "@/utils/routes";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import NavbarMenu from "../navbar-menu/navbar-menu";
 import UserAction from "../user-action";
 

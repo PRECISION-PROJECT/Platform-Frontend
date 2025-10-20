@@ -1,5 +1,6 @@
 import { Icons } from "@/assets/icons";
 import MaxWidthContainer from "@/components/containers/max-width-container";
+import { VStack } from "@/components/utilities";
 import { ROUTES } from "@/utils/routes";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,8 +24,8 @@ const services = [
 const Footer = () => {
   return (
     <footer className="border-t bg-background text-secondary py-10 md:py-20">
-      <MaxWidthContainer>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <MaxWidthContainer className="px-4 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 my-12">
           {/* Logo and Description */}
           <div className="space-y-4">
             <Image
@@ -79,7 +80,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href={ROUTES.BLOG}
+                  href={ROUTES.BLOGS}
                   className="opacity-90 transition-opacity text-text-secondary hover:opacity-100 hover:underline"
                 >
                   Blog
@@ -170,9 +171,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-center text-9xl text-[170px] text-white font-light opacity-90 md:inline-block hidden">
-          PRECISION
-        </p>
+
+        <VStack className="md:flex hidden" spacing={16}>
+          <p className="text-center text-9xl text-[170px] text-white font-light opacity-90 font-spring pt-8">
+            PRECISION
+          </p>
+          <p className="text-center text-muted-foreground text-sm">
+            &copy; {new Date().getFullYear()} Master Custom Woodworking. All
+            rights reserved.
+          </p>
+        </VStack>
       </MaxWidthContainer>
     </footer>
   );

@@ -139,16 +139,19 @@ export default function CapabilitiesCarouselUI() {
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/20 z-0" />
+                <div className="absolute inset-0 bg-black/50 z-0" />
                 <VStack
-                  spacing={10}
+                  spacing={16}
                   justify={"end"}
                   className="relative p-4 h-full"
                 >
-                  <h3 className="text-2xl font-bold">{img.title}</h3>
+                  <h3 className="text-base md:text-lg lg:text-xl font-spring font-bold">
+                    {img.title}
+                  </h3>
                   <p className="text-sm text-white/80">{img.alt}</p>
                   <Button
-                    className={cn("w-fit border-none rounded-none py-6 px-8")}
+                    size="sm"
+                    className={cn("w-fit border-none rounded-none")}
                   >
                     {img.action}
                   </Button>

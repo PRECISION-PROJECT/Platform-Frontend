@@ -1,9 +1,9 @@
 "use client";
-import React, { type PropsWithChildren } from "react";
-import Header from "./header";
-import Footer from "./footer";
-import { motion } from "framer-motion";
 import KBar from "@/components/shared/kbar";
+import { motion } from "framer-motion";
+import React, { type PropsWithChildren } from "react";
+import Footer from "./footer";
+import Header from "./header";
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (

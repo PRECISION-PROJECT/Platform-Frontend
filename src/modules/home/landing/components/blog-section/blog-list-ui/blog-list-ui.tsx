@@ -28,9 +28,9 @@ const images = [
 
 const BlogListUI = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
       {images.map((image) => (
-        <VStack className="" key={image.name}>
+        <VStack spacing={16} key={image.name}>
           <div className="shrink-0">
             <img
               src={image.src}
@@ -40,11 +40,13 @@ const BlogListUI = () => {
             />
           </div>
           <VStack className="flex-1">
-            <h3 className="text-3xl uppercase">{image.name}</h3>
+            <h3 className="text-base font-background font-bold uppercase font-spring">
+              {image.name}
+            </h3>
             <p className="text-sm opacity-70">{image.description}</p>
           </VStack>
           <div className="mt-auto">
-            <Button variant="link" className="hover:underline">
+            <Button variant="underline" className="text-background px-0 py-0">
               Read more
             </Button>
           </div>

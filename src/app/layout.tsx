@@ -2,7 +2,7 @@ import { fontSpring } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Bodoni_Moda, Poppins } from "next/font/google";
 import "../styles/globals.css";
 import Providers from "./providers";
 
@@ -62,6 +62,14 @@ const fontPoppins = Poppins({
   preload: false, // Preload for faster loading
 });
 
+const fontBodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni-moda",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+});
+
 // Add caching and edge runtime for better performance
 export const revalidate = 300; // Cache for 5 minutes
 export const dynamic = "force-static"; // Enable static generation where possible
@@ -74,7 +82,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         className={cn(
           "min-h-screen overflow-x-hidden",
           fontSpring.variable,
-          fontPoppins.variable
+          fontPoppins.variable,
+          fontBodoniModa.variable
         )}
       >
         <Providers>{children}</Providers>

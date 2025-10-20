@@ -9,14 +9,12 @@ import {
 
 const ContactSectionContainer = () => {
   return (
-    <MaxWidthContainer className="py-10 md:py-20">
-      <AnimationContainer delay={0.1}>
-        <div className="space-y-12">
-          <ContactHeaderUI />
-          <ContactActionUI />
-        </div>
-      </AnimationContainer>
-    </MaxWidthContainer>
+    <AnimationContainer delay={0.1} className="py-10 md:py-20">
+      <div className="space-y-10">
+        <ContactHeaderUI />
+        <ContactActionUI />
+      </div>
+    </AnimationContainer>
   );
 };
 

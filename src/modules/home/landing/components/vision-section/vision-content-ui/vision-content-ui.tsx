@@ -19,18 +19,18 @@ const VisionContentUI = () => {
           />
 
           <div className="absolute inset-0 bg-black/40" />
-          <p className="absolute top-0 z-1 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
+          <p className="font-bodoni-moda absolute top-0 z-1 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
             01
           </p>
 
           <VStack
-            justify="center"
+            justify="start"
             align="center"
             spacing={80}
-            className="relative z-10 text-white h-full"
+            className="pt-44 relative z-10 text-white h-full"
           >
-            <h2 className="text-3xl font-serif">Explore our products</h2>
-            <p className="max-w-md text-center text-sm opacity-70">
+            <h2 className="text-3xl font-spring">Explore our products</h2>
+            <p className="max-w-md text-center text-sm opacity-80">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
               corporis aut! Labore dolores ipsam velit ratione. Fugit, natus ea
               dolore possimus odit saepe recusandae accusamus. Beatae quas
@@ -51,45 +51,43 @@ const VisionContentUI = () => {
           />
 
           <div className="absolute inset-0 bg-black/70" />
-          <p className="absolute top-0 z-1 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
+          <p className="font-bodoni-moda absolute top-0 z-1 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[150px] font-extralight">
             02
           </p>
           <VStack
-            justify="center"
+            justify="start"
             align="center"
             spacing={80}
-            className="relative z-10 text-white h-full"
+            className="relative z-10 text-white h-full px-5 pt-44"
           >
-            <h2 className="text-3xl font-serif">Masterpiece your ideal</h2>
+            <h2 className="text-3xl font-spring">Masterpiece your ideal</h2>
             <HStack className="gap-8">
-              <VStack className="flex-1 max-w-md" align="center">
-                <p className="text-2xl">For a specific product</p>
-                <p className="text-sm opacity-70 text-center">
+              <VStack className="flex-1 max-w-md gap-4 md:gap-9" align="center">
+                <p className="text-xl text-center max-w-[170px] text-spring font-light">
+                  For a specific product
+                </p>
+                <p className="text-sm text-center opacity-80 hidden lg:inline-block">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Maiores, corporis aut! Labore dolores ipsam velit ratione.
                   Fugit, natus ea dolore possimus odit saepe recusandae
                   accusamus. Beatae quas nostrum illo incidunt.
                 </p>
-                <Button
-                  variant="link"
-                  className={cn("w-fit border-none rounded-none py-6 px-8")}
-                >
+                <Button variant="underline" className="after:bg-primary">
                   CUSTOMIZE A PRODUCT
                 </Button>
               </VStack>
-              <VStack className="flex-1 max-w-md" align="center">
-                <p className="text-2xl">For a specific project</p>
-                <p className="text-sm opacity-70 text-center">
+              <VStack className="flex-1 max-w-md gap-4 md:gap-9" align="center">
+                <p className="text-xl text-center max-w-[170px] text-spring font-light">
+                  For a specific project
+                </p>
+                <p className="text-sm text-center opacity-80 hidden lg:inline-block">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Maiores, corporis aut! Labore dolores ipsam velit ratione.
                   Fugit, natus ea dolore possimus odit saepe recusandae
                   accusamus. Beatae quas nostrum illo incidunt.
                 </p>
-                <Button
-                  variant="link"
-                  className={cn("w-fit border-none rounded-none py-6 px-8")}
-                >
-                  CUSTOMIZE A PRODUCT
+                <Button variant="underline" className="after:bg-primary">
+                  DISCUSS A PROJECT
                 </Button>
               </VStack>
             </HStack>

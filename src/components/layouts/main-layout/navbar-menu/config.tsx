@@ -1,19 +1,5 @@
 import { Icons } from "@/assets/icons";
 import { ROUTES } from "@/utils/routes";
-import {
-    Backpack,
-    CakeSlice,
-    Coffee,
-    Grape,
-    Hotel,
-    IceCream,
-    MapPin,
-    Package,
-    Pizza,
-    Plane,
-    Sandwich,
-    Smile,
-} from "lucide-react";
 
 export const foods = [
   {
@@ -51,7 +37,7 @@ export const foods = [
 export const travelMenuItems = [
   {
     title: "Destinations",
-    icon: <Icons.mapPin className="mb-4 size-6" />, 
+    icon: <Icons.mapPin className="mb-4 size-6" />,
     description: "Discover amazing places to visit.",
   },
   {
@@ -80,7 +66,6 @@ export const travelMenuItems = [
     description: "Make every trip smooth and memorable.",
   },
 ];
-
 
 export const NAV_LINKS = [
   {

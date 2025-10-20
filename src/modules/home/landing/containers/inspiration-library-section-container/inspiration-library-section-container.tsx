@@ -81,7 +81,7 @@ const InspirationLibrarySectionContainer = () => {
               ))}
             </TabsList>
           </MaxWidthContainer>
-          <TabsContents className="my-20 bg-foreground h-fit">
+          <TabsContents className="mt-20 lg:mt-20 bg-foreground">
             <TabsContent value={TAB_VALUE.TABLE}>
               <InspirationTableUI />
             </TabsContent>

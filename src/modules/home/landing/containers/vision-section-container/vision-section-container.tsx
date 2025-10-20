@@ -6,7 +6,7 @@ import {
 
 const VisionSectionContainer = () => {
   return (
-    <VStack spacing={20}>
+    <VStack className="gap-20">
       <VisionHeaderUI />
       <VisionContentUI />
     </VStack>

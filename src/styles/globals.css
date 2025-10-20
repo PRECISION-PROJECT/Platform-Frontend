@@ -7,6 +7,7 @@
   /** Font size **/
   --font-spring: var(--font-spring);  /* Custom font */
   --font-poppins: Poppins, sans-serif; /* Main font */
+  --font-bodoni-moda: Bodoni_Moda, sans-serif;
   --font-sans: var(--font-poppins), sans-serif;
   
   --radius: 0.625rem;
@@ -14,6 +15,8 @@
   /* Base Colors */
   --background: #141313;    /* Dark background */
   --foreground: #FFFFFF;    /* Dark text */
+  --surface: #4B5563;
+  --surface-light: #D1D5DB;
   
   /* Primary = Brown (main brand color) */
   --primary: #695441;       /* Brown button */
@@ -71,6 +74,8 @@
   /* Dark mode - keeping same colors for now */
   --background: #141313;
   --foreground: #FFFFFF;
+  --surface: #374151;
+  --surface-light: #6B7280;
   --card: #1a1a1a;
   --card-foreground: #FFFFFF;
   --popover: #1a1a1a;
@@ -135,12 +140,15 @@
 @theme inline {
   --font-poppins: var(--font-poppins);
   --font-spring: var(--font-spring);
+  --font-bodoni-moda: var(--font-bodoni-moda);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
