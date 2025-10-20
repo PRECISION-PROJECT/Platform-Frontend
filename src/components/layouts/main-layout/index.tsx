@@ -1,5 +1,6 @@
 "use client";
 import KBar from "@/components/shared/kbar";
+import ScrollToTop from "@/components/shared/scroll-to-top";
 import { motion } from "framer-motion";
 import React, { type PropsWithChildren } from "react";
 import Footer from "./footer";
@@ -17,6 +18,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         {children}
       </motion.main>
       <Footer />
+      <ScrollToTop />
     </KBar>
   );
 };

@@ -31,7 +31,7 @@ export default function ComingSoon() {
               Go back
             </Button>
             <Button
-              onClick={() => router.push(ROUTES.PRODUCT_LIST)}
+              onClick={() => router.push(ROUTES.HOME)}
               variant="outline"
               size="lg"
             >
