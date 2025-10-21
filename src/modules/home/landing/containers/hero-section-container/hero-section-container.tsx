@@ -26,12 +26,7 @@ const data = [
 
 const HeroSectionContainer = () => {
   return (
-    <VStack
-      align="center"
-      justify="center"
-      className="relative overflow-hidden"
-      spacing={80}
-    >
+    <VStack align="center" justify="center" className="relative" spacing={80}>
       <HeroVideoUI />
       <HeroContentUI />
       <HeroCarouselUI />

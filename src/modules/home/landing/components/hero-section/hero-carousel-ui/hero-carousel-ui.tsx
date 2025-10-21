@@ -7,7 +7,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useWindowSize } from "@/hooks/use-window-size";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -64,8 +63,6 @@ const images = [
 export default function HeroCarouselUI() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-
-  const { width } = useWindowSize();
 
   React.useEffect(() => {
     if (!api) return;

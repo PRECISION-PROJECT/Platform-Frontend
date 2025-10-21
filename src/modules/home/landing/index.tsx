@@ -13,7 +13,7 @@ import {
 
 const LandingModule = () => {
   return (
-    <div className="scrollbar-hide size-full overflow-x-hidden">
+    <div className="scrollbar-hide size-full">
       <HeroSectionContainer />
       <AboutUsSectionContainer />
       <CapabilitiesSectionContainer />
