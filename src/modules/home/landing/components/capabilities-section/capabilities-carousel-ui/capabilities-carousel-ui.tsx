@@ -8,6 +8,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
 import { HStack, VStack } from "@/components/utilities";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/utils/routes";
@@ -94,39 +95,39 @@ export default function CapabilitiesCarouselUI() {
 
   return (
     <VStack className="w-full">
-      <HStack spacing={12} justify="end">
-        <Button
-          variant="outline"
-          size="icon"
-          className="rounded-full"
-          onClick={() => api?.scrollPrev()}
-        >
-          <Icons.chevronLeft className="w-4 h-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          className="rounded-full"
-          onClick={() => api?.scrollNext()}
-        >
-          <Icons.chevronRight className="w-4 h-4" />
-        </Button>
-      </HStack>
       <Carousel
         setApi={setApi}
         plugins={[
           Autoplay({
-            delay: 3000,
+            delay: 5000,
             stopOnInteraction: true,
             stopOnMouseEnter: true,
           }),
         ]}
         opts={{
-          loop: true,
           slidesToScroll: 1,
         }}
         className="w-full"
       >
+        <HStack spacing={12} justify="end" className="mb-2">
+          <Button
+            variant="link"
+            onClick={() => api?.scrollPrev()}
+            disabled={!api?.canScrollPrev()}
+            className="text-sm"
+          >
+            PRE
+          </Button>
+          <Separator orientation="vertical" className="h-0.5! w-14!" />
+          <Button
+            variant="link"
+            className="text-sm"
+            onClick={() => api?.scrollNext()}
+            disabled={!api?.canScrollNext()}
+          >
+            NEXT
+          </Button>
+        </HStack>
         <CarouselContent>
           {images.map((img, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">

@@ -66,7 +66,6 @@ export default function HeroCarouselUI() {
   const [current, setCurrent] = React.useState(0);
 
   const { width } = useWindowSize();
-  console.log("🚀 ~ HeroCarouselUI ~ width:", width);
 
   React.useEffect(() => {
     if (!api) return;
