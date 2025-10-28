@@ -30,6 +30,7 @@ const UserAction = () => {
         <Button
           onClick={() => router.push(ROUTES.SIGN_IN)}
           className="bg-white text-black hover:bg-white/90 text-sm font-medium"
+          size="sm"
         >
           GET STARTED
         </Button>

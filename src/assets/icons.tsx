@@ -36,6 +36,7 @@ import {
   InfoIcon,
   LayoutDashboard,
   ListOrderedIcon,
+  LoaderIcon,
   LogOutIcon,
   MailIcon,
   MailPlusIcon,
@@ -70,13 +71,14 @@ import {
   UsersIcon,
   ViewIcon,
   WarehouseIcon,
-  XIcon
+  XIcon,
 } from "lucide-react";
 import facebook from "./svg/facebook.svg";
 import file from "./svg/file.svg";
 import github from "./svg/github.svg";
 import globe from "./svg/globe.svg";
 import google from "./svg/google.svg";
+import instagram from "./svg/instagram.svg";
 import microsoft from "./svg/microsoft.svg";
 import twitter from "./svg/twitter.svg";
 import window from "./svg/window.svg";
@@ -125,7 +127,7 @@ const IconList = {
   dotsVertical: EllipsisVerticalIcon,
   edit: EditIcon,
   view: ViewIcon,
-  image: ImageIcon, 
+  image: ImageIcon,
   stars: StarsIcon,
   package: Package2Icon,
   hash: HashIcon,
@@ -159,6 +161,8 @@ const IconList = {
   help: HelpCircleIcon,
   contact: ContactIcon,
   info: InfoIcon,
+  loader: LoaderIcon,
+  instagram,
 };
 
 type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;

@@ -6,8 +6,8 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-foreground">
-      <MaxWidthContainer className="py-10 md:py-20 z-10 mt-20 flex justify-center items-center">
+    <div className="bg-paper">
+      <MaxWidthContainer className="py-10 md:py-28 z-10 mt-28 flex justify-center items-center">
         {children}
       </MaxWidthContainer>
     </div>

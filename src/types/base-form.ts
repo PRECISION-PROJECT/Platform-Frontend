@@ -14,6 +14,7 @@ export interface BaseFormFieldProps<
   disabled?: boolean;
   className?: string;
   subLabel?: string;
+  inputClassName?: string;
 }
 
 export interface FormOption extends IOption<string> {}

@@ -1,13 +1,18 @@
-import { Card } from "@/components/ui/card";
-import { SigninHeaderUI } from "../../components";
+import { HStack } from "@/components/utilities";
+import { SigninIntroUI } from "../../components";
 import SigninFormContainer from "../signin-form-container";
 
 const SigninContainer = () => {
   return (
-    <Card className="w-full max-w-md auth-card">
-      <SigninHeaderUI />
+    <HStack
+      spacing={44}
+      justify="start"
+      className="flex-col md:flex-row w-full"
+      noWrap
+    >
+      <SigninIntroUI />
       <SigninFormContainer />
-    </Card>
+    </HStack>
   );
 };
 

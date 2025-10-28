@@ -4,7 +4,7 @@ import SignupFormContainer from "../signup-form-container";
 
 const SignupContainer = () => {
   return (
-    <Card className="w-full max-w-md auth-card">
+    <Card>
       <SignupHeaderUI />
       <SignupFormContainer />
     </Card>

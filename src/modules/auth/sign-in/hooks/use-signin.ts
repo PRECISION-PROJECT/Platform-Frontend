@@ -9,6 +9,7 @@ import { ROUTES } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { signInSchema, type SignInFormData } from "./validation";
@@ -64,10 +65,19 @@ export const useSignIn = () => {
     onError: (errorResponse) => console.log(errorResponse),
   });
 
+  const onInstagramLogin = useCallback(
+    () => {
+      
+    },
+    [],
+  )
+  
+
   return {
     isLoading: useLoginMutate.isPending || useGoogleLoginMutate.isPending,
     form,
     onSubmit,
     onGoogleLogin,
+    onInstagramLogin
   };
 };

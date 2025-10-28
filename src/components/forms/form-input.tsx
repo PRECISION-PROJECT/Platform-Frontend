@@ -1,6 +1,5 @@
 "use client";
 
-import { FieldPath, FieldValues } from "react-hook-form";
 import {
   FormControl,
   FormDescription,
@@ -11,6 +10,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { BaseFormFieldProps } from "@/types/base-form";
+import { FieldPath, FieldValues } from "react-hook-form";
 import { Show } from "../utilities";
 
 interface FormInputProps<
@@ -40,6 +40,7 @@ function FormInput<
   max,
   disabled,
   className,
+  inputClassName,
 }: FormInputProps<TFieldValues, TName>) {
   return (
     <FormField
@@ -61,6 +62,7 @@ function FormInput<
               min={min}
               max={max}
               disabled={disabled}
+              className={inputClassName}
               {...field}
               onChange={(e) => {
                 if (type === "number") {

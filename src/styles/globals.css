@@ -17,6 +17,7 @@
   --foreground: #FFFFFF;    /* Dark text */
   --surface: #4B5563;
   --surface-light: #D1D5DB;
+  --paper: #F5F1EB;
   
   /* Primary = Brown (main brand color) */
   --primary: #695441;       /* Brown button */
@@ -76,6 +77,7 @@
   --foreground: #FFFFFF;
   --surface: #374151;
   --surface-light: #6B7280;
+  --paper: #F5F1EB;  
   --card: #1a1a1a;
   --card-foreground: #FFFFFF;
   --popover: #1a1a1a;
@@ -147,6 +149,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
   --color-surface: var(--surface);
   --color-surface-light: var(--surface-light);
   --color-card: var(--card);

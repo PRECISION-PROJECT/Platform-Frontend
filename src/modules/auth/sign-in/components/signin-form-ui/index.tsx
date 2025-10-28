@@ -8,22 +8,22 @@ const SigninFormUI = () => {
   const { control } = useFormContext<SignInFormData>();
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-8">
       <FormInput
         control={control}
         name="email"
-        label="Email"
-        placeholder="info@gmail.com"
+        placeholder="Email *"
         required
+        inputClassName="h-14 py-4 px-5 rounded-none"
       />
 
       <FormInput
         control={control}
         name="password"
-        label="Password"
         type="password"
-        placeholder="Enter your password"
+        placeholder="Password *"
         required
+        inputClassName="h-14 py-4 px-5 rounded-none"
       />
     </div>
   );
