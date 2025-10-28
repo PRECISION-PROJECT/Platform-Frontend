@@ -1,6 +1,7 @@
 import AnimationContainer from "@/components/containers/animation-container";
 import MaxWidthContainer from "@/components/containers/max-width-container";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const AboutUsSectionContainer = () => {
   return (
@@ -10,15 +11,25 @@ const AboutUsSectionContainer = () => {
           {/* Overlapping Images */}
           <div className="relative h-[600px]">
             {/* Large top image with decorative border */}
-            <div className="absolute left-0 top-0 h-[350px] w-[85%] border-2 border-dashed  border-border-dashed bg-foreground">
+            <div className="absolute right-0 top-0 h-[378px] w-[85%] border border-dashed  border-border-dashed bg-foreground">
               <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Image Placeholder
+                <Image
+                  src="/images/pexels-photo-1.jpeg"
+                  alt="About small"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
             {/* Smaller overlapping image */}
-            <div className="absolute bottom-0 right-0 h-[350px] w-[70%] border-2 border-dashed  border-border-dashed bg-foreground">
+            <div className="absolute bottom-10 left-0 h-80 w-[75%] border border-dashed border-border-dashed bg-foreground">
               <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Image Placeholder
+                <Image
+                  src="/images/pexels-photo-2.jpeg"
+                  alt="About small"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
@@ -28,7 +39,7 @@ const AboutUsSectionContainer = () => {
             <h2 className="font-spring text-5xl font-semibold md:text-3xl lg:text-5xl text-balance">
               ABOUT US
             </h2>
-            <p className="font-spring font-light text-xl leading-relaxed md:text-2xl text-pretty">
+            <p className="font-spring font-light text-xl leading-relaxed md:text-2xl text-pretty ml-6">
               Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu
               . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus
               arcu
@@ -63,7 +74,7 @@ const AboutUsSectionContainer = () => {
         {/* Live Edge Section */}
         <div className="mt-4 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col justify-center space-y-6">
-            <h3 className="text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary-foreground">
+            <h3 className="font-spring text-2xl font-semibold text-balance">
               Live Edge Handcrafted with Love
             </h3>
             <div className="h-px w-3/4 bg-primary-foreground/30" />
@@ -81,9 +92,14 @@ const AboutUsSectionContainer = () => {
               READ MORE
             </Button>
           </div>
-          <div className="relative h-[500px] border-2 border-dashed bg-foreground border-border-dashed">
+          <div className="relative h-80 border border-dashed bg-foreground border-border-dashed">
             <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-              Image Placeholder
+              <Image
+                src="/images/pexels-photo-3.jpeg"
+                alt="About small"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

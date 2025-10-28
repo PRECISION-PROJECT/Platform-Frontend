@@ -7,32 +7,35 @@ type Props = {};
 const InspirationTableUI = (props: Props) => {
   return (
     <VStack spacing={0}>
-      {/* Hero Image Banner */}
-      <div className="md:h-[487px] relative w-full overflow-hidden">
+      {/* Hero Image */}
+      <div className="relative w-full aspect-[21/9] max-h-[500px] overflow-hidden">
         <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-          <span className="text-gray-500 text-lg font-medium">
-            Image Placeholder
-          </span>
+          <Image
+            src="/images/pexels-photo-5.jpeg"
+            alt="About small"
+            fill
+            className="object-cover object-center"
+          />
         </div>
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 md:h-[487px] lg:h-[600px]">
-        {/* Left Column - Large Block */}
-        <div className="bg-text-secondary px-5 py-12 flex flex-col justify-end">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {/* Left big block */}
+        <div className="bg-text-secondary p-8 flex flex-col justify-end">
           <h3 className="text-lg font-semibold mb-2 text-primary font-spring">
             Prime Location
           </h3>
           <p className="text-sm">
-            Stay steps away from top restaurants, shops, and local attractions -
+            Stay steps away from top restaurants, shops, and local attractions —
             no car needed.
           </p>
         </div>
 
-        {/* Right Column - Two Blocks */}
-        <div className="flex flex-col">
-          {/* Top Right Block */}
-          <div className="bg-surface px-5 py-12 flex flex-col justify-end h-80 shrink-0">
+        {/* Right stacked blocks */}
+        <div className="grid grid-rows-[2fr_1fr]">
+          {/* Top large block */}
+          <div className="bg-surface p-8 flex flex-col justify-end">
             <h3 className="text-lg font-semibold mb-2 font-spring">
               Comfortable Living
             </h3>
@@ -42,10 +45,9 @@ const InspirationTableUI = (props: Props) => {
             </p>
           </div>
 
-          {/* Bottom Right - Two Small Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-            {/* Bottom Left */}
-            <div className="bg-surface-light px-5 py-12 flex flex-col justify-end">
+          {/* Bottom 2 small blocks */}
+          <div className="grid grid-cols-2">
+            <div className="bg-surface-light p-8 flex flex-col justify-end">
               <h3 className="text-lg font-bold mb-1 text-primary">
                 Thoughtful Design
               </h3>
@@ -55,14 +57,13 @@ const InspirationTableUI = (props: Props) => {
               </p>
             </div>
 
-            {/* Bottom Right */}
-            <div className="bg-text-secondary px-5 py-12 flex flex-col justify-end">
+            <div className="bg-text-secondary p-8 flex flex-col justify-end">
               <h3 className="text-lg font-bold mb-1 text-primary">
                 Prime Location
               </h3>
               <p className="text-sm text-gray-300">
                 Stay steps away from top restaurants, shops, and local
-                attractions - no car needed.
+                attractions — no car needed.
               </p>
             </div>
           </div>
