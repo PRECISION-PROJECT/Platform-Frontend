@@ -1,5 +1,7 @@
 import { Icons } from "@/assets/icons";
 import MaxWidthContainer from "@/components/containers/max-width-container";
+import { Heading } from "@/components/shared/heading";
+import { Button } from "@/components/ui/button";
 import { VStack } from "@/components/utilities";
 import { ROUTES } from "@/utils/routes";
 import Image from "next/image";
@@ -23,9 +25,21 @@ const services = [
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-background text-secondary py-10 md:py-20">
+    <footer className="border-t bg-background text-secondary py-10 md:py-24">
+      <div className="space-y-10 pb-24">
+        <Heading
+          className="text-center space-y-6"
+          title="Lets Build the Next Masterpiece Together"
+          description="Tell us about your idea, no matter how small."
+        />
+        <div className="text-center">
+          <Button className={"w-fit border-none rounded-none"}>
+            CONTACT WITH US NOW
+          </Button>
+        </div>
+      </div>
       <MaxWidthContainer className="px-4 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 my-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and Description */}
           <div className="space-y-4">
             <Image

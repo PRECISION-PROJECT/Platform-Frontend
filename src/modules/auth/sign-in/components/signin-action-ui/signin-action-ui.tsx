@@ -34,7 +34,7 @@ const SigninActionUI = ({
           type="submit"
           disabled={isLoading}
         >
-          Submit
+          SUBMIT
         </Button>
       </div>
       <Link

@@ -3,7 +3,6 @@ import {
   AssociationsSectionContainer,
   BlogSectionContainer,
   CapabilitiesSectionContainer,
-  ContactSectionContainer,
   HeroSectionContainer,
   InspirationLibrarySectionContainer,
   ProductsSectionContainer,
@@ -23,7 +22,6 @@ const LandingModule = () => {
       <InspirationLibrarySectionContainer />
       <TestimonialSectionContainer />
       <BlogSectionContainer />
-      <ContactSectionContainer />
     </div>
   );
 };
