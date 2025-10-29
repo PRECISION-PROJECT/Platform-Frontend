@@ -1,12 +1,12 @@
 "use client";
 
+import { FormInput } from "@/components/forms/form-input";
+import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/utils/routes";
+import Link from "next/link";
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ForgotPasswordFormData } from "../../hooks";
-import { ROUTES } from "@/utils/routes";
-import { FormInput } from "@/components/forms/form-input";
 
 const ForgotPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
   const { control } = useFormContext<ForgotPasswordFormData>();
@@ -16,12 +16,17 @@ const ForgotPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
       <FormInput
         control={control}
         name="email"
-        label="Email"
-        placeholder="info@gmail.com"
+        placeholder="Email *"
         required
+        inputClassName="h-14 py-4 px-5 rounded-none"
       />
 
-      <Button className="w-full" size="lg" type="submit" disabled={isLoading}>
+      <Button
+        className="w-full px-20 h-12 rounded-none font-light!"
+        size="lg"
+        type="submit"
+        disabled={isLoading}
+      >
         Send Reset Link
       </Button>
       <div className="text-center">

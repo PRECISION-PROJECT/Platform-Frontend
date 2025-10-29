@@ -8,12 +8,12 @@ type Props = {
 const ResetPasswordHeaderUI = ({ email }: Props) => {
   return (
     <CardHeader className="text-center">
-      <CardTitle className="text-2xl font-bold">Reset Your Password</CardTitle>
+      <CardTitle className="text-2xl md:text-4xl leading-none tracking-tight font-semibold font-spring">
+        Reset Your Password
+      </CardTitle>
       <CardDescription className="text-sm text-gray-500 dark:text-gray-400">
         Enter your new password for{" "}
-        <span className="font-medium text-gray-700 dark:text-gray-300">
-          {email}
-        </span>
+        <span className="text-sm leading-8 font-light">{email}</span>
       </CardDescription>
     </CardHeader>
   );

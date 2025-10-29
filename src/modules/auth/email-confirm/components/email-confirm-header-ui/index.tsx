@@ -10,7 +10,9 @@ type Props = {
 const EmailConfirmHeaderUI = ({ email, isLoading }: Props) => {
   return (
     <CardHeader className="text-center">
-      <CardTitle className="text-2xl font-bold">Verifying Your Email</CardTitle>
+      <CardTitle className="text-2xl md:text-4xl leading-none tracking-tight font-semibold font-spring">
+        Verifying Your Email
+      </CardTitle>
       <CardDescription className="text-sm text-gray-500 dark:text-gray-400">
         We are verifying your email address for{" "}
         <span

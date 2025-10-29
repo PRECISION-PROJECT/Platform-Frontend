@@ -15,22 +15,27 @@ const ResetPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
       <FormInput
         control={control}
         name="newPassword"
-        label="New Password"
         type="password"
-        placeholder="Enter your new password"
+        placeholder="New Password *"
         required
+        inputClassName="h-14 py-4 px-5 rounded-none"
       />
 
       <FormInput
         control={control}
         name="confirmPassword"
-        label="Confirm Password"
         type="password"
-        placeholder="Confirm your new password"
+        placeholder="Confirm Password *"
         required
+        inputClassName="h-14 py-4 px-5 rounded-none"
       />
 
-      <Button className="w-full" size="lg" type="submit" disabled={isLoading}>
+      <Button
+        className="w-full px-20 h-12 rounded-none font-light!"
+        size="lg"
+        type="submit"
+        disabled={isLoading}
+      >
         Reset Password
       </Button>
       <div className="text-center">

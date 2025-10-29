@@ -59,7 +59,10 @@ const SigninIntroUI = () => {
           </li>
         </ul>
 
-        <Button className="width-fit px-10 h-12 rounded-none font-light! mt-2">
+        <Button
+          type="button"
+          className="width-fit px-10 h-12 rounded-none font-light! mt-2"
+        >
           <Link href={ROUTES.SIGN_UP}>CREATE A NEW ACCOUNT</Link>
         </Button>
       </VStack>
