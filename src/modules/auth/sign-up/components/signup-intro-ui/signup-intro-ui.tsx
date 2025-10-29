@@ -1,11 +1,24 @@
+"use client";
+
 import React from "react";
 
+import SocialButtons from "@/components/shared/social-buttons";
 import { Button } from "@/components/ui/button";
 import { VStack } from "@/components/utilities/v-stack";
 import { ROUTES } from "@/utils/routes";
 import Link from "next/link";
 
-const SigninIntroUI = () => {
+type Props = {
+  isLoading: boolean;
+  onInstagramLogin: () => void;
+  onGoogleLogin: () => void;
+};
+
+const SignupIntroUI = ({
+  isLoading,
+  onInstagramLogin,
+  onGoogleLogin,
+}: Props) => {
   return (
     <VStack
       spacing={20}
@@ -14,7 +27,7 @@ const SigninIntroUI = () => {
     >
       {/* Heading */}
       <h1 className="text-2xl md:text-4xl leading-none tracking-tight font-semibold font-spring">
-        SIGN IN
+        A NEW ACCOUNT
       </h1>
 
       {/* Description */}
@@ -31,40 +44,26 @@ const SigninIntroUI = () => {
       </div>
 
       {/* New customer section */}
-      <VStack spacing={12} align="start" className="w-full">
+      <VStack spacing={16} align="start" className="w-full">
         <h2 className="text-base md:text-lg font-spring font-semibold text-background">
-          For A New Customer
+          For Available Customer
         </h2>
         <p className="text-sm leading-8">
-          Create an account with us and you'll be able to:
+          Sign In with your account to explore our service now
         </p>
 
-        {/* Benefits list */}
-        <ul className="space-y-4 text-sm text-primary ml-8">
-          <li className="flex items-start">
-            <span className="mr-3">◆</span>
-            <span>See all your quotes</span>
-          </li>
-          <li className="flex items-start">
-            <span className="mr-3">◆</span>
-            <span>Checkout faster</span>
-          </li>
-          <li className="flex items-start">
-            <span className="mr-3">◆</span>
-            <span>Access your order history</span>
-          </li>
-          <li className="flex items-start">
-            <span className="mr-3">◆</span>
-            <span>Save items to your Wishlist</span>
-          </li>
-        </ul>
+        <SocialButtons
+          isLoading={isLoading}
+          onInstagramLogin={onInstagramLogin}
+          onGoogleLogin={onGoogleLogin}
+        />
 
-        <Button className="width-fit px-10 h-12 rounded-none font-light! mt-2">
-          <Link href={ROUTES.SIGN_UP}>CREATE A NEW ACCOUNT</Link>
+        <Button className="width-fit px-20 h-12 rounded-none font-light!">
+          <Link href={ROUTES.SIGN_IN}>SIGN IN NOW</Link>
         </Button>
       </VStack>
     </VStack>
   );
 };
 
-export default SigninIntroUI;
+export default SignupIntroUI;

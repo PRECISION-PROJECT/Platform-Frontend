@@ -1,10 +1,8 @@
-import { Icons } from "@/assets/icons";
+import SocialButtons from "@/components/shared/social-buttons";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { VStack } from "@/components/utilities";
 import { ROUTES } from "@/utils/routes";
 import Link from "next/link";
-import React from "react";
 
 type Props = {
   isLoading: boolean;
@@ -25,34 +23,14 @@ const SigninActionUI = ({
       className="mt-6 text-primary"
     >
       <p className="text-sm font-light">Sign In with</p>
-      <div className="flex gap-4 flex-row">
-        <Button
-          size="lg"
-          type="button"
-          disabled={isLoading}
-          onClick={onInstagramLogin}
-          variant="link"
-          className="[&_svg:not([class*='size-'])]:size-auto! text-primary!"
-        >
-          <Icons.instagram />
-          <span className="ml-2">Instagram</span>
-        </Button>
-        <Button
-          size="lg"
-          type="button"
-          disabled={isLoading}
-          onClick={onGoogleLogin}
-          variant="link"
-          className="[&_svg:not([class*='size-'])]:size-auto! text-primary!"
-        >
-          <Icons.google />
-          <span className="ml-2">Google</span>
-        </Button>
-      </div>
+      <SocialButtons
+        isLoading={isLoading}
+        onInstagramLogin={onInstagramLogin}
+        onGoogleLogin={onGoogleLogin}
+      />
       <div>
         <Button
           className="width-fit px-20 h-12 rounded-none font-light!"
-          size="lg"
           type="submit"
           disabled={isLoading}
         >

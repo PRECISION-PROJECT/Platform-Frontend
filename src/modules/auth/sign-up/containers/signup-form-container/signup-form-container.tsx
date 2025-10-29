@@ -1,20 +1,18 @@
 "use client";
 
-import { CardContent } from "@/components/ui/card";
-import { FormWrapper } from "@/components/ui/form";
+import { VStack } from "@/components/utilities";
 import { SignupActionUI, SignupFormUI } from "../../components";
-import { useSignUp } from "../../hooks";
 
-const SignupFormContainer = () => {
-  const { form, onSubmit, onGoogleLogin, isLoading } = useSignUp();
+type Props = {
+  isLoading: boolean;
+};
 
+const SignupFormContainer = ({ isLoading }: Props) => {
   return (
-    <CardContent>
-      <FormWrapper form={form} onSubmit={onSubmit}>
-        <SignupFormUI />
-        <SignupActionUI isLoading={isLoading} onGoogleLogin={onGoogleLogin} />
-      </FormWrapper>
-    </CardContent>
+    <VStack spacing={40} className="w-full basis-1/2">
+      <SignupFormUI />
+      <SignupActionUI isLoading={isLoading} />
+    </VStack>
   );
 };
 

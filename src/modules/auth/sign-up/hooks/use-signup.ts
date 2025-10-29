@@ -9,6 +9,7 @@ import { ROUTES } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { signUpSchema, type SignUpFormData } from "./validation";
@@ -27,6 +28,11 @@ export const useSignUp = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      address: "",
+      city: "",
+      state: "",
+      country: "",
+      phone: "",
     },
   });
 
@@ -44,7 +50,7 @@ export const useSignUp = () => {
 
   const onRequestGoogleLogin = async (code: string) => {
     try {
-      const res = await useGoogleLoginMutate.mutateAsync({ code });
+      await useGoogleLoginMutate.mutateAsync({ code });
       toast.success("Sign up successfully. Please sign in to continue.");
       setTimeout(() => {
         router.push(ROUTES.SIGN_IN);
@@ -62,10 +68,15 @@ export const useSignUp = () => {
     onError: (errorResponse) => console.log(errorResponse),
   });
 
+  const onInstagramLogin = useCallback(() => {
+    console.log("onInstagramLogin");
+  }, []);
+
   return {
     isLoading: useSignUpMutate.isPending || useGoogleLoginMutate.isPending,
     form,
     onSubmit,
     onGoogleLogin,
+    onInstagramLogin,
   };
 };

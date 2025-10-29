@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { FieldPath, FieldValues } from 'react-hook-form';
 import {
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from '@/components/ui/form';
+  FormMessage,
+} from "@/components/ui/form";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
-import { BaseFormFieldProps, FormOption } from '@/types/base-form';
-import { Show } from '../utilities';
+  SelectValue,
+} from "@/components/ui/select";
+import { BaseFormFieldProps, FormOption } from "@/types/base-form";
+import { FieldPath, FieldValues } from "react-hook-form";
+import { Show } from "../utilities";
 
 interface FormSelectProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -26,6 +26,8 @@ interface FormSelectProps<
   options: FormOption[];
   placeholder?: string;
   searchable?: boolean;
+  selectTriggerClassName?: string;
+  selectContentClassName?: string;
 }
 
 function FormSelect<
@@ -38,9 +40,10 @@ function FormSelect<
   description,
   required,
   options,
-  placeholder = 'Select an option',
+  placeholder = "Select an option",
   disabled,
-  className
+  className,
+  selectTriggerClassName,
 }: FormSelectProps<TFieldValues, TName>) {
   return (
     <FormField
@@ -51,7 +54,7 @@ function FormSelect<
           <Show when={!!label}>
             <FormLabel>
               {label}
-              {required && <span className='ml-1 text-red-500'>*</span>}
+              {required && <span className="ml-1 text-red-500">*</span>}
             </FormLabel>
           </Show>
           <Select
@@ -60,7 +63,7 @@ function FormSelect<
             disabled={disabled}
           >
             <FormControl>
-              <SelectTrigger>
+              <SelectTrigger className={selectTriggerClassName}>
                 <SelectValue placeholder={placeholder} />
               </SelectTrigger>
             </FormControl>

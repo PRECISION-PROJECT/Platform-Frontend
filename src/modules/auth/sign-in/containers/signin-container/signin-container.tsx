@@ -6,7 +6,7 @@ const SigninContainer = () => {
   return (
     <HStack
       spacing={44}
-      justify="start"
+      align="default"
       className="flex-col md:flex-row w-full"
       noWrap
     >
