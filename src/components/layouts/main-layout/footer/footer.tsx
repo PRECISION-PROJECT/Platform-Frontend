@@ -25,7 +25,7 @@ const services = [
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-background text-secondary py-10 md:py-24">
+    <footer className="text-secondary py-10 md:py-24">
       <div className="space-y-10 pb-24">
         <Heading
           className="text-center space-y-6"

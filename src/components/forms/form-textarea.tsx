@@ -1,6 +1,5 @@
 "use client";
 
-import { FieldPath, FieldValues } from "react-hook-form";
 import {
   FormControl,
   FormDescription,
@@ -11,7 +10,8 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { BaseFormFieldProps, TextareaConfig } from "@/types/base-form";
-import { Show } from '../utilities';
+import { FieldPath, FieldValues } from "react-hook-form";
+import { Show } from "../utilities";
 
 interface FormTextareaProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -34,6 +34,7 @@ function FormTextarea<
   config = {},
   disabled,
   className,
+  inputClassName,
 }: FormTextareaProps<TFieldValues, TName>) {
   const {
     maxLength,
@@ -62,6 +63,7 @@ function FormTextarea<
                 rows={rows}
                 style={{ resize }}
                 maxLength={maxLength}
+                className={inputClassName}
                 {...field}
               />
               {showCharCount && maxLength && (
