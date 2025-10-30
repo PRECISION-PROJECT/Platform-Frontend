@@ -7,11 +7,7 @@ import Link from "next/link";
 
 const SigninIntroUI = () => {
   return (
-    <VStack
-      spacing={20}
-      align="start"
-      className="w-full basis-1/2 text-background"
-    >
+    <VStack spacing={20} align="start" className="w-full basis-1/2">
       {/* Heading */}
       <h1 className="text-2xl md:text-4xl leading-none tracking-tight font-semibold font-spring">
         SIGN IN
@@ -32,7 +28,7 @@ const SigninIntroUI = () => {
 
       {/* New customer section */}
       <VStack spacing={12} align="start" className="w-full">
-        <h2 className="text-base md:text-lg font-spring font-semibold text-background">
+        <h2 className="text-base md:text-lg font-spring font-semibold">
           For A New Customer
         </h2>
         <p className="text-sm leading-8">
@@ -61,7 +57,7 @@ const SigninIntroUI = () => {
 
         <Button
           type="button"
-          className="width-fit px-10 h-12 rounded-none font-light! mt-2"
+          className="w-fit px-10 h-12 rounded-none font-light! mt-2"
         >
           <Link href={ROUTES.SIGN_UP}>CREATE A NEW ACCOUNT</Link>
         </Button>

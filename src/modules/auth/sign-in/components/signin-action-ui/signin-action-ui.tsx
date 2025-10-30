@@ -16,12 +16,7 @@ const SigninActionUI = ({
   onGoogleLogin,
 }: Props) => {
   return (
-    <VStack
-      justify="center"
-      align="center"
-      spacing={24}
-      className="mt-6 text-primary"
-    >
+    <VStack justify="center" align="center" spacing={24} className="mt-6">
       <p className="text-sm font-light">Sign In with</p>
       <SocialButtons
         isLoading={isLoading}

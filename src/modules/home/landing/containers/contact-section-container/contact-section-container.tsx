@@ -1,7 +1,4 @@
 import AnimationContainer from "@/components/containers/animation-container";
-import MaxWidthContainer from "@/components/containers/max-width-container";
-import { Button } from "@/components/ui/button";
-import React from "react";
 import {
   ContactActionUI,
   ContactHeaderUI,
