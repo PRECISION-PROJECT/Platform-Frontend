@@ -1,8 +1,10 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const webpack = (config: any) => {
   // Grab the existing rule that handles SVG imports
-  const fileLoaderRule = config.module.rules.find((rule: any) => rule.test?.test?.('.svg'));
+  const fileLoaderRule = config.module.rules.find((rule: any) =>
+    rule.test?.test?.(".svg")
+  );
 
   config.module.rules.push(
     // Reapply the existing rule, but only for svg imports ending in ?url
@@ -16,7 +18,7 @@ const webpack = (config: any) => {
       test: /\.svg$/i,
       issuer: fileLoaderRule.issuer,
       resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     }
   );
 
@@ -28,14 +30,14 @@ const webpack = (config: any) => {
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
-  output: 'standalone',
+  output: "standalone",
   experimental: {
     turbo: {
       // For development
       rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
         },
       },
     },
@@ -47,12 +49,13 @@ const nextConfig: NextConfig = {
         hostname: "precisionwood.s3.us-east-2.amazonaws.com",
       },
       {
-        protocol: 'https',
-        hostname: 'placehold.co',
+        protocol: "https",
+        hostname: "placehold.co",
       },
     ],
   },
-  webpack: process.env.NODE_ENV === 'development' ? undefined : webpack,
+  transpilePackages: ["@react-google-maps/api"],
+  webpack: process.env.NODE_ENV === "development" ? undefined : webpack,
 };
 
 export default nextConfig;

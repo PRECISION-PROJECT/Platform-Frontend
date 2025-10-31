@@ -1,7 +1,7 @@
 import { VStack } from "@/components/utilities";
 import React from "react";
 
-const HeroContentHeaderUI = () => {
+const ContactContentHeaderUI = () => {
   return (
     <VStack align="center" justify="center" spacing={28}>
       <span className="text-tan text-sm tracking-widest uppercase">
@@ -37,4 +37,4 @@ const HeroContentHeaderUI = () => {
   );
 };
 
-export default HeroContentHeaderUI;
+export default ContactContentHeaderUI;

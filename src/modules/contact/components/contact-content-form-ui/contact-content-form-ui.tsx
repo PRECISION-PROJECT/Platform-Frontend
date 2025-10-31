@@ -11,7 +11,7 @@ type Props = {
   isLoading: boolean;
 };
 
-const HeroContentFormUI = ({ isLoading }: Props) => {
+const ContactContentFormUI = ({ isLoading }: Props) => {
   const { control } = useFormContext<ContactFormData>();
 
   return (
@@ -83,4 +83,4 @@ const HeroContentFormUI = ({ isLoading }: Props) => {
   );
 };
 
-export default HeroContentFormUI;
+export default ContactContentFormUI;

@@ -5,13 +5,13 @@ import { FormWrapper } from "@/components/ui/form";
 import { HStack } from "@/components/utilities";
 import React from "react";
 import {
-  HeroContentActionUI,
-  HeroContentFormInfoUI,
-  HeroContentFormUI,
+  ContactContentActionUI,
+  ContactContentFormInfoUI,
+  ContactContentFormUI,
 } from "../../components";
 import { useContactFormContainer } from "../../hooks";
 
-const HeroFormContainer = () => {
+const ContactFormContainer = () => {
   const { form, onSubmit } = useContactFormContainer();
   return (
     <MaxWidthContainer className="px-4! w-full flex items-center justify-center">
@@ -21,13 +21,13 @@ const HeroFormContainer = () => {
           className="gap-16 w-full flex-col md:flex-row"
           spacing={0}
         >
-          <HeroContentFormUI isLoading={false} />
-          <HeroContentFormInfoUI />
+          <ContactContentFormUI isLoading={false} />
+          <ContactContentFormInfoUI />
         </HStack>
-        <HeroContentActionUI />
+        <ContactContentActionUI />
       </FormWrapper>
     </MaxWidthContainer>
   );
 };
 
-export default HeroFormContainer;
+export default ContactFormContainer;

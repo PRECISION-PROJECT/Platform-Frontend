@@ -1,6 +1,5 @@
-import { Icons } from "@/assets/icons";
-import React from "react";
-import { Button } from "../ui/button";
+import GoogleButton from "./social-buttons/google-button";
+import InstagramButton from "./social-buttons/instagram-button";
 
 type Props = {
   isLoading: boolean;
@@ -15,28 +14,18 @@ const SocialButtons = ({
 }: Props) => {
   return (
     <div className="flex gap-4 flex-row">
-      <Button
-        size="lg"
-        type="button"
-        disabled={isLoading}
+      <InstagramButton
+        showTitle
+        isLoading={isLoading}
         onClick={onInstagramLogin}
-        variant="link"
-        className="[&_svg:not([class*='size-'])]:size-auto! text-primary!"
-      >
-        <Icons.instagram />
-        <span className="ml-2">INSTAGRAM</span>
-      </Button>
-      <Button
-        size="lg"
-        type="button"
-        disabled={isLoading}
+        iconClassName="size-4"
+      />
+      <GoogleButton
+        showTitle
+        iconClassName="size-4"
+        isLoading={isLoading}
         onClick={onGoogleLogin}
-        variant="link"
-        className="[&_svg:not([class*='size-'])]:size-auto! text-primary!"
-      >
-        <Icons.google />
-        <span className="ml-2">GOOGLE</span>
-      </Button>
+      />
     </div>
   );
 };

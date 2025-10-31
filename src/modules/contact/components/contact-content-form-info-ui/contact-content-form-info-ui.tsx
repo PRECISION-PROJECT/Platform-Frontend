@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const HeroContentFormInfoUI = () => {
+const ContactContentFormInfoUI = () => {
   return (
     <div className="relative w-full h-80 md:h-fit md:flex-1 md:max-w-[279px] md:aspect-[279/449] shrink-0">
       <Image
@@ -48,4 +48,4 @@ const HeroContentFormInfoUI = () => {
   );
 };
 
-export default HeroContentFormInfoUI;
+export default ContactContentFormInfoUI;

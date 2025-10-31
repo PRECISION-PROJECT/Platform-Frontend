@@ -1,1 +1,2 @@
-export { default as HeroFormContainer } from "./hero-form-container";
+export { default as ContactFormContainer } from "./contact-form-container";
+export { default as ContractMapContainer } from "./contract-map-container";
