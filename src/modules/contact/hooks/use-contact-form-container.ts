@@ -8,7 +8,7 @@ import { ContactFormData, contactSchema } from "./validation";
 export const useContactFormContainer = () => {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: {
       firstName: "",
       lastName: "",

@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  useGoogleLoginMutation,
-  useRegisterMutation
-} from "@/apis/auths";
+import { useGoogleLoginMutation, useRegisterMutation } from "@/apis/auths";
 import { handleToastError } from "@/utils/common";
 import { ROUTES } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,7 +18,7 @@ export const useSignUp = () => {
 
   const form = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: {
       firstName: "",
       lastName: "",

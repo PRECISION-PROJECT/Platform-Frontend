@@ -22,14 +22,18 @@ export const useSignIn = () => {
 
   const form = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  const onSuccess = async (accessToken: string, refreshToken: string, expires: number) => {
+  const onSuccess = async (
+    accessToken: string,
+    refreshToken: string,
+    expires: number
+  ) => {
     setCookieData(ECookie.ACCESS_TOKEN, accessToken, expires);
     setCookieData(ECookie.REFRESH_TOKEN, refreshToken);
     toast.success("Sign in successfully");
@@ -65,19 +69,13 @@ export const useSignIn = () => {
     onError: (errorResponse) => console.log(errorResponse),
   });
 
-  const onInstagramLogin = useCallback(
-    () => {
-      
-    },
-    [],
-  )
-  
+  const onInstagramLogin = useCallback(() => {}, []);
 
   return {
     isLoading: useLoginMutate.isPending || useGoogleLoginMutate.isPending,
     form,
     onSubmit,
     onGoogleLogin,
-    onInstagramLogin
+    onInstagramLogin,
   };
 };

@@ -3,7 +3,7 @@ import React from "react";
 
 const HeroContentFormInfoUI = () => {
   return (
-    <div className="relative w-full h-fit max-w-[279px] aspect-[279/449] shrink-0">
+    <div className="relative w-full h-80 md:h-fit md:flex-1 md:max-w-[279px] md:aspect-[279/449] shrink-0">
       <Image
         src="/images/contact-info.jpeg"
         alt="Contact information"
