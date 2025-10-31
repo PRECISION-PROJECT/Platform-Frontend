@@ -47,48 +47,46 @@ const ContractMapContainer: React.FC<ContractMapContainerProps> = ({
   }
 
   return (
-    <div className="space-y-4">
-      <div className="h-64 md:h-96 lg:h-[550px] overflow-hidden">
-        <GoogleMap
-          mapContainerStyle={{ width: "100%", height: "100%" }}
-          zoom={config.defaultZoom}
-          center={marker ? marker.toJSON() : config.defaultCenter}
-          options={{
-            ...config.mapOptions,
-            mapTypeControl: true,
-            streetViewControl: false,
-            fullscreenControl: true,
-          }}
-          onLoad={(map) => {
-            mapRef.current = map;
-            if (marker) {
-              map.panTo(marker);
-              map.setZoom(15);
+    <div className="h-64 md:h-96 lg:h-[550px] overflow-hidden">
+      <GoogleMap
+        mapContainerStyle={{ width: "100%", height: "100%" }}
+        zoom={config.defaultZoom}
+        center={marker ? marker.toJSON() : config.defaultCenter}
+        options={{
+          ...config.mapOptions,
+          mapTypeControl: true,
+          streetViewControl: false,
+          fullscreenControl: true,
+        }}
+        onLoad={(map) => {
+          mapRef.current = map;
+          if (marker) {
+            map.panTo(marker);
+            map.setZoom(15);
+          }
+        }}
+        onClick={(e) => {
+          if (!e.latLng) return;
+
+          setMarker(e.latLng);
+
+          // Reverse geocode to get address
+          if (!window.google) return;
+          const geocoder = new window.google.maps.Geocoder();
+          geocoder.geocode({ location: e.latLng }, (results, status) => {
+            if (status === "OK" && results?.[0]) {
+              const address = results[0].formatted_address;
+              onLocationSelect?.({
+                lat: e.latLng!.lat(),
+                lng: e.latLng!.lng(),
+                address,
+              });
             }
-          }}
-          onClick={(e) => {
-            if (!e.latLng) return;
-
-            setMarker(e.latLng);
-
-            // Reverse geocode to get address
-            if (!window.google) return;
-            const geocoder = new window.google.maps.Geocoder();
-            geocoder.geocode({ location: e.latLng }, (results, status) => {
-              if (status === "OK" && results?.[0]) {
-                const address = results[0].formatted_address;
-                onLocationSelect?.({
-                  lat: e.latLng!.lat(),
-                  lng: e.latLng!.lng(),
-                  address,
-                });
-              }
-            });
-          }}
-        >
-          {marker && <Marker position={marker} />}
-        </GoogleMap>
-      </div>
+          });
+        }}
+      >
+        {marker && <Marker position={marker} />}
+      </GoogleMap>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import {
   HeroSectionContainer,
   InspirationLibrarySectionContainer,
   ProductsSectionContainer,
+  ProjectsSectionContainer,
   TestimonialSectionContainer,
   VisionSectionContainer,
 } from "./containers";
@@ -18,6 +19,7 @@ const LandingModule = () => {
       <CapabilitiesSectionContainer />
       <VisionSectionContainer />
       <ProductsSectionContainer />
+      <ProjectsSectionContainer />
       <AssociationsSectionContainer />
       <InspirationLibrarySectionContainer />
       <TestimonialSectionContainer />
