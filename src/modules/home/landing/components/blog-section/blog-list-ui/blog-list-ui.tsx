@@ -1,9 +1,6 @@
-import AnimationContainer from "@/components/containers/animation-container";
 import { Button } from "@/components/ui/button";
-import { HStack, VStack } from "@/components/utilities";
+import { VStack } from "@/components/utilities";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import React from "react";
 
 const images = [
   {
@@ -28,9 +25,16 @@ const images = [
 
 const BlogListUI = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-      {images.map((image) => (
-        <VStack spacing={16} key={image.name}>
+    <div className="flex gap-6 px-4 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible">
+      <div className="min-w-[4px] md:hidden" aria-hidden />
+      {images.map((image, index) => (
+        <VStack
+          spacing={16}
+          key={image.name}
+          className={cn("min-w-[50%] snap-start md:min-w-0", {
+            "ml-4": index === 0,
+          })}
+        >
           <div className="shrink-0">
             <img
               src={image.src}

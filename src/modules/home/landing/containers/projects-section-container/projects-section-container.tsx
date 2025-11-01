@@ -77,10 +77,10 @@ const ProjectsSectionContainer = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="grid grid-cols-1 gap-0 lg:grid-cols-[65fr_35fr] h-[400px] md:h-[500px]"
+                  className="grid grid-cols-1 gap-0 lg:grid-cols-[65fr_35fr] h-auto md:h-[500px]"
                 >
                   {/* Left Side - Before/After Images */}
-                  <div className="relative h-full overflow-hidden">
+                  <div className="relative h-96 md:h-full overflow-hidden">
                     {/* Before Image */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
@@ -99,9 +99,8 @@ const ProjectsSectionContainer = () => {
                           BEFORE
                         </span>
                       </div>
+                      <div className="absolute inset-0 bg-black/40" />
                     </motion.div>
-
-                    <div className="absolute inset-0 bg-background/20" />
 
                     {/* After Image */}
                     <motion.div
@@ -121,6 +120,7 @@ const ProjectsSectionContainer = () => {
                           AFTER
                         </span>
                       </div>
+                      <div className="absolute inset-0 bg-black/40" />
                     </motion.div>
 
                     {/* Custom Navigation - positioned near after image corner */}
@@ -133,7 +133,7 @@ const ProjectsSectionContainer = () => {
                         variant="link"
                         onClick={() => api?.scrollPrev()}
                         disabled={!api?.canScrollPrev()}
-                        className="text-base text-primary"
+                        className="text-base text-primary px-2"
                       >
                         PRE
                       </Button>
@@ -143,7 +143,7 @@ const ProjectsSectionContainer = () => {
                       />
                       <Button
                         variant="link"
-                        className="text-base text-primary"
+                        className="text-base text-primary px-2"
                         onClick={() => api?.scrollNext()}
                         disabled={!api?.canScrollNext()}
                       >
