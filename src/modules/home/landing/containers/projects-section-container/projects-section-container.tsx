@@ -77,7 +77,7 @@ const ProjectsSectionContainer = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="grid grid-cols-1 gap-0 lg:grid-cols-[65fr_35fr] h-[500px] md:h-[600px] lg:h-[700px]"
+                  className="grid grid-cols-1 gap-0 lg:grid-cols-[65fr_35fr] h-[400px] md:h-[500px]"
                 >
                   {/* Left Side - Before/After Images */}
                   <div className="relative h-full overflow-hidden">
