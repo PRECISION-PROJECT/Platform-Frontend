@@ -32,7 +32,7 @@ const BlogListUI = () => {
           spacing={16}
           key={image.name}
           className={cn("min-w-[50%] snap-start md:min-w-0", {
-            "ml-4": index === 0,
+            "ml-4 md:ml-0": index === 0,
           })}
         >
           <div className="shrink-0">

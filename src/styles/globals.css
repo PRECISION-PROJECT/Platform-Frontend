@@ -139,6 +139,15 @@
   --text-19xl: 6rem; /* 96px */
   --text-20xl: 6.25rem; /* 100px */
   --text-21xl: 6.5rem; /* 104px */
+  --text-22xl: 6.75rem; /* 108px */
+  --text-23xl: 7rem; /* 112px */
+  --text-24xl: 7.25rem; /* 116px */
+  --text-25xl: 7.5rem; /* 120px */
+  --text-26xl: 7.75rem; /* 124px */
+  --text-27xl: 8rem; /* 128px */
+  --text-28xl: 8.25rem; /* 132px */
+  --text-29xl: 8.5rem; /* 136px */
+  --text-30xl: 8.75rem; /* 140px */
 }
 
 @theme inline {
@@ -260,4 +269,9 @@ img {
 
 .custom-height {
   height: calc(calc((calc((100vw - 520px) / 12) * 6) + (40px * 5)) / (898 / 561));
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+  color: transparent;
 }

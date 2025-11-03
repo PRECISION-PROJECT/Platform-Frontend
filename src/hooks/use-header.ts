@@ -3,16 +3,22 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const authRoutes = ["/sign-in", "/sign-up", "/forgot-password", "/reset-password", "/email-confirm"];
+const authRoutes = [
+  "/sign-in",
+  "/sign-up",
+  "/forgot-password",
+  "/reset-password",
+  "/email-confirm",
+];
 
 export const useHeader = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

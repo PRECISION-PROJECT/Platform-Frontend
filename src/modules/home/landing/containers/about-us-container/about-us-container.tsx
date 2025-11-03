@@ -5,13 +5,13 @@ import Image from "next/image";
 
 const AboutUsSectionContainer = () => {
   return (
-    <MaxWidthContainer className="py-10 md:py-20">
+    <MaxWidthContainer className="py-6 md:py-10 mx-auto">
       <AnimationContainer delay={0.3}>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
           {/* Overlapping Images */}
-          <div className="relative h-[600px]">
+          <div className="relative h-[600px] w-[510px] max-w-full lg:mx-0">
             {/* Large top image with decorative border */}
-            <div className="absolute right-0 top-0 h-[378px] w-[85%] border border-dashed  border-border-dashed bg-foreground">
+            <div className="absolute right-0 top-0 h-[252px] w-[319px] border bg-foreground">
               <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
                 <Image
                   src="/images/pexels-photo-1.jpeg"
@@ -22,7 +22,7 @@ const AboutUsSectionContainer = () => {
               </div>
             </div>
             {/* Smaller overlapping image */}
-            <div className="absolute bottom-10 left-0 h-80 w-[75%] border border-dashed border-border-dashed bg-foreground">
+            <div className="absolute top-[59px] bottom-10 left-[249px] h-[255px] w-[217px] bg-foreground">
               <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
                 <Image
                   src="/images/pexels-photo-2.jpeg"
