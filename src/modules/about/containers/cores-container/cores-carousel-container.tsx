@@ -1,16 +1,25 @@
 "use client";
 
 import { VStack } from "@/components/utilities";
-import CoresCarouselUi from "../../components/core-section/core-carousel-ui/core-carousel-ui";
-import CoreFeatureHeaderUI from "../../components/core-section/core-feature-ui";
-import CoreContentHeaderUI from "../../components/core-section/core-header-ui/core-header-ui";
+import {
+  CoreCarouselUI,
+  CoreFeatureUI,
+  CoreHeaderUI,
+  CoreUnderTextUI,
+} from "../../components/core-section";
 
 const CoresContainer = () => {
   return (
-    <VStack align="center" justify="center" className="relative" spacing={80}>
-      <CoreContentHeaderUI />
-      <CoresCarouselUi />
-      <CoreFeatureHeaderUI />
+    <VStack
+      align="center"
+      justify="center"
+      className="relative py-10 md:py-16"
+      spacing={80}
+    >
+      <CoreUnderTextUI />
+      <CoreHeaderUI />
+      <CoreCarouselUI />
+      <CoreFeatureUI />
     </VStack>
   );
 };

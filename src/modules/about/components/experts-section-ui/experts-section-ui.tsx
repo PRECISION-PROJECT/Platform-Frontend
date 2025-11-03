@@ -21,7 +21,7 @@ const experts = [
 
 const ExpertsSectionUI = () => {
   return (
-    <div className="bg-black py-24 text-white">
+    <div className="bg-black py-24">
       <MaxWidthContainer>
         <VStack spacing={32} align="center">
           {/* Header */}
@@ -53,6 +53,7 @@ const ExpertsSectionUI = () => {
                       fill
                       className="object-cover grayscale"
                     />
+                    <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
                   </div>
 
                   {/* Name */}

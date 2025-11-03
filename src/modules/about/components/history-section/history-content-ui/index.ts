@@ -1,2 +1,2 @@
-export * from './history-content-ui';
-export { default } from './history-content-ui';
+export * from "./history-content-ui";
+export { default } from "./history-content-ui";

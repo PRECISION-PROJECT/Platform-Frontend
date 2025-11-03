@@ -28,6 +28,12 @@ const HeroSectionUI = () => {
           CONTACT
         </h1>
       </div>
+
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none">
+        <span className="text-18xl font-medium text-white/5 tracking-wider whitespace-nowrap text-stroke">
+          PRECISION WOODWORKING
+        </span>
+      </div>
     </div>
   );
 };

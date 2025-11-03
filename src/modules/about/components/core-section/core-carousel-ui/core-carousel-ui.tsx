@@ -1,5 +1,6 @@
 "use client";
 
+import MaxWidthContainer from "@/components/containers/max-width-container";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,9 +11,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import * as React from "react";
+
 const images = [
   {
     title: "OUR MISSION",
@@ -40,61 +41,69 @@ export default function CoresCarouselUI() {
 
   React.useEffect(() => {
     if (!api) return;
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => setCurrent(api.selectedScrollSnap()));
   }, [api]);
 
   return (
-    <div className="flex w-screen items-center justify-center overflow-hidden">
+    <MaxWidthContainer className="px-0 md:px-12">
       <Carousel
         setApi={setApi}
-        plugins={[
-          Autoplay({
-            delay: 5000,
-            stopOnInteraction: false,
-          }),
-        ]}
-        opts={{
-          loop: true,
-          slidesToScroll: 1,
-        }}
-        className="w-full"
+        opts={{ loop: true }}
+        className="w-full overflow-visible"
       >
-        <CarouselContent>
+        <CarouselContent className="-ml-4">
           {images.map((item, index) => {
             const isActive = index === current;
+
             return (
-              <CarouselItem key={index} className={cn("basis-1/2 ")}>
-                <Card
-                  className={cn(
-                    "h-full border-none bg-transparent opacity-20 shadow-none transition-transform duration-500 transform scale-95",
-                    {
-                      "opacity-80 z-10 scale-100": isActive,
-                    }
-                  )}
-                >
-                  <CardContent className="relative h-full overflow-hidden rounded-md p-0">
-                    <div className="relative mx-auto aspect-[4/3] w-full max-w-2xl">
-                      {/* Background Image */}
+              <CarouselItem
+                key={index}
+                className="pl-4 basis-full lg:basis-[600px]"
+              >
+                <Card className="border-none bg-transparent shadow-none">
+                  <CardContent className="p-0">
+                    <div
+                      className={cn(
+                        "relative mx-auto scale-90 opacity-20 aspect-[4/3] w-full transition-all duration-500",
+                        {
+                          "scale-100 opacity-100": isActive,
+                        }
+                      )}
+                    >
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
-                        quality={100}
-                        className="object-cover"
-                        priority
+                        className={cn("object-cover opacity-30", {
+                          "opacity-100": isActive,
+                        })}
+                        priority={isActive}
                       />
-                      {/* Content */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
+                      {/* Overlay text */}
+                      <div
+                        className={cn(
+                          "absolute opacity-0 pointer-events-none inset-0 flex items-center justify-center p-6 text-center text-foreground",
+                          {
+                            "opacity-100": isActive,
+                          }
+                        )}
+                      >
                         <p className="max-w-md text-sm font-light leading-relaxed opacity-90 sm:text-base">
                           {item.description}
                         </p>
                       </div>
                     </div>
-                    <div className="flex item-center justify-center text-center bg-[#1B1B1B] py-10">
-                      <h3 className="text-white font-spring text-2xl font-light tracking-wide sm:text-3xl md:text-4xl">
+
+                    <div
+                      className={cn(
+                        "mt-0 flex items-center opacity-0 pointer-events-none justify-center bg-background py-8 transition-opacity duration-300",
+                        {
+                          "opacity-100": isActive,
+                        }
+                      )}
+                    >
+                      <h3 className="font-spring text-2xl font-light tracking-wide text-foreground sm:text-3xl md:text-4xl">
                         {item.title}
                       </h3>
                     </div>
@@ -107,6 +116,6 @@ export default function CoresCarouselUI() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-    </div>
+    </MaxWidthContainer>
   );
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const AboutUsSectionContainer = () => {
   return (
-    <MaxWidthContainer className="py-6 md:py-10 mx-4">
+    <MaxWidthContainer className="py-6 md:py-10 mx-auto">
       <AnimationContainer delay={0.3}>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
           {/* Overlapping Images */}
