@@ -10,6 +10,8 @@
   --font-bodoni-moda: Bodoni_Moda, sans-serif;
   --font-sans: var(--font-poppins), sans-serif;
   
+  /** Height size **/
+  --header-height: 112px;
   --radius: 0.625rem;
   
   /* Base Colors */

@@ -3,7 +3,7 @@ import React from "react";
 
 const HeroSectionUI = () => {
   return (
-    <div className="relative w-full aspect-[10/4] sm:aspect-[16/6] md:aspect-[16/5]">
+    <div className="relative w-full h-[55vh] md:h-[65vh] xl:h-[600px]">
       {/* Background image */}
       <Image
         src="/images/contact-background.jpeg"
