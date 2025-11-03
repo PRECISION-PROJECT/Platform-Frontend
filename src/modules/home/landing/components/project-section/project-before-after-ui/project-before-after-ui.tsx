@@ -34,12 +34,12 @@ const ProjectBeforeAfterUI = ({ api, project }: Props) => {
           className="h-full w-full object-cover"
         />
         {/* BEFORE Label */}
-        <div className="absolute bottom-8 left-8">
-          <span className="font-spring text-base tracking-wider text-background font-medium">
+        <div className="absolute bottom-8 left-8 z-2">
+          <span className="font-spring text-base tracking-wider text-foreground font-medium">
             BEFORE
           </span>
         </div>
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/40 z-1" />
       </motion.div>
 
       {/* After Image */}
@@ -55,32 +55,35 @@ const ProjectBeforeAfterUI = ({ api, project }: Props) => {
           className="h-full w-full object-cover"
         />
         {/* AFTER Label */}
-        <div className="absolute right-8 top-8">
-          <span className="font-spring text-base tracking-wider text-background font-medium">
+        <div className="absolute right-8 top-8 z-2">
+          <span className="font-spring text-base tracking-wider text-foreground font-medium">
             AFTER
           </span>
         </div>
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/40 z-1" />
       </motion.div>
 
       {/* Custom Navigation - positioned near after image corner */}
       <HStack
         spacing={0}
         justify="end"
-        className="absolute bottom-8 right-8 z-30 flex items-center gap-2 md:bottom-12 md:right-12"
+        className="absolute bottom-8 z-2 right-8 flex items-center gap-2 md:bottom-12 md:right-12"
       >
         <Button
           variant="link"
           onClick={() => api?.scrollPrev()}
           disabled={!api?.canScrollPrev()}
-          className="text-base text-primary px-2"
+          className="text-base text-foreground px-2"
         >
           PRE
         </Button>
-        <Separator orientation="vertical" className="h-0.5! w-10! bg-primary" />
+        <Separator
+          orientation="vertical"
+          className="h-0.5! w-10! bg-foreground"
+        />
         <Button
           variant="link"
-          className="text-base text-primary px-2"
+          className="text-base text-foreground px-2"
           onClick={() => api?.scrollNext()}
           disabled={!api?.canScrollNext()}
         >
@@ -94,7 +97,7 @@ const ProjectBeforeAfterUI = ({ api, project }: Props) => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="bg-foreground px-8 py-4 shadow-lg md:px-12 md:py-6"
+          className="bg-foreground p-3 px-6 shadow-lg"
         >
           <span className="font-spring text-base tracking-wider text-background">
             PROJECT

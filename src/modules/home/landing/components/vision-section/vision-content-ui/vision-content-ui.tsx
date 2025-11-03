@@ -29,15 +29,14 @@ const VisionContentUI = () => {
             spacing={80}
             className="pt-44 relative z-10 text-white h-full"
           >
-            <h2 className="text-3xl font-spring">Explore our products</h2>
-            <p className="max-w-md text-center text-sm opacity-80">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-              corporis aut! Labore dolores ipsam velit ratione. Fugit, natus ea
-              dolore possimus odit saepe recusandae accusamus. Beatae quas
-              nostrum illo incidunt.
+            <h2 className="text-3xl font-spring">Follow your demand</h2>
+            <p className="max-w-96 mx-auto text-center text-sm opacity-80">
+              Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu
+              . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus
+              arcu .Aliquam erat volutpat. Donec placerat nisl magna,
             </p>
             <Button className={cn("w-fit border-none rounded-none py-6 px-8")}>
-              Explore The Collection
+              Make an appointment
             </Button>
           </VStack>
         </div>
@@ -58,39 +57,20 @@ const VisionContentUI = () => {
             justify="start"
             align="center"
             spacing={80}
-            className="relative z-10 text-white h-full px-5 pt-44"
+            className="pt-44 relative z-10 text-white h-full"
           >
-            <h2 className="text-3xl font-spring">Masterpiece your ideal</h2>
-            <HStack className="gap-8">
-              <VStack className="flex-1 max-w-md gap-4 md:gap-9" align="center">
-                <p className="text-xl text-center max-w-[170px] text-spring font-light">
-                  For a specific product
-                </p>
-                <p className="text-sm text-center opacity-80 hidden lg:inline-block">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Maiores, corporis aut! Labore dolores ipsam velit ratione.
-                  Fugit, natus ea dolore possimus odit saepe recusandae
-                  accusamus. Beatae quas nostrum illo incidunt.
-                </p>
-                <Button variant="underline" className="after:bg-primary">
-                  CUSTOMIZE A PRODUCT
-                </Button>
-              </VStack>
-              <VStack className="flex-1 max-w-md gap-4 md:gap-9" align="center">
-                <p className="text-xl text-center max-w-[170px] text-spring font-light">
-                  For a specific project
-                </p>
-                <p className="text-sm text-center opacity-80 hidden lg:inline-block">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Maiores, corporis aut! Labore dolores ipsam velit ratione.
-                  Fugit, natus ea dolore possimus odit saepe recusandae
-                  accusamus. Beatae quas nostrum illo incidunt.
-                </p>
-                <Button variant="underline" className="after:bg-primary">
-                  DISCUSS A PROJECT
-                </Button>
-              </VStack>
-            </HStack>
+            <h2 className="text-3xl font-spring">Explore our products</h2>
+            <p className="max-w-96 mx-auto text-center text-sm opacity-80">
+              Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu
+              . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus
+              arcu .Aliquam erat volutpat. Donec placerat nisl magna,
+            </p>
+            <Button
+              className={cn("w-fit rounded-none border-1 py-6 px-8")}
+              variant="link"
+            >
+              Browse Our Products
+            </Button>
           </VStack>
         </div>
       </HStack>

@@ -16,7 +16,7 @@ type Props = {
   setIsMenuOpen: (value: boolean) => void;
 };
 
-const LinkWithUnderline = ({
+export const LinkWithUnderline = ({
   children,
   href,
   className,

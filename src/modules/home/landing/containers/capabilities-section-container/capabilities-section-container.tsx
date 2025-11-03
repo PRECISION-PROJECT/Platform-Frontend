@@ -9,7 +9,7 @@ import {
 
 const CapabilitiesSectionContainer = () => {
   return (
-    <MaxWidthContainer className="py-10 md:py-20 text-white">
+    <MaxWidthContainer className="py-10 md:py-20 text-foreground">
       <AnimationContainer delay={0.2}>
         <VStack>
           <CapabilitiesHeaderUI />

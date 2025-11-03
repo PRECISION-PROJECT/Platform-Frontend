@@ -3,10 +3,7 @@ import React from "react";
 
 const CapabilitiesHeaderUI = () => {
   return (
-    <Heading
-      title="OUR CAPABILITIES"
-      description="From Concept to Completion"
-    />
+    <Heading title="OUR SERVICES" description="From Concept to Completion" />
   );
 };
 

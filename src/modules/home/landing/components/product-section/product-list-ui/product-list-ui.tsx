@@ -1,62 +1,72 @@
 import AnimationContainer from "@/components/containers/animation-container";
+import { LinkWithUnderline } from "@/components/layouts/main-layout/navbar-menu";
 import { Button } from "@/components/ui/button";
 import { HStack, VStack } from "@/components/utilities";
 import { cn } from "@/lib/utils";
+import { ROUTES } from "@/utils/routes";
 import Image from "next/image";
 import React from "react";
 
 const images = [
   {
-    src: "https://placehold.co/400",
+    src: "/images/landing/pexels-photo-13.jpeg",
     name: "2D Graphics",
   },
   {
-    src: "https://placehold.co/400",
+    src: "/images/landing/pexels-photo-14.jpeg",
     name: "3D Animation",
   },
   {
-    src: "https://placehold.co/400",
+    src: "/images/landing/pexels-photo-15.jpeg",
     name: "2D Animation",
   },
   {
-    src: "https://placehold.co/400",
+    src: "/images/landing/pexels-photo-16.jpeg",
     name: "UI/UX Design",
   },
   {
-    src: "https://placehold.co/400",
+    src: "/images/landing/pexels-photo-17.jpeg",
     name: "Branding",
   },
   {
-    src: "https://placehold.co/400",
+    src: "/images/landing/pexels-photo-18.jpeg",
     name: "Print Design",
   },
 ];
 
 const ProductListUI = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {images.map((image) => (
-        <div
-          className="relative overflow-hidden w-full aspect-[3/4]"
-          key={image.name}
+    <VStack spacing={16}>
+      <div className="text-end">
+        <LinkWithUnderline
+          className="before:bg-foreground inline-block w-fit"
+          href={ROUTES.PRODUCTS}
         >
-          <div className="absolute h-full">
+          EXPLORE MORE
+        </LinkWithUnderline>
+      </div>
+      <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:snap-none">
+        {images.map((image) => (
+          <div
+            key={image.name}
+            className="relative overflow-hidden aspect-[3/4] w-[75vw] shrink-0 snap-start md:w-full md:shrink"
+          >
             <img
               src={image.src}
               alt={image.name}
               className="h-full w-full object-cover"
               loading="lazy"
             />
+            <div className="absolute inset-0 bg-black/20 z-0" />
+            <div className="absolute inset-0 flex items-end p-4">
+              <h3 className="text-2xl uppercase font-spring font-bold">
+                {image.name}
+              </h3>
+            </div>
           </div>
-          <div className="absolute inset-0 bg-black/20 z-0" />
-          <VStack spacing={0} justify={"end"} className="relative p-4 h-full">
-            <h3 className="text-2xl uppercase font-spring font-bold">
-              {image.name}
-            </h3>
-          </VStack>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </VStack>
   );
 };
 

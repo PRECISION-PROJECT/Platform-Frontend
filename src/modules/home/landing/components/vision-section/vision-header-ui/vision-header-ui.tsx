@@ -32,13 +32,13 @@ const VisionHeaderUI = () => {
     <MaxWidthContainer className="py-10 md:py-20">
       <AnimationContainer delay={0.1}>
         <div className="text-center">
-          <p className="mb-4 text-sm uppercase tracking-wider">
-            PRECISION WOOD
+          <p className="mb-4 text-sm uppercase tracking-wider text-tan">
+            CUSTOMER IDEAS
           </p>
           <h2 className="mb-4 text-xl md:text-4xl lg:text-5xl font-semibold font-spring">
             SHAPE YOUR VISION
           </h2>
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed font-light text-muted-foreground">
+          <p className="mx-auto max-w-lg text-sm leading-relaxed font-light text-muted-foreground">
             Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu .
             Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu .
           </p>
@@ -59,8 +59,8 @@ const VisionHeaderUI = () => {
                 <Image
                   src={service.imageUrl}
                   alt={service.title}
-                  width={500}
-                  height={500}
+                  width={100}
+                  height={100}
                   className="h-auto w-auto max-w-full object-contain"
                 />
               </div>
