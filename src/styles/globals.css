@@ -8,6 +8,7 @@
   --font-spring: var(--font-spring);  /* Custom font */
   --font-poppins: Poppins, sans-serif; /* Main font */
   --font-bodoni-moda: Bodoni_Moda, sans-serif;
+  --font-vuj: Vujahday_Script, sans-serif;
   --font-sans: var(--font-poppins), sans-serif;
   
   --radius: 0.625rem;
@@ -145,6 +146,7 @@
   --font-poppins: var(--font-poppins);
   --font-spring: var(--font-spring);
   --font-bodoni-moda: var(--font-bodoni-moda);
+  --font-vuj: var(--font-vuj);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

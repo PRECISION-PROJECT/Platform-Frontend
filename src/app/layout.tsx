@@ -2,7 +2,7 @@ import { fontSpring } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Poppins } from "next/font/google";
+import { Bodoni_Moda, Poppins, Vujahday_Script } from "next/font/google";
 import "../styles/globals.css";
 import Providers from "./providers";
 
@@ -62,6 +62,13 @@ const fontPoppins = Poppins({
   preload: false, // Preload for faster loading
 });
 
+const fontVujahday = Vujahday_Script({
+  variable: "--font-bodoni-moda",
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+});
 const fontBodoniModa = Bodoni_Moda({
   variable: "--font-bodoni-moda",
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -83,7 +90,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           "min-h-screen overflow-x-hidden",
           fontSpring.variable,
           fontPoppins.variable,
-          fontBodoniModa.variable
+          fontBodoniModa.variable,
+          fontVujahday.variable
         )}
       >
         <Providers>{children}</Providers>
