@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Show } from "../utilities";
+import { Show, VStack } from "../utilities";
 
 interface HeadingProps {
   title: string;
@@ -13,15 +13,13 @@ export const Heading: React.FC<HeadingProps> = ({
   className,
 }) => {
   return (
-    <div className={cn("space-y-2.5", className)}>
-      <h2 className="text-5xl font-semibold tracking-normal uppercase font-spring">
+    <VStack spacing={10} className={cn("text-foreground", className)}>
+      <h2 className="text-4xl font-semibold tracking-normal uppercase font-spring">
         {title}
       </h2>
       <Show when={!!description}>
-        <p className="text-sm font-poppins text-muted-foreground">
-          {description}
-        </p>
+        <p className="text-sm">{description}</p>
       </Show>
-    </div>
+    </VStack>
   );
 };

@@ -32,11 +32,7 @@ export default function ComingSoon() {
         {/* <!-- ===== Countdown Timer End ===== --> */}
 
         <div className="mt-8 flex justify-center gap-2">
-          <Button
-            onClick={() => router.push(ROUTES.HOME)}
-            variant="default"
-            size="lg"
-          >
+          <Button onClick={() => router.push(ROUTES.HOME)} variant="default">
             Go back to home
           </Button>
         </div>

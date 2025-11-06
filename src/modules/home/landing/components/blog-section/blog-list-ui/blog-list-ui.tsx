@@ -32,7 +32,7 @@ const BlogListUI = () => {
           spacing={20}
           className="relative w-[75vw] shrink-0 snap-start md:w-full md:shrink"
         >
-          <div className="w-full h-56 md:h-64">
+          <div className="w-full h-56 md:h-image">
             <img
               src={image.src}
               alt={image.name}

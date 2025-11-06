@@ -36,7 +36,7 @@ const InspirationTabsContentUI = ({ tabList, tabContent }: Props) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="grid gap-0"
+              className="grid"
             >
               {/* Main Image */}
               <motion.div
@@ -53,13 +53,13 @@ const InspirationTabsContentUI = ({ tabList, tabContent }: Props) => {
               </motion.div>
 
               {/* Grid Layout */}
-              <div className="grid grid-cols-1 gap-0 md:grid-cols-[1fr_2fr]">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr]">
                 {/* Left Column - Prime Location */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
-                  className="relative aspect-square overflow-hidden border-4 border-foreground md:row-span-2 md:aspect-auto"
+                  className="relative aspect-square overflow-hidden outline-4 outline-foreground md:row-span-2 md:aspect-auto"
                 >
                   <img
                     src={
@@ -81,7 +81,7 @@ const InspirationTabsContentUI = ({ tabList, tabContent }: Props) => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
-                  className="relative aspect-square overflow-hidden border-4 border-foreground md:aspect-auto"
+                  className="relative aspect-square overflow-hidden outline-4 outline-foreground md:aspect-auto"
                 >
                   <img
                     src={content.centerImage || "/placeholder.svg"}
@@ -96,13 +96,13 @@ const InspirationTabsContentUI = ({ tabList, tabContent }: Props) => {
                 </motion.div>
 
                 {/* Right Column - Bottom Row: Two equal boxes */}
-                <div className="grid grid-cols-1 gap-0 md:grid-cols-2">
+                <div className="grid grid-cols-1 md:grid-cols-2">
                   {/* Bottom Left - Thoughtful Design */}
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
-                    className="relative aspect-square md:aspect-auto overflow-hidden border-4 border-foreground"
+                    className="relative aspect-square md:aspect-auto overflow-hidden outline-4 outline-foreground"
                   >
                     <img
                       src={content.bottomLeftImage}
@@ -121,7 +121,7 @@ const InspirationTabsContentUI = ({ tabList, tabContent }: Props) => {
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
-                    className="relative aspect-square md:aspect-auto overflow-hidden border-4 border-foreground"
+                    className="relative aspect-square md:aspect-auto overflow-hidden outline-4 outline-foreground"
                   >
                     <img
                       src={content.bottomRightImage}
@@ -130,10 +130,7 @@ const InspirationTabsContentUI = ({ tabList, tabContent }: Props) => {
                     />
                     <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-6 md:p-8">
                       <h3 className="font-spring font-bold text-xl tracking-wide text-foreground">
-                        {
-                          tabContent[value as keyof typeof tabContent]
-                            .bottomRightTitle
-                        }
+                        {content.bottomRightTitle}
                       </h3>
                     </div>
                   </motion.div>

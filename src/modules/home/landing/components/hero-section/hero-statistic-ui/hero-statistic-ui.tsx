@@ -20,7 +20,7 @@ const HeroStatisticUI = ({ data }: Props) => {
             key={index}
             className="flex flex-col items-center text-center gap-4"
           >
-            <p className="text-sm font-medium font-spring uppercase tracking-wider">
+            <p className="text-sm font-medium font-spring uppercase tracking-wider text-tan">
               {stat.label}
             </p>
             <p className="font-spring text-16xl">

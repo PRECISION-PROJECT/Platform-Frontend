@@ -35,9 +35,7 @@ const VisionContentUI = () => {
               . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus
               arcu .Aliquam erat volutpat. Donec placerat nisl magna,
             </p>
-            <Button className={cn("w-fit border-none rounded-none py-6 px-8")}>
-              Make an appointment
-            </Button>
+            <Button className={cn("w-fit")}>Make an appointment</Button>
           </VStack>
         </div>
         <div className="relative w-full h-[650px] basis-1/2 flex-1">
@@ -65,10 +63,7 @@ const VisionContentUI = () => {
               . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus
               arcu .Aliquam erat volutpat. Donec placerat nisl magna,
             </p>
-            <Button
-              className={cn("w-fit rounded-none border-1 py-6 px-8")}
-              variant="link"
-            >
+            <Button className={cn("w-fit border-1")} variant="link">
               Browse Our Products
             </Button>
           </VStack>

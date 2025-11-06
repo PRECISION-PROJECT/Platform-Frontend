@@ -1,6 +1,5 @@
 "use client";
 
-import { Icons } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -17,81 +16,72 @@ import * as React from "react";
 
 const images = [
   {
-    src: "/images/landing/pexels-photo-1.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    src: "/images/landing/pexels-photo-10.jpeg",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "MOULDING",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
-    src: "/images/landing/pexels-photo-2.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    src: "/images/landing/pexels-photo-11.jpeg",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "JOINERY",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
     src: "/images/landing/pexels-photo-3.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "FURNITURE",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
     src: "/images/landing/pexels-photo-4.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "CABINETRY",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
     src: "/images/landing/pexels-photo-5.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "DESK",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
     src: "/images/landing/pexels-photo-6.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "PACKAGING",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
     src: "/images/landing/pexels-photo-7.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "PRINTING",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
     src: "/images/landing/pexels-photo-8.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "BRANDING",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
   {
     src: "/images/landing/pexels-photo-9.jpeg",
-    alt: "Illustrations by ©AarzooAly",
+    alt: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore nobis sunt quam, aut quod illum officia est cumque non consequuntur.",
     title: "WEB DEVELOPMENT",
-    action: "Explore",
+    action: "EXPLORE",
     actionLink: ROUTES.HOME,
   },
 ];
 
 export default function CapabilitiesCarouselUI() {
   const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-
-  React.useEffect(() => {
-    if (!api) return;
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
 
   return (
     <VStack className="w-full">
@@ -106,22 +96,24 @@ export default function CapabilitiesCarouselUI() {
         ]}
         opts={{
           slidesToScroll: 1,
+          loop: false,
         }}
         className="w-full"
       >
-        <HStack spacing={12} justify="end" className="mb-2">
+        <HStack spacing={4} justify="end" className="mb-2">
           <Button
             variant="link"
             onClick={() => api?.scrollPrev()}
             disabled={!api?.canScrollPrev()}
-            className="text-sm"
           >
             PRE
           </Button>
-          <Separator orientation="vertical" className="h-0.5! w-14!" />
+          <Separator
+            orientation="vertical"
+            className="h-px! w-10! bg-foreground"
+          />
           <Button
             variant="link"
-            className="text-sm"
             onClick={() => api?.scrollNext()}
             disabled={!api?.canScrollNext()}
           >
@@ -131,7 +123,7 @@ export default function CapabilitiesCarouselUI() {
         <CarouselContent>
           {images.map((img, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <div className="relative overflow-hidden w-full h-96">
+              <div className="relative overflow-hidden w-full h-image">
                 <div className="absolute h-full">
                   <img
                     src={img.src}
@@ -146,16 +138,11 @@ export default function CapabilitiesCarouselUI() {
                   justify={"end"}
                   className="relative p-4 h-full"
                 >
-                  <h3 className="text-base md:text-lg lg:text-xl font-spring font-bold">
+                  <h3 className="text-base md:text-xl font-spring font-bold">
                     {img.title}
                   </h3>
-                  <p className="text-sm text-white/80">{img.alt}</p>
-                  <Button
-                    size="sm"
-                    className={cn("w-fit border-none rounded-none")}
-                  >
-                    {img.action}
-                  </Button>
+                  <p className="text-sm text-foreground">{img.alt}</p>
+                  <Button className={cn("w-fit")}>{img.action}</Button>
                 </VStack>
               </div>
             </CarouselItem>

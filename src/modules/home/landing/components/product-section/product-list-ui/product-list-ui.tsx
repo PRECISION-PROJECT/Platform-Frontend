@@ -49,14 +49,18 @@ const ProductListUI = () => {
         {images.map((image) => (
           <div
             key={image.name}
-            className="relative overflow-hidden aspect-[3/4] w-[75vw] shrink-0 snap-start md:w-full md:shrink"
+            className="relative overflow-hidden w-full h-image shrink-0 snap-start md:shrink"
           >
-            <img
-              src={image.src}
-              alt={image.name}
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
+            <div className="relative overflow-hidden w-full h-image">
+              <div className="absolute h-full">
+                <img
+                  src={image.src}
+                  alt={image.name}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
             <div className="absolute inset-0 bg-black/20 z-0" />
             <div className="absolute inset-0 flex items-end p-4">
               <h3 className="text-2xl uppercase font-spring font-bold">

@@ -20,7 +20,7 @@ type Props = {
 
 const ProjectBeforeAfterUI = ({ api, project }: Props) => {
   return (
-    <div className="relative h-96 md:h-full overflow-hidden">
+    <div className="relative h-96 md:h-36 lg:h-full overflow-hidden">
       {/* Before Image */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -67,7 +67,7 @@ const ProjectBeforeAfterUI = ({ api, project }: Props) => {
       <HStack
         spacing={0}
         justify="end"
-        className="absolute bottom-8 z-2 right-8 flex items-center gap-2 md:bottom-12 md:right-12"
+        className="absolute bottom-8 z-2 right-8 flex items-center gap-2 md:bottom-4 lg:bottom-12 md:right-12"
       >
         <Button
           variant="link"

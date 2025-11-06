@@ -8,22 +8,22 @@ import React from "react";
 
 const services = [
   {
-    imageUrl: "/images/house.png",
-    title: "Consult & Plan",
+    imageUrl: "/images/landing/house.jpeg",
+    title: "Consult and Plan",
     description:
-      "Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu",
+      "Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna.",
   },
   {
-    imageUrl: "/images/table.png",
-    title: "Design & Execute",
+    imageUrl: "/images/landing/table.jpeg",
+    title: "Design and Execute",
     description:
-      "Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu",
+      "Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna.",
   },
   {
-    imageUrl: "/images/export.png",
-    title: "Finish & Deliver",
+    imageUrl: "/images/landing/truck.jpeg",
+    title: "Finish and Deliver",
     description:
-      "Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu",
+      "Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu . Aliquam erat volutpat. Donec placerat nisl magna.",
   },
 ];
 
@@ -35,10 +35,10 @@ const VisionHeaderUI = () => {
           <p className="mb-4 text-sm uppercase tracking-wider text-tan">
             CUSTOMER IDEAS
           </p>
-          <h2 className="mb-4 text-xl md:text-4xl lg:text-5xl font-semibold font-spring">
+          <h2 className="mb-4 text-xl md:text-4xl font-semibold font-spring">
             SHAPE YOUR VISION
           </h2>
-          <p className="mx-auto max-w-lg text-sm leading-relaxed font-light text-muted-foreground">
+          <p className="mx-auto max-w-lg text-sm leading-relaxed font-light">
             Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu .
             Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu .
           </p>
@@ -48,26 +48,26 @@ const VisionHeaderUI = () => {
           {services.map((service, index) => (
             <VStack
               key={`vision-${index}`}
-              spacing={6}
               align="center"
               justify="center"
               className={cn({
                 "md:-mt-32": index === 1,
               })}
+              spacing={12}
             >
               <div className="flex items-center justify-center">
                 <Image
                   src={service.imageUrl}
                   alt={service.title}
-                  width={100}
-                  height={100}
-                  className="h-auto w-auto max-w-full object-contain"
+                  width={240}
+                  height={160}
+                  className="h-40 w-60 object-cover"
                 />
               </div>
               <h3 className="text-xl font-spring font-light">
                 {service.title}
               </h3>
-              <p className="text-sm leading-relaxed font-light text-center text-muted-foreground">
+              <p className="text-sm leading-relaxed font-light text-center">
                 {service.description}
               </p>
             </VStack>

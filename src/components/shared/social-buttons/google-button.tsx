@@ -22,7 +22,6 @@ const GoogleButton = ({
   return (
     <Button
       {...buttonProps}
-      size="lg"
       type="button"
       disabled={isLoading}
       onClick={onClick}

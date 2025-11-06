@@ -23,7 +23,6 @@ const ForgotPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
 
       <Button
         className="w-full px-20 h-12 rounded-none font-light!"
-        size="lg"
         type="submit"
         disabled={isLoading}
       >

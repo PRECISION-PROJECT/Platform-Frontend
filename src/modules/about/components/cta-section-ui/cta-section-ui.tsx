@@ -21,10 +21,7 @@ const CtaSectionUI = () => {
             </p>
 
             <Link href="/contact">
-              <Button
-                size="lg"
-                className="mt-4 bg-primary px-8 py-6 rounded-none font-light text-sm text-white uppercase tracking-wider hover:bg-tan/90"
-              >
+              <Button className="mt-4 bg-primary px-8 py-6 rounded-none font-light text-sm text-white uppercase tracking-wider hover:bg-tan/90">
                 GET A CONTACT NOW
               </Button>
             </Link>

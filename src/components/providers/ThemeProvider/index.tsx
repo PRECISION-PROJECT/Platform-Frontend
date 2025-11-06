@@ -7,10 +7,10 @@ const ThemeProvider = ({ children }: PropsWithChildren) => {
   return (
     <NextThemeProvider
       attribute="class"
-      defaultTheme="system"
-      enableSystem
       disableTransitionOnChange
       enableColorScheme
+      enableSystem={false}
+      defaultTheme="light"
     >
       {children}
     </NextThemeProvider>
