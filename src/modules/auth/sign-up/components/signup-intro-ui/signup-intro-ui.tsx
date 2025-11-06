@@ -58,10 +58,7 @@ const SignupIntroUI = ({
           onGoogleLogin={onGoogleLogin}
         />
 
-        <Button
-          type="button"
-          className="width-fit px-20 h-12 rounded-none font-light!"
-        >
+        <Button type="button" className="width-fit">
           <Link href={ROUTES.SIGN_IN}>SIGN IN NOW</Link>
         </Button>
       </VStack>

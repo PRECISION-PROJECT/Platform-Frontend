@@ -8,12 +8,12 @@ import Dropzone, {
 } from "react-dropzone";
 import { toast } from "sonner";
 
+import { Icons } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useControllableState } from "@/hooks/use-controllable-state";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/assets/icons";
 import { formatBytes } from "@/utils/common";
 import { ImageZoom } from "./shadcn-io/image-zoom";
 
@@ -201,9 +201,9 @@ export function InputFileDropzone(props: InputFileDropzoneProps) {
           <div
             {...getRootProps()}
             className={cn(
-              "group border-muted-foreground/25 hover:bg-muted/25 relative grid h-52 w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed px-5 py-2.5 text-center transition",
-              "ring-offset-background focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden",
-              isDragActive && "border-muted-foreground/50",
+              "group border-paper/25 hover:bg-paper/25 relative grid h-52 w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed px-5 py-2.5 text-center transition",
+              "ring-offset-background focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden text-foreground",
+              isDragActive && "border-muted/50",
               isDisabled && "pointer-events-none opacity-60",
               className
             )}
@@ -213,28 +213,20 @@ export function InputFileDropzone(props: InputFileDropzoneProps) {
             {isDragActive ? (
               <div className="flex flex-col items-center justify-center gap-4 sm:px-5">
                 <div className="rounded-full border border-dashed p-3">
-                  <Icons.cloud
-                    className="text-muted-foreground size-7"
-                    aria-hidden="true"
-                  />
+                  <Icons.cloud className="size-7" aria-hidden="true" />
                 </div>
-                <p className="text-muted-foreground font-medium">
-                  Drop the files here
-                </p>
+                <p className="font-medium">Drop the files here</p>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center gap-4 sm:px-5">
                 <div className="rounded-full border border-dashed p-3">
-                  <Icons.cloud
-                    className="text-muted-foreground size-7"
-                    aria-hidden="true"
-                  />
+                  <Icons.cloud className="size-7" aria-hidden="true" />
                 </div>
                 <div className="space-y-px">
-                  <p className="text-muted-foreground font-medium">
+                  <p className="font-medium">
                     Drag {`'n'`} drop files here, or click to select files
                   </p>
-                  <p className="text-muted-foreground/70 text-sm">
+                  <p className="text-foreground/70 text-sm">
                     You can upload
                     {maxFiles > 1
                       ? ` ${maxFiles === Infinity ? "multiple" : maxFiles}
@@ -292,9 +284,7 @@ function FileCard({ file, progress, onRemove }: FileCardProps) {
             <p className="text-foreground/80 line-clamp-1 text-sm font-medium">
               {file.name}
             </p>
-            <p className="text-muted-foreground text-xs">
-              {formatBytes(file.size)}
-            </p>
+            <p className="text-foreground text-xs">{formatBytes(file.size)}</p>
           </div>
           {progress ? <Progress value={progress} /> : null}
         </div>
@@ -308,7 +298,7 @@ function FileCard({ file, progress, onRemove }: FileCardProps) {
           disabled={progress !== undefined && progress < 100}
           className="size-8 rounded-full"
         >
-          <Icons.trash className="text-muted-foreground" />
+          <Icons.trash className="text-foreground" />
           <span className="sr-only">Remove file</span>
         </Button>
       </div>

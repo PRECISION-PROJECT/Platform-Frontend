@@ -71,11 +71,7 @@ const ContactContentFormUI = ({ isLoading }: Props) => {
       />
 
       <div>
-        <Button
-          className="width-fit px-20 h-12 rounded-none font-light!"
-          type="submit"
-          disabled={isLoading}
-        >
+        <Button className="width-fit" type="submit" disabled={isLoading}>
           SUBMIT
         </Button>
       </div>

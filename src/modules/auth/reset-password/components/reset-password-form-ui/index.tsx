@@ -30,11 +30,7 @@ const ResetPasswordFormUI = ({ isLoading }: { isLoading: boolean }) => {
         inputClassName="h-14 py-4 px-5 rounded-none"
       />
 
-      <Button
-        className="w-full px-20 h-12 rounded-none font-light!"
-        type="submit"
-        disabled={isLoading}
-      >
+      <Button className="w-full" type="submit" disabled={isLoading}>
         Reset Password
       </Button>
       <div className="text-center">

@@ -113,3 +113,18 @@ export const getFiltersStateParser = <TData>(
       ),
   });
 };
+
+export const parseTime = (timeString: string, baseDate: Date): Date | null => {
+  const parts = timeString.split(":");
+  if (parts.length !== 3) return null;
+
+  const hours = parseInt(parts[0], 10);
+  const minutes = parseInt(parts[1], 10);
+  const seconds = parseInt(parts[2], 10);
+
+  if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) return null;
+
+  const date = new Date(baseDate);
+  date.setHours(hours, minutes, seconds, 0);
+  return date;
+};

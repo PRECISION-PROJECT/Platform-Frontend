@@ -1,6 +1,5 @@
 "use client";
 
-import { FieldPath, FieldValues } from "react-hook-form";
 import {
   FormControl,
   FormDescription,
@@ -10,6 +9,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { BaseFormFieldProps, FileUploadConfig } from "@/types/base-form";
+import { FieldPath, FieldValues } from "react-hook-form";
 import { InputFileDropzone } from "../ui/input-file-dropzone";
 import { Show } from "../utilities";
 
@@ -32,6 +32,7 @@ function FormFileUpload<
   config,
   disabled,
   className,
+  inputFileClassName,
 }: FormFileUploadProps<TFieldValues, TName>) {
   const {
     maxSize,
@@ -70,6 +71,7 @@ function FormFileUpload<
               maxFiles={maxFiles}
               multiple={multiple}
               disabled={disabled}
+              className={inputFileClassName}
               {...restConfig}
             />
           </FormControl>

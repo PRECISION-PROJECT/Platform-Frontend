@@ -1,4 +1,5 @@
 import { InputFileDropzoneProps } from "@/components/ui/input-file-dropzone";
+import { ClassNames } from "react-day-picker";
 import { Control, FieldPath, FieldValues } from "react-hook-form";
 import { IOption } from ".";
 
@@ -15,6 +16,8 @@ export interface BaseFormFieldProps<
   className?: string;
   subLabel?: string;
   inputClassName?: string;
+  inputFileClassName?: string;
+  labelClassName?: string;
 }
 
 export interface FormOption extends IOption<string> {}
@@ -30,6 +33,11 @@ export interface DatePickerConfig {
   maxDate?: Date;
   disabledDates?: Date[];
   placeholder?: string;
+}
+
+export interface CalendarPickerConfig extends DatePickerConfig {
+  classNames?: ClassNames;
+  className?: string;
 }
 
 // Slider specific types

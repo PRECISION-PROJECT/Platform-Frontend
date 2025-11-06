@@ -17,7 +17,7 @@ interface FormInputProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > extends BaseFormFieldProps<TFieldValues, TName> {
-  type?: "text" | "email" | "password" | "number" | "tel" | "url";
+  type?: "text" | "email" | "password" | "number" | "tel" | "url" | "time";
   placeholder?: string;
   step?: string | number;
   min?: string | number;
@@ -41,6 +41,7 @@ function FormInput<
   disabled,
   className,
   inputClassName,
+  labelClassName,
 }: FormInputProps<TFieldValues, TName>) {
   return (
     <FormField
@@ -49,7 +50,7 @@ function FormInput<
       render={({ field }) => (
         <FormItem className={className}>
           <Show when={!!label}>
-            <FormLabel>
+            <FormLabel className={labelClassName}>
               {label}
               {required && <span className="ml-1 text-red-500">*</span>}
             </FormLabel>

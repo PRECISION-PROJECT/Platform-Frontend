@@ -7,7 +7,7 @@ const MaxWidthContainer: FCC<Props> = ({ children, className, ...rest }) => {
   return (
     <section
       className={cn(
-        "mx-auto h-full max-w-full px-4 md:max-w-screen-lg",
+        "mx-auto h-full max-w-full px-4 md:max-w-screen-xl",
         className
       )}
       {...rest}
