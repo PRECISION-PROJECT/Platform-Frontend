@@ -29,7 +29,7 @@ const UserAction = () => {
       <div className="items-center gap-6 hidden lg:flex">
         <Button
           onClick={() => router.push(ROUTES.SIGN_IN)}
-          className="bg-white text-black hover:bg-white/90 text-sm font-medium"
+          className="bg-foreground text-background hover:bg-white/90 text-sm font-medium"
           size="sm"
         >
           GET STARTED
@@ -40,15 +40,19 @@ const UserAction = () => {
 
   return (
     <div className="items-center gap-1 hidden lg:flex">
-      <Button variant="ghost" onClick={query.toggle}>
-        <Icons.search size={18} />
+      <Button variant="icon" className="text-foreground" onClick={query.toggle}>
+        <Icons.search size={24} />
       </Button>
-      <Button variant="ghost" onClick={() => router.push(ROUTES.WHITE_LIST)}>
-        <Icons.heart size={18} />
+      <Button
+        variant="icon"
+        className="text-foreground"
+        onClick={() => router.push(ROUTES.WHITE_LIST)}
+      >
+        <Icons.heart size={24} />
       </Button>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+          <Button variant="icon" className="relative rounded-full px-2">
             <UserAvatarProfile user={userData} />
           </Button>
         </DropdownMenuTrigger>

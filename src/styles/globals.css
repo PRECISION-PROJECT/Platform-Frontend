@@ -72,6 +72,10 @@
 
   /** Custom height **/
   --image-height: 400px;
+
+  /** Custom width **/
+  --sidebar-width: 300px;
+  --sidebar-width-larger: 350px;
 }
 
 .dark {
@@ -152,6 +156,8 @@
   --text-30xl: 8.75rem;
 
   --height-image: var(--image-height);
+  --width-sidebar: var(--sidebar-width);
+  --width-sidebar-larger: var(--sidebar-width-larger);
 }
 
 @theme inline {

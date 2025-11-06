@@ -5,6 +5,7 @@ import Logo from "@/components/ui/logo";
 import { useHeader } from "@/hooks/use-header";
 import { motion } from "framer-motion";
 import NavbarMenu from "../navbar-menu/navbar-menu";
+import NavbarMobileMenu from "../navbar-mobile-menu";
 import UserAction from "../user-action";
 
 const Header = () => {
@@ -30,6 +31,7 @@ const Header = () => {
 
           <div className="flex items-center gap-3">
             <UserAction />
+            <NavbarMobileMenu />
           </div>
         </MaxWidthContainer>
       </motion.div>
