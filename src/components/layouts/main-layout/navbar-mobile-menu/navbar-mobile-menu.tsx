@@ -58,23 +58,27 @@ const NavbarMobileMenu = () => {
                     </p>
                   </div>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => router.push("/dashboard/profile")}
-                  className="w-full justify-start"
-                >
-                  Profile
-                </Button>
+                <SheetClose asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => router.push("/dashboard/profile")}
+                    className="w-full justify-start"
+                  >
+                    Profile
+                  </Button>
+                </SheetClose>
               </div>
             ) : (
-              <Button
-                onClick={() => router.push(ROUTES.SIGN_IN)}
-                className="bg-white mt-10 text-black hover:bg-white/90 text-sm font-medium w-full"
-                size="sm"
-              >
-                GET STARTED
-              </Button>
+              <SheetClose asChild>
+                <Button
+                  onClick={() => router.push(ROUTES.SIGN_IN)}
+                  className="bg-white mt-10 text-black hover:bg-white/90 text-sm font-medium w-full"
+                  size="sm"
+                >
+                  GET STARTED
+                </Button>
+              </SheetClose>
             )}
           </SheetHeader>
         </SheetTitle>
@@ -103,16 +107,18 @@ const NavbarMobileMenu = () => {
 
         {isAuthenticated && (
           <div className="mt-auto pt-6 border-t">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onLogout}
-              className="w-full justify-start text-destructive hover:text-destructive hover:bg-destructive/10"
-              disabled={isLogoutLoading}
-            >
-              <Icons.logOutIcon className="mr-2 h-4 w-4" />
-              {isLogoutLoading ? "Signing out..." : "Sign Out"}
-            </Button>
+            <SheetClose asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onLogout}
+                className="w-full justify-start text-destructive hover:text-destructive hover:bg-destructive/10"
+                disabled={isLogoutLoading}
+              >
+                <Icons.logOutIcon className="mr-2 h-4 w-4" />
+                {isLogoutLoading ? "Signing out..." : "Sign Out"}
+              </Button>
+            </SheetClose>
           </div>
         )}
       </SheetContent>
