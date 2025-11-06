@@ -12,7 +12,7 @@ const AppointmentFormContainer = () => {
         <HStack
           spacing={44}
           align="default"
-          className="flex-col md:flex-row w-full"
+          className="flex-col-reverse md:flex-row w-full"
           noWrap
         >
           <AppointmentFormUI isLoading={isLoading} />

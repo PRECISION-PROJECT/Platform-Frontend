@@ -1,9 +1,10 @@
 "use client";
 
 import AnimationContainer from "@/components/containers/animation-container";
+import HeroSectionUI from "@/components/shared/hero-section-ui";
 import { VStack } from "@/components/utilities";
 import React from "react";
-import { ContactContentHeaderUI, HeroSectionUI } from "./components";
+import { ContactContentHeaderUI } from "./components";
 import { ContactFormContainer, ContractMapContainer } from "./containers";
 
 const ContactModule = () => {
