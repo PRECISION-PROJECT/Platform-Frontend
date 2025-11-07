@@ -4,6 +4,7 @@ import AnimationContainer from "@/components/containers/animation-container";
 import HeroSectionUI from "@/components/shared/hero-section-ui";
 import {
   AppointmentFormContainer,
+  AppointmentQuestionContainer,
   JourneySectionContainer,
 } from "./containers";
 
@@ -18,6 +19,7 @@ const AppointmentModule = () => {
         />
         <JourneySectionContainer />
         <AppointmentFormContainer />
+        <AppointmentQuestionContainer />
       </div>
     </AnimationContainer>
   );
