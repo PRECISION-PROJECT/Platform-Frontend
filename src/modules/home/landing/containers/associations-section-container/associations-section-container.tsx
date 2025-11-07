@@ -1,11 +1,9 @@
 import AnimationContainer from "@/components/containers/animation-container";
 import MaxWidthContainer from "@/components/containers/max-width-container";
 import { Heading } from "@/components/shared/heading";
-import InfiniteMovingCards from "@/components/shared/infinitie-moving-card";
 import {
   Marquee,
   MarqueeContent,
-  MarqueeFade,
   MarqueeItem,
 } from "@/components/ui/shadcn-io/marquee";
 import Image from "next/image";

@@ -14,7 +14,7 @@ import { useContactFormContainer } from "../../hooks";
 const ContactFormContainer = () => {
   const { form, onSubmit } = useContactFormContainer();
   return (
-    <MaxWidthContainer className="px-4! w-full flex items-center justify-center">
+    <MaxWidthContainer className="w-full flex items-center justify-center">
       <FormWrapper className="w-full" form={form} onSubmit={onSubmit}>
         <HStack
           align="default"

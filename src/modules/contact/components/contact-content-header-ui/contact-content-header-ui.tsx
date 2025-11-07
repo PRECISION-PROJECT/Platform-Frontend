@@ -8,9 +8,9 @@ const ContactContentHeaderUI = () => {
         CONNECT WITH US
       </span>
 
-      <h1 className="font-spring text-xl sm:text-2xl md:text-4xl font-semibold leading-tight text-center">
+      <h2 className="font-spring text-xl sm:text-2xl md:text-4xl font-semibold leading-tight text-center">
         GET IN TOUCH
-      </h1>
+      </h2>
 
       <p className="text-sm opacity-80 max-w-4xl text-center leading-relaxed font-light">
         "Lorem ipsum" is a placeholder text used in graphic design and
