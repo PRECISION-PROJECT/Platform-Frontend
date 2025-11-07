@@ -3,6 +3,7 @@ import HeroSectionUI from "@/components/shared/hero-section-ui";
 import React from "react";
 import {
   BannerSectionContainer,
+  CapabilitiesSectionContainer,
   CustomSectionContainer,
   IdeaSectionContainer,
   ProcessSectionContainer,
@@ -18,6 +19,7 @@ const ServiceModule = () => {
         <BannerSectionContainer />
         <ProcessSectionContainer />
         <CustomSectionContainer />
+        <CapabilitiesSectionContainer />
         <VisionSectionContainer />
         <IdeaSectionContainer />
         <ProductsSectionContainer />

@@ -1,4 +1,7 @@
 export { default as BannerSectionUI } from "./banner-section-ui";
+export { default as CapabilitiesCarouselUI } from "./capabilities-carousel-ui";
+export { default as CapabilitiesHeaderUI } from "./capabilities-header-ui";
+export { default as CapabilitiesSpeciesGalleryUI } from "./capabilities-species-gallery-ui";
 export { default as CustomSectionUI } from "./custom-section-ui";
 export { default as IdeaSectionUI } from "./idea-section-ui";
 export { default as ProcessSectionUI } from "./process-section-ui";
